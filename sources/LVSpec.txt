@@ -1,0 +1,1022 @@
+4 Versions 
+See the Forest for the Trees: Loosely Speculative Decoding via Visual-Semantic Guidance for Efficient Inference of Video LLMs
+Yicheng Ji, Jun Zhang, Jinpeng Chen, Cong Wang, Lidan Shou, Gang Chen, Huan Li 
+04 Jan 2026 (modified: 07 Jun 2026)
+ACL ARR 2026 January Submission
+January, Senior Area Chairs, Area Chairs, Reviewers, Authors
+Revisions
+CC BY 4.0
+Keywords: Speculative Decoding, Video-LLMs
+Abstract:
+
+Video Large Language Models (Video-LLMs) excel in video understanding but suffer from high inference latency due to autoregressive generation. Speculative Decoding (SD) mitigates this by applying a draft-and-verify paradigm, yet existing methods are constrained by rigid exact-match rules, severely limiting the acceleration potential. To bridge this gap, we propose LVSpec, the first training-free loosely SD framework tailored for Video-LLMs. Grounded in the insight that generation is governed by sparse visual-relevant anchors (mandating strictness) amidst abundant visual-irrelevant fillers (permitting loose verification), LVSpec employs a lightweight visual-relevant token identification scheme to accurately pinpoint the former. To further maximize acceptance, we augment this with a position-shift tolerant mechanism that effectively salvages positionally mismatched but semantically equivalent tokens. Experiments demonstrate that LVSpec is high-fidelity and rapid: it preserves 
+>
+99.8
+ of target performance while accelerating Qwen2.5-VL-32B by 
+2.70
+×
+ and LLaVA-OneVision-72B by 
+2.94
+×
+. Notably, it boosts the mean accepted length and speedup ratio by 136% and 35% compared to SOTA training-free SD methods for Video-LLMs. Code is provided in the submitted software.
+
+Paper Type: Long
+Research Area: LLM Efficiency
+Research Area Keywords: Efficient/Low-Resource Methods for NLP
+Contribution Types: Approaches to low-resource settings, Approaches low compute settings-efficiency
+Languages Studied: English
+Reassignment Request Area Chair: This is not a resubmission
+Reassignment Request Reviewers: This is not a resubmission
+Software:  zip
+A1 Limitations Section: This paper has a limitations section.
+A2 Potential Risks: N/A
+B Use Or Create Scientific Artifacts: Yes
+B4 Data Contains Personally Identifying Info Or Offensive Content: N/A
+B6 Statistics For Data: Yes
+B6 Elaboration: Appendix C
+C Computational Experiments: Yes
+C2 Experimental Setup And Hyperparameters: Yes
+C2 Elaboration: Section 4, Appendix D
+C3 Descriptive Statistics: Yes
+C3 Elaboration: Section 4
+D Human Subjects Including Annotators: No
+D1 Instructions Given To Participants: N/A
+D2 Recruitment And Payment: N/A
+D3 Data Consent: N/A
+D4 Ethics Review Board Approval: N/A
+E Ai Assistants In Research Or Writing: Yes
+E1 Information About Use Of Ai Assistants: Yes
+E1 Elaboration: Appendix L
+Author Submission Checklist: yes
+TLDR: We present LVSpec, a loosely speculative decoding method via visual-semantic guidance tailored for Video LLMs.
+Preprint: no
+Preprint Status: We are considering releasing a non-anonymous preprint in the next two months (i.e., during the reviewing process).
+Preferred Venue: ACL
+Consent To Share Data: yes
+Consent To Share Submission Details: On behalf of all authors, we agree to the terms above to share our submission details.
+Association For Computational Linguistics - Blind Submission License Agreement: On behalf of all authors, I agree for this and all previous versions of this submission
+B1 Cite Creators Of Artifacts: Yes
+B1 Elaboration: Section 7
+B2 Discuss The License For Artifacts: Yes
+B2 Elaboration: Section 7
+B3 Artifact Use Consistent With Intended Use: Yes
+B3 Elaboration: Appendix C
+B5 Documentation Of Artifacts: Yes
+B5 Elaboration: Appendix C
+C1 Model Size And Budget: Yes
+C1 Elaboration: Section 4
+C4 Parameters For Packages: Yes
+C4 Elaboration: Section 4
+D5 Characteristics Of Annotators: N/A
+Submission Number: 3143
+Discussion
+Filter by reply type...
+Filter by author...
+Sort: Newest First
+Sort: Oldest First
+Linear
+Threaded
+Nested
+−
+Collapsed
+＝
+Default
+≡
+Expanded
+Copy link
+Everyone
+Submission3143...
+Submission3143 Area...
+Submission3143 Authors
+Submission3143...
+Program Chairs
+Submission3143...
+Submission3143...
+Submission3143...
+Submission3143...
+Submission3143...
+Submission3143...
+Reset
+25 / 25 replies shown
+−
+＝
+≡
+Meta Review of Submission3143 by Area Chair z4Nz
+Copy URL of note NXsgLGefDi
+Meta Reviewby Area Chair z4Nz03 Mar 2026, 20:40 (modified: 18 Mar 2026, 00:05)Senior Area Chairs, Area Chairs, Authors, Reviewers Submitted, Program Chairs, Commitment ReadersRevisions
+Metareview:
+
+This paper tackles the Speculative Decoding (SD) methods for video. To solve this current issue, they propose LVSPEC, a training-free "loosely" speculative decoding framework. The key idea is "Visual-Semantic Guidance." It calculates the similarity between text tokens and visual features. The results are evaluated on several benchmarks.
+
+Summary Of Reasons To Publish:
+The method is simple yet efficient, as well as training-free.
+The results are really promising.
+Summary Of Suggested Revisions:
+Lack of some details regarding experimental settings and analysis.
+Overall Assessment: 3.5 = Borderline Conference
+Reported Issues: No
+Publication Ethics Policy Compliance: I did not use any generative AI tools for this review
+−
+＝
+≡
+Reporting Issues Regarding the Delayed and Potentially Non-Compliant Reviewer fFe1
+Copy URL of note MyYjVjPloC
+Author-Editor Confidential Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)26 Feb 2026, 23:20 (modified: 27 Feb 2026, 17:11)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+Comment:
+
+Dear ACs, SACs, and PCs,
+
+Thank you for overseeing the review process of our submission. We have carefully prepared our rebuttal.
+
+However, a new review was posted on 2.26 AOE, which not only exceeded the rebuttal deadline but also exceeded the deadline for reporting issues. This directly prevented us from providing an effective rebuttal and impacted the overall assessment of our work. On behalf of all authors, we kindly ask the Area Chair to consider whether this review should be included in the final assessment for the following reasons:
+
+Through thorough and detailed discussions, the previous three reviewers acknowledged our rebuttal and provided high overall assessments (4, 4), including score increases (2.5 -> 3). This indicates that the three reviewers have already reached a consensus regarding the overall quality of the manuscript.
+We were unable to provide any rebuttal or submit a reporting issue regarding this reviewer’s comments. Given the reviewer’s low confidence rating (2) and significantly late submission, this further raises concerns about the overall quality and reliability of this review.
+This reviewer’s comments may not reflect a careful reading and thorough understanding of the manuscript as we summarize in the Review Issue Report below. Posting an outlier low score after the rebuttal deadline (and even the official deadline for reporting issues) significantly impacts our overall assessment while leaving us no opportunity to respond.
+
+We sincerely appreciate the time and effort the Area Chairs have dedicated to considering our submission. We believe the review submitted after the official deadline does not comply with the conference guidelines and lacks sufficient reliability. In light of these points, we believe the current score from Reviewer fFe1 does not accurately reflect the resolved nature of their concerns or constitute a fair evaluation of our work. We respectfully ask the Area Chairs to take these factors into account when making the final decision.
+
+The Authors of Submission 3143
+
+−
+＝
+≡
+Official Review of Submission3143 by Reviewer fFe1
+Copy URL of note tuLiv8eG4x
+Official Reviewby Reviewer fFe126 Feb 2026, 22:04 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer fFe1, Commitment ReadersRevisions
+Paper Summary:
+
+Video-LLMs achieve promising performance in video understanding tasks, but suffer from high latency caused by autoregressive generation. Speculative Decoding (SD) accelerates inference via the draft-and-verify paradigm, yet existing methods are limited by rigid exact-match rules and thus have restricted acceleration potential. This paper proposes LVSPEC, the first training-free loosely SD framework tailored for Video-LLMs. It effectively alleviates the bottleneck of strict token-level matching through visual-relevant text token identification, visual-semantic guided loosely SD, and position shift-tolerant mechanism. Experiments on four video captioning and video question answering tasks show that LVSPEC achieves up to 2.94× speedup on large models while retaining over 99.8% of the original performance, significantly outperforming existing training-free SD methods.
+
+Summary Of Strengths:
+
+S1: The paper accurately identifies and alleviates the "visual blindness" issue when existing loose SD methods designed for LLMs are applied to Video-LLMs. It clearly points out that undifferentiated verification based solely on linguistic priors ignores the varying importance of different tokens for visual information. Accordingly, it classifies draft tokens into three categories: visual-relevant, intermediate, and visual-irrelevant, and adopts a differentiated verification strategy, which well aligns with the core goal of Video-LLMs to ensure the fidelity of visual information.
+
+S2: The paper is coherently and fluently written, with well-designed visualizations (e.g., Figures 1, 2, 3). The overall logic is clear and intuitive, which can effectively help readers understand the core innovations and methodological details, and significantly improves the readability and comprehensibility of the paper.
+
+Summary Of Weaknesses:
+
+W1: Section 2.2 aims to demonstrate the acceleration potential of loose verification through theoretical derivation, but the derivation is overly idealized and weakly aligned with the actual LVSPEC method. Additionally, the theoretical conclusions are not validated by experiments, which weakens the credibility of the theoretical contribution.
+
+W2: The proposed PST mechanism can indeed significantly accelerate inference via more relaxed verification strategies. However, the semantic coherence and logical rationality of output sequences are not considered, nor are these key generation quality indicators evaluated in the experiments.
+
+W3: The performance of the proposed method should theoretically lie between that of the pure draft model and the pure target model. However, the paper does not provide such a comparison, making it impossible to fully validate the actual performance-efficiency trade-off.
+
+Comments Suggestions And Typos:
+
+The theoretical derivation in Section 2.2 is somewhat redundant. It is recommended to refine the presentation and strengthen the link between theory and the actual method, avoiding superficial discussion.
+
+It is recommended to add evaluations and comparisons on the semantic coherence and logical rationality of the final output sequences in the experiments.
+
+It is suggested to supplement the experiments with performance comparisons between the proposed method, the pure draft model, and the pure target model.
+
+Confidence: 2 =  Willing to defend my evaluation, but it is fairly likely that I missed some details, didn't understand some central points, or can't be sure about the novelty of the work.
+Soundness: 2.5
+Excitement: 2.5
+Overall Assessment: 2.5 = Borderline Findings
+Ethical Concerns:
+
+There are no concerns with this submission
+
+Reproducibility: 3 = They could reproduce the results with some difficulty. The settings of parameters are underspecified or subjectively determined, and/or the training/evaluation data are not widely available.
+Datasets: 2 = Documentary: The new datasets will be useful to study or replicate the reported research, although for other purposes they may have limited interest or limited usability. (Still a positive rating)
+Software: 2 = Documentary: The new software will be useful to study or replicate the reported research, although for other purposes it may have limited interest or limited usability. (Still a positive rating)
+Knowledge Of Or Educated Guess At Author Identity: No
+Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Knowledge Of Paper Source: N/A, I do not know anything about the paper from outside sources
+Impact Of Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Reviewer Certification: I certify that the review I entered accurately reflects my assessment of the work. If you used any type of automated tool to help you craft your review, I hereby certify that its use was restricted to improving grammar and style, and the substance of the review is either my own work or the work of an acknowledged secondary reviewer.
+Publication Ethics Policy Compliance: I used a privacy-preserving tool exclusively for the use case(s) approved by PEC policy, such as language edits
+−
+＝
+≡
+Review Issue Report
+Copy URL of note 71IfCXBEhd
+Author-Editor Confidential Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)27 Feb 2026, 15:33 (modified: 27 Feb 2026, 17:05)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+Comment:
+
+Dear ACs, SACs, and PCs,
+
+We are writing to report a procedural issue regarding Reviewer fFe1 via I5 (Expertise).
+
+This review was posted on 2.26 AOE, which not only exceeded the rebuttal deadline but also exceeded the deadline for reporting issues. This directly prevented us from providing an effective rebuttal or issue reporting, and impacted the overall assessment of our work.
+
+In addition to the late submission, we would also like to point out that this review are not based on a deep understanding of the submission (I5 (Expertise)). Beyond the low confidence score (2), the reasons are as follows:
+
+W1: Reviewer fFe1 stated, "the theoretical conclusions are not validated by experiments". However, the link between theory and the actual method is already discussed in Line 519-523, Section 4.1 through empirical result in Table 1, which shows tight alignment.
+
+W2: How "the proposed PST mechanism would impact the generation quality" is already discussed in Section 4.2 titled Effect of PST through end-to-end performance metric.
+
+W3: The performance comparisons between the proposed method, the pure draft model, and the pure target model is already provided in Table 6 in the original manuscript.
+
+Given that these concerns have already been explicitly stated in the original manuscript but were not mentioned by reviewer fFe1, we believe that this review may not be based on a careful reading and thorough understanding of the paper, and therefore does not accurately reflect the resolved nature of the issues nor provide a fair evaluation of our work. The review’s low confidence, outlier rating, and significantly delayed submission are also worth noting. We respectfully ask the Area Chairs to take these factors into account when making the final decision.
+
+Best regards,
+
+The Authors of Submission 3143
+
+−
+＝
+≡
+Summary of the Discussion Period
+Copy URL of note cFiTQe4Qzv
+Author-Editor Confidential Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)24 Feb 2026, 17:03Program Chairs, Senior Area Chairs, Area Chairs, Authors
+Comment:
+
+We sincerely thank the Area Chairs for their diligent oversight of the review process, which has greatly contributed to a thorough and constructive discussion of our submission.
+
+We appreciate the reviewers' recognition of our research's significance, novelty, and soundness (R1, R2, R3). Our paper is recognized as an innovative and solid study that insightfully addresses the limited speedup caused by strict verification in speculative decoding for Video LLMs (R1, R2, R3). We also appreciate the recognition of our strong efficiency gains (R1, R2, R3) and extensive ablation study (R2, R3), and that our approach provides a mathematical analysis showing why loose verification can theoretically outperform the speed limits of strict verification (R1). Lastly, we thank the reviewers for highlighting that our paper is good and carefully written (R2), and that our research highlights an important research direction of improving generation speed of Video LLMs (R3).
+
+We are pleased to report that all concerns raised by the reviewers have been addressed through constructive discussions, including the suggested experiments, additional discussions, and relevant updates. These revisions, as summarized in our General Response, strengthen the manuscript without altering its original content.
+
+We are grateful that the majority of reviewers (two) gave high initial positive ratings (Rating: 4, 4), showing a positive stance toward acceptance. As for reviewer Hhmf, the major concern lay in text-only queries and queries unrelated to the video, which we believe fall outside the scope of our visual grounding research and are rarely studied in established practice. Through the rebuttal, we resolved this concern with additional experiments and clarifications, and reviewer Hhmf subsequently raised the score. We believe that the acknowledgment during the rebuttal phase indicates that our work has further improved in terms of soundness and overall assessment of quality.
+
+Additionally, we would like to raise a concern regarding a potential LLM-based review misinterpretation. Reviewer Hhmf's comment about a typo in the symbol 
+𝜆
+ appears to stem from an unchecked recognition error, as the symbol is correctly presented in our original manuscript. We kindly request the Area Chair to consider whether this review accurately reflects the manuscript's contribution given the other reviewer's highly positive, detailed feedback.
+
+We sincerely appreciate the time and effort the Area Chairs have dedicated to considering our submission. We recognize the challenges of reviewing within limited time constraints and are grateful for the reviewers' valuable suggestions. Based on our thorough responses and revisions, we hope our manuscript will receive a fair evaluation.
+
+Wishing you a pleasant day ahead.
+
+The Authors
+
+−
+＝
+≡
+General Response
+Copy URL of note oyZOtIyQda
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)22 Feb 2026, 15:57 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers, Reviewers Submitted, Authors, Commitment ReadersRevisions
+Comment:
+
+We sincerely thank all reviewers for their thoughtful and constructive feedback. We are encouraged by their recognition of the key contributions and strengths of our work. For clarity, we will refer to Reviewers Hhmf, B2rN and RMKs as R1, R2, and R3, respectively.
+
+In particular, we appreciate the acknowledgment of our motivation to loosen the constraints of SD verification for Video LLMs (R1, R2, R3), the recognition of our insightful pattern discovery for video-to-text generation (R2), and the appreciation of the impressive efficiency (R1, R2, R3) of our method as well as the broadness of our ablation study and analysis (R2, R3). Furthermore, we are pleased that the high performance retention of our loosely speculative decoding framework for Video LLMs is well acknowledged (R2, R3), and that our approach provides a mathematical analysis showing why loose verification can theoretically outperform the speed limits of strict verification (R1). We also appreciate the reviewers' comments noting that our paper is good and carefully written (R2), and that our research highlights an important research direction of improving generation speed of Video LLMs (R3). These strengths are reflected in our high scores for Soundness (4, 4.5) (R2, R3), Excitement (4, 4) (R2, R3), and Confidence (4) (R2).
+
+We have carefully addressed each individual comment provided by the reviewers and believe we have successfully responded to most of their concerns. Below, we summarize the core contributions of our study, the updates to our experiments, and the in-depth discussions during the Rebuttal.
+
+Core Contributions of Our Work
+Novel Discovery and Theoretical Potential: To the best of our knowledge, we are the first to explore loosely speculative decoding in the visual domain. We find that generation qualtiy is governed by sparse yet critical visual-relevant anchors and provide a rigorous theoretical analysis.
+Lightweight Framework: By employing a pinpoint and lightweight visual-relevant token identification and loose verification scheme, augmented by a position-shift tolerant mechanism, LVSPEC effectively shatters the rigid exact-match barrier in a training-free manner.
+Extensive Experimental Results: Comprehensive evaluations across four video understanding benchmarks show that LVSPEC is both high-fidelity and rapid.
+Updates on Experiments and Discussions During Rebuttal
+
+Standard Deviation Analysis of the Retention Ratios (Appendix I): To better validate the stability and performance significance, we run experiments using SGLang under three random seeds and report the average performance as well as its standard deviation. The results show a small standard deviation, further indicating its near-lossless behavior and stability.
+
+Exploration on Text Tokenizer (Appendix M): We experiment on the heuristic signals of LVSpec by using hidden states and text embeddings after tokenizer.By leveraging hidden states as relevance signal, LVSpec achieves better performance and is independant of a text tokenizer. We believe this intra-model and tokenizer-agnostic design is what enables LVSpec to generalize across various model settings.
+
+Exploration on Subword Token Case (Appendix M): We empirically find that for words split into multiple subword tokens, the first subword token still exhibits higher visual relevance and remains discriminative. We summarize the interesting finding in the Appendix.
+
+General Safety Testing (Appendix I): We empirically conduct experiments using text-only queries and videos unrelated to the query. Although we do not recommend such usage for VLMs, by setting a conservative relaxation parameter 
+𝜆
+, we find that LVSpec can still maintain nearly lossless performance, demonstrating its safety.
+
+Hyperparameter in Oracle Study (Appendix J): We conduct more oracle study by setting K=25, 50, 100 to better reveal the trend. The conclusion holds that visual quality is significantly more sensitive to visually relevant tokens.
+
+Discussion on Visual Grounding and Text-Only Study: By clarifying the fundamental differences between text-only and visual grounding studies and referencing established practices in vision–language model research, we further delineate the scope of our method and discuss how potential corner cases can be addressed through appropriate engineering efforts.
+
+We believe these experiments and clarifications comprehensively address the reviewers' concerns and enhance the overall quality of our manuscript. We recognize the challenges of reviewing within limited time constraints and are grateful for the reviewers' valuable suggestions.
+
+We look forward to the reviewers' favorable consideration.
+
+Wishing you a pleasant day ahead.
+
+The Authors
+
+−
+＝
+≡
+Seeking Further Feedback (Last Day of Discussion)
+Copy URL of note 8Mb12ze3Ru
+Author-Editor Confidential Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)21 Feb 2026, 23:11 (modified: 21 Feb 2026, 23:14)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+Comment:
+
+Dear ACs, SACs, and PCs,
+
+Thank you for overseeing the review process of our submission. We have carefully prepared our rebuttal. However, we have not yet received any feedback from the reviewers on our rebuttal responses. As we are committed to addressing all reviewers' concerns comprehensively, we would greatly appreciate your assistance in encouraging their participation in the discussion phase. Their additional feedback would be valuable in helping us address any remaining concerns they may have.
+
+We look forward to the opportunity to engage in further discussion with reviewers to ensure all aspects of our work are thoroughly evaluated.
+
+Thank you for your time and consideration.
+
+Best regards,
+
+The Authors
+
+−
+＝
+≡
+Official Review of Submission3143 by Reviewer RMKs
+Copy URL of note 1hHnQqErji
+Official Reviewby Reviewer RMKs18 Feb 2026, 05:54 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer RMKs, Commitment ReadersRevisions
+Paper Summary:
+
+The motivation of this submission is to speed up the generation of video language models.
+
+To achieve this, the authors propose using speculative decoding with novel methods that improve verification speed. Specifically, their contributions are to disregard visually-irrelevant tokens and token position shifts when verifying the drafts generated by a small model. These techniques significantly increase the acceptance rate during verification and thus speed up generation by reducing the need for re-drafting.
+
+The results show that such relaxed verification preserves performance on two groups of video-to-text tasks: captioning and video-based question answering. For full disclosure, I do not have enough experience with video benchmarks, other reviewers could better validate the significance of these results.
+
+Summary Of Strengths:
+
+Important research direction of improving generation speed by addressing the memory bottleneck in vision-language models.
+
+The heuristic of disregarding visually-irrelevant tokens in verification is supported by preliminary experiments, which show their minor impact on generation performance.
+
+The proposed method demonstrates significant speed-up (2.70–2.94 times) in video captioning and question answering, while largely preserving the performance of the original model.
+
+The results are compared with a broad selection of baselines and are supplemented with an extensive ablation study.
+
+Summary Of Weaknesses:
+
+Related work is not presented in the main text of the paper. The submission should discuss related work in the main body to better showcase the novelties in context of previous research.
+
+Some examples and equations need refinement for better understanding. Please refer to the list in Suggestions.
+
+Comments Suggestions And Typos:
+
+Unclarities:
+
+Fig 1: The verifier example is grammatically incorrect: “a blue robotic cat, set a serene outdoor.” Later in the text, the reader learns that such mismatches are common in the verification procedure, but this should be signaled upfront in the figure caption.
+
+L120-L149 description of contribution is too vague:
+
+Ad: “We demystify the dual nature of visual dependence: generation is governed by sparse yet critical visual-relevant anchors amidst a sea of visual-irrelevant linguistic filler.” Examples of visually relevant/irrelevant tokens and estimates of their proportions would be helpful here.
+
+Ad: “LVSPEC shatters the rigid “exact-match” barrier, effectively salvaging rejected mismatches into valid semantic equivalents in a training-free manner.” A heuristic for the proposed relaxed verification method would help understand how exact-match limitation is addressed.
+
+Equation 7: 
+𝐻
+𝐷
+𝑠
+∈
+𝑅
+𝐾
+×
+𝑑
+ is defined as a matrix with rows corresponding to specific tokens. However, in Equation 8 it is used to obtain token dependent metric 
+𝐴
+𝑠
+ suggesting it is a vector representing latent embedding of token at position 
+𝑠
+. This mismatch should be clarified.
+
+Typo:
+
+Fig 1 “visual-irrlevant” -> visual-irrelevant
+
+Questions:
+
+How does text tokenization affect visual-relevance identification?
+Can visual-relevant words split into multiple subword tokens be misclassified as visually-irrelevant?
+Confidence: 2 =  Willing to defend my evaluation, but it is fairly likely that I missed some details, didn't understand some central points, or can't be sure about the novelty of the work.
+Soundness: 4.5
+Excitement: 4 = Exciting: I would mention this paper to others and/or make an effort to attend its presentation in a conference.
+Overall Assessment: 4 = Conference: I think this paper could be accepted to an *ACL conference.
+Ethical Concerns:
+
+There are no concerns with this submission
+
+Needs Ethics Review: No
+Reproducibility: 5 = They could easily reproduce the results.
+Datasets: 1 = No usable datasets submitted.
+Software: 5 = Enabling: The newly released software should affect other people's choice of research or development projects to undertake.
+Knowledge Of Or Educated Guess At Author Identity: Yes
+Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Knowledge Of Paper Source: N/A, I do not know anything about the paper from outside sources, I can guess
+Impact Of Knowledge Of Paper: Not much
+Knowledge Of Authors Guess: Alibaba (Qwen mascot in figures)
+Reviewer Certification: I certify that the review I entered accurately reflects my assessment of the work. If you used any type of automated tool to help you craft your review, I hereby certify that its use was restricted to improving grammar and style, and the substance of the review is either my own work or the work of an acknowledged secondary reviewer.
+Publication Ethics Policy Compliance: I used a privacy-preserving tool exclusively for the use case(s) approved by PEC policy, such as language edits
+−
+＝
+≡
+Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)
+Copy URL of note qExQX6RGF0
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)21 Feb 2026, 22:55 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer RMKs, Commitment ReadersRevisions
+Comment:
+
+Dear Reviewer RMKs,
+
+We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards.
+
+Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have.
+
+Looking forward to hearing from you!
+
+Best regards,
+
+The Authors
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer RMKs (Question 1~2)
+Copy URL of note VMCeO5xlzt
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)20 Feb 2026, 18:55 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer RMKs, Commitment ReadersRevisions
+Comment:
+
+[Question 1] How does text tokenization affect visual-relevance identification?
+
+[Response] Thanks for the insightful question. The relevance computation in LVSpec is performed within the LLM backbone space and is not affected by the text tokenizer. In fact, we have conducted early experiments during the method design stage, and have empirically compared using last-layer hidden states versus text and visual embeddings as the relevance signal, which involves the influence of a text tokenizer, as summarized in Table 1.
+
+Leveraging Hidden States (Choice of LVSpec)
+
+Specifically, LVSpec computes relevance using hidden state representations in the LLM’s internal semantic space, making this process independent of the choice of subsequent tokenizer. Since video LLMs fuse textual and visual information within the LLM backbone, the last-layer hidden states of text and visual tokens can effectively reflect their semantic relevance.
+
+Leveraging Tokenizer Embeddings
+
+In contrast, we also experimented with computing similarity using text and visual embeddings (i.e., the outputs direct from the text tokenizer and the vision encoder, respectively). This strategy performs worse because these embeddings have not undergone semantic alignment within the LLM backbone and thus reside in different representation spaces.
+
+By leveraging hidden states as relevance signal, LVSpec achieves better performance and is independant of a text tokenizer. We believe this intra-model and tokenizer-agnostic design is what enables LVSpec to generalize across various model settings.
+
+R3-Table 1: Exploration on heuristic signals of LVSpec (w/o PST). The experiment is conducted using Qwen2.5-VL-32B / 7B and VDC benchmark. 
+𝜆
+ = 0.7.
+	Score	Acc (%)	Retention Ratio (%)
+LVSpec (Tokenizer Embedding)	1.88±0.04	29.96±0.79	95.8 ± 2.5
+LVSpec (Hidden State)	1.92 ± 0.02	30.85 ± 0.21	98.7 ± 0.7
+
+[Question 2] Can visual-relevant words split into multiple subword tokens be misclassified as visually-irrelevant?
+
+[Response] The subword tokens are indeed an interesting case to study! We investigate this issue and summarize several intuitive examples together with their corresponding visual relevance scores in Table 2. As a result, we do not expect visual-relevant words split into multiple subword tokens to cause visually relevant multi-subword words to be misclassified as visually irrelevant.
+
+Specifically, we find that for words split into multiple subword tokens (e.g., 'clippings', 'barber', 'illuminating'), the first subword token still exhibits higher visual relevance, whereas the remaining subwords tend to receive lower relevance scores, sometimes even approaching those of punctuation (e.g., ':'). We consider this behavior reasonable: earlier subwords often constrain or determine the subsequent ones and therefore carry more semantic information.
+
+We do not expect this to cause visually relevant multi-subword words to be misclassified as visually irrelevant, since (1) the first subword token remains highly discriminative, and (2) later subword tokens are generally unlikely to be mismatched in practice once the first subword is determined.
+
+R3-Table 2: Exploration on subword tokens. We experiment on Qwen2.5-VL-32B / 7B setting and VDC benchmark, using LVSpec to obtain the visual relevance score.
+Word	Subwords	Relevance
+Clippings	Cl / ipp / ings	0.63 / 0.39 / 0.46
+Barber	Bar / ber	0.64 / 0.55
+illuminating	illumin / ating	0.68 / 0.40
+:	–	0.45
+
+Finally, we find the above questions very insightful, and we will incorporate these findings into Appendix M: Exploration of Subword Token Case as part of the discussion.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer RMKs (Question 1~2)
+Copy URL of note 2rOmGYcfyq
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)20 Feb 2026, 18:51 (modified: 20 Feb 2026, 18:51)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer RMKsRevisions
+[Deleted]
+−
+＝
+≡
+Thanks & Initial Response to Reviewer RMKs (Weakness 1~2 and Comments Suggestions)
+Copy URL of note D4Wqmar3Lp
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)20 Feb 2026, 18:50 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer RMKs, Commitment ReadersRevisions
+Comment:
+
+[Weakness 1] Related work is not presented in the main text of the paper. The submission should discuss related work in the main body to better showcase the novelties in context of previous research.
+
+[Response] Thank you for your detailed response. We agree that presenting the related work in the main text would better contextualize our contribution. Due to space constraints, we temporarily placed it in the appendix. We commit to moving it to the main paper once additional space is available in the camera ready version.
+
+[Weakness 2 & Unclarities 1] In Fig 1, the verifier example is grammatically incorrect: “a blue robotic cat, set a serene outdoor.” Later in the text, the reader learns that such mismatches are common in the verification procedure, but this should be signaled upfront in the figure caption.
+
+[Response] The intuitiveness of the teaser is indeed crucial. We will revise Fig. 1 by adding explanatory captions and arrows to illustrate the roles of the drafter and verifier, thereby reducing readers’ initial confusion.
+
+[Weakness 2 & Unclarities 2] L120-L149 description of contribution is too vague.
+
+[Response] Thank you for the suggestion on better articulating our contributions, which is very helpful for sharpening the contribution statements. For the first contribution, we will revise "generation is governed by sparse yet critical visual-relevant anchors amidst a sea of visual-irrelevant linguistic filler" to "generation is governed by <20% sparse yet critical visual-relevant anchors amidst over 60% visual-irrelevant linguistic fillers," in line with the oracle-study findings. For the second contribution, we will revise "effectively salvaging rejected mismatches into valid semantic equivalents" to "effectively relaxing unnecessary strict verification via text–vision relevance."
+
+[Weakness 2 & Unclarities 3] In Equation 7, 
+𝐻
+𝐷
+𝑠
+ is defined as a matrix with rows corresponding to specific tokens. However, in Equation 8, it is used to obtain token dependent metric 
+𝐴
+𝑠
+ suggesting it is a vector representing latent embedding of token at position . This mismatch should be clarified.
+
+[Response] We will further clarify these mathematical notations. In Equation 8, the hidden state matrices with rows corresponding to text and visual tokens, 
+𝐻
+𝐷
+𝑠
+∈
+𝑅
+𝐾
+×
+𝑑
+ and 
+𝐻
+𝑉
+∈
+𝑅
+𝑙
+𝑣
+×
+𝑑
+, are first multiplied to obtain the token-wise cosine similarity matrix 
+𝑀
+∈
+𝑅
+𝐾
+×
+𝑙
+𝑣
+. We then apply a Top-N operation and averaging along the visual dimension to produce vector 
+𝐴
+𝑠
+∈
+𝑅
+𝐾
+×
+1
+. We will revise the manuscript to explicitly annotate the shapes of these vectors at each step in Line 370-372.
+
+−
+＝
+≡
+Official Review of Submission3143 by Reviewer B2rN
+Copy URL of note AQXPiJJQsN
+Official Reviewby Reviewer B2rN17 Feb 2026, 17:15 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer B2rN, Commitment ReadersRevisions
+Paper Summary:
+
+This paper proposes a new speculative decoding-inspired method to accelerate autoregressive decoding in video LMs, with negligible performance loss.
+
+LVSpec applies speculative decoding (a very popular decoding-technique to accelerate inference in a lossless manner in LLMs) to video LMs. The basic gist of speculative decoding involves having a small draft model propose tokens, and a larger verifier model to verify the proposed sequence (the longer the number of accepted tokens, the more efficient the generation). However, vanilla speculative decoding requires strict exact match: the drafter must propose exactly the token that the verifier would generate next for it to be accepted. This strictness is not necessarily desirable for video LLMs, where (1) the tokens necessary for visual grounding are sparse, but most integral for good generation; and (2) the draft model may propose (or omit) innocuous tokens that induces a position shift.
+
+To this end, the authors propose three lossy SD contributions: (1) they introduce a way to determine the most visual-relevant tokens by ranking the cosine similarity between draft / verifier hidden states. (2) This token identification scheme can be used for a visual-semantic guided loose generation that adopts stricter verification for more visually relevant tokens. (3) They introduce a position shift-tolerance mechanism that relaxes acceptance for tokens that appear in the draft sequence but at mismatched positions, and otherwise do not degrade visual information.
+
+Experiment-wise, the authors chose two Video-LLM model pairs: Qwen 2.5-VL and LlaVa-OneVision, in 32B/72B (verifier) and 7B (draft) sizes, and test on four video captioning and video QA tasks. For baselines, they compared against naive SD, SpecLM (a baseline which applies video token pruning to the draft model), and FLy, another loosely SD method. They also report several efficiency metrics; e.g., token/s, speedup (relative to verifier), and mean accepted length tau. LVSpec outperforms all baselines by a substantial margin on efficiency, and shows a very small drop in performance retention across downstream tasks (although FLy, a baseline, is quite competitive in some cases).
+
+Beyond, the authors also provide some nice analyses showing that not all tokens in V2T generation are relevant / critical for visual grounding, and conduct an extensive array of ablations and analyses in the appendices, which I really appreciate. In all, I think this is a good and carefully written paper, and am overall pretty positive about acceptance!
+
+Summary Of Strengths:
+
+Method:
+
+Overall, I think the method quite nicely argues that the straightforward application of SD to video LMs is "visually blind", and that we may take advantage of knowing which tokens are highly visually relevant to further loosen the constraints of SD verification, thus improving efficiency by a lot.
+I also found the preliminary study in Section 2 be very insightful. The authors essentially show in an oracle analysis that (1) not all tokens are visual-relevant, (2) generation is most reliant on visually relevant tokens.
+
+Experiments:
+
+SpecLM relies on two key hyperparameters: the loose parameter, 
+𝜆
+, as well as the number of critical visual tokens, 
+𝑁
+. The authors extensively ablate both knobs, which is nice to see.
+Summary Of Weaknesses:
+
+Method:
+
+3.2: I understand why you would use all the hidden states for similarity computation, but in NLP, it is also common to just consider the last hidden state or the average across all hidden states for comparison. It would be nice to see more justification of this design choice.
+
+Experiments:
+
+I have no clue how statistically significant the performance retention results are; it would be nice to include error bars (e.g., report the average / standard deviation over 3 seeds) for results such as Figure 6.
+Table 3: You mention in 4.3 that you also ablate N=5, but I don't see it in the table results.
+Comments Suggestions And Typos:
+
+General (mostly just style nits):
+
+The bolding of phrases is a little too excessive and visually distracting. Consider reducing the amount of bold text.
+The citations are not formatted correctly in some places: they should be ordered first chronologically (by year), and second alphabetically by the first author's surname.
+Footnotes go after the period, not right before (e.g., footnote 7), without spaces (e.g., footnote 8).
+The numbers in some of the plots (e.g., Figure 6) are minuscule and so hard to see.
+The language is too flowery / dramatic in some places (e.g., "shatter"... "seas"), which I think distracts the reader from the actual content of the paper.
+
+Specific:
+
+L203: Why did you choose 50 as the top-k for most vs. least visually relevant tokens? This feels a little arbitrary and not well justified by the current writing. It would be nice to see if the trend holds for other choices of top-k.
+Fig 2b: It's not clear to me what the Performance Score is, and I don't see it defined anywhere. You should briefly describe the metric of interest whenever it is first introduced.
+L327: "we novelly apply..." --> "we apply a novel..."
+Appendix E: "What Tokens" --> "Which Tokens"
+Confidence: 4 = Quite sure. I tried to check the important points carefully. It's unlikely, though conceivable, that I missed something that should affect my ratings.
+Soundness: 4 = Strong: This study provides sufficient support for all of its claims. Some extra experiments could be nice, but not essential.
+Excitement: 4 = Exciting: I would mention this paper to others and/or make an effort to attend its presentation in a conference.
+Overall Assessment: 4 = Conference: I think this paper could be accepted to an *ACL conference.
+Ethical Concerns:
+
+There are no concerns with this submission
+
+Needs Ethics Review: No
+Reproducibility: 4 = They could mostly reproduce the results, but there may be some variation because of sample variance or minor variations in their interpretation of the protocol or method.
+Datasets: 1 = No usable datasets submitted.
+Software: 4 = Useful: I would recommend the new software to other researchers or developers for their ongoing work.
+Knowledge Of Or Educated Guess At Author Identity: No
+Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Knowledge Of Paper Source: N/A, I do not know anything about the paper from outside sources
+Impact Of Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Reviewer Certification: I certify that the review I entered accurately reflects my assessment of the work. If you used any type of automated tool to help you craft your review, I hereby certify that its use was restricted to improving grammar and style, and the substance of the review is either my own work or the work of an acknowledged secondary reviewer.
+Publication Ethics Policy Compliance: I did not use any generative AI tools for this review
+−
+＝
+≡
+Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)
+Copy URL of note OhURuSTEK9
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)21 Feb 2026, 22:56 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer B2rN, Commitment ReadersRevisions
+Comment:
+
+Dear Reviewer B2rN,
+
+We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards.
+
+Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have.
+
+Looking forward to hearing from you!
+
+Best regards,
+
+Authors
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer B2rN (Comments Suggestions)
+Copy URL of note 3sq7qwhZvL
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)20 Feb 2026, 19:00 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer B2rN, Commitment ReadersRevisions
+Comment:
+
+[Specific Suggestion 1] Why did you choose 50 as the top-k for most vs. least visually relevant tokens? This feels a little arbitrary and not well justified by the current writing. It would be nice to see if the trend holds for other choices of top-k.
+
+[Response] We choose the Top-K value based on the maximum generation length (set to 512), while in practice it usually ends at around 300 tokens. This choice is intended to reveal the overall contrast between the most and least visually relevant tokens, while preserving basic sentence structure. We also agree that including more choices of K would better substantiate this trend, and conduct the following experiments in Table 3.
+
+The trend holds that visual quality is significantly more sensitive to visually relevant tokens. Notably, when K=50 and K=100, the performance without visually relevant tokens is close. We attribute this to the sparsity of visually relevant tokens, which are nearly fully removed under these two settings. We will incorporate this study in Appendix J .
+
+R2-Table 3: More choices of K in the oracle study.
+		K=25	K=50	K=100	K=25	K=50	K=100
+	Original	w/o Visual-Irrelevant	w/o Visual-Irrelevant	w/o Visual-Irrelevant	w/o Visual-Relevant	w/o Visual-Relevant	w/o Visual-Relevant
+Gemini	3.7	3.3	3.2	3.2	1.7	0.3	0.5
+GPT	3.9	3.9	3.7	3.3	3.3	1.2	1.0
+Qwen	2.9	2.7	2.8	1.7	1.3	1.2	0.7
+DeepSeek	4.0	3.0	3.7	2.8	2.0	0.7	1.0
+Average	3.6	3.2	3.3	2.8	2.1	0.8	0.8
+
+[Specific Suggestion 2] It's not clear to me what the Performance Score is, and I don't see it defined anywhere. You should briefly describe the metric of interest whenever it is first introduced.
+
+[Response] We agree that a clearer definition here is indeed necessary. The definition of performance score was originally brought up in Line 448, Section 4, and detailed in Appendix C.
+
+Specifically, the performance metric is evaluated using LMM-Eval [1], a widely used evaluation toolkit for vision language models. We adopt the default evaluation setting for video understanding, which uses large language models (LLMs) as judges to produce the standard score for video captioning and open-ended question answering. For multiple-choice question answering, accuracy is computed directly against the ground truth answers. We will follow the suggestions to define the performance metrics when they are first introduced in the main text (Section 4).
+
+[Response to Specific Suggestion 3,4 and General Suggestions] We greatly appreciate your careful reading of the manuscript and your detailed suggestions. We will carefully follow the suggestions to address issues including bolded phrases, footnotes, citations, and language as follows:
+
+Appendix E: --> "Which Tokens Are Loosened".
+Line 327: --> "We apply a novel vision-guided approach".
+Line 123: --> "generation is governed by <20% sparse yet critical visual-relevant anchors amidst over 60% visual-irrelevant linguistic fillers".
+Reducing the bolding text in Line 151-161.
+Fix footnote 7,8 and make the number in figure 6 more clear to see.
+
+We conduct another round of proofreading, and believe these modifications would further improve the overall presentation of the paper.
+
+Reference
+
+[1] LMMs-Eval: Accelerating the Development of Large Multimodal Models. Li et al. 2024.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer B2rN (Weakness 1~3)
+Copy URL of note CBQBJuiKHd
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)20 Feb 2026, 18:59 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer B2rN, Commitment ReadersRevisions
+Comment:
+
+Thank you for your recognition and for the detailed suggestions, which are highly helpful for improving the quality and academic rigor of our paper. We respond to each weakness and suggestion as follows.
+
+[Weakness 1 (Method)] I understand why you would use all the hidden states for similarity computation, but in NLP, it is also common to just consider the last hidden state or the average across all hidden states for comparison. It would be nice to see more justification of this design choice.
+
+[Response] We actually compute the similarity using the last-layer hidden state (the hidden states output by the final transformer layer before the language modeling head), not all the hidden states. This design is choosed because it provides a strong feature representation similar to Eagle [1], as justified in Lines 334–338. Our other references to "all the hidden states" are meant in a token-level sense rather than a layer-level one. We will clarify this point more explicitly in Line 334, Section 3.1 of the manuscript.
+
+[Weakness 2 (Experiments)] I have no clue how statistically significant the performance retention results are; it would be nice to include error bars (e.g., report the average / standard deviation over 3 seeds) for results such as Figure 6.
+
+[Response] Thanks for the valuable suggestion！We conduct additional experiments on performance retention to further demonstrate the effectiveness of LVSpec, as summarized in Table 1. Specifically, we run experiments using SGLang under three random seeds, and report the average performance as well as its standard deviation. Due to time and resource constraints, we evaluate the Qwen2.5-VL-32B/7B pairing on VDC, VDD, MovieChat, and Video-MME. As shown in the table, LVSpec achieves average performance close to autoregressive decoding (99.5%, 98.7%,96.2%, 103.1%, 103.7%,100.0%) with a small standard deviation (1.0%, 0.7%,1.5%,1.4%, 5.6%,0.0%), further indicating its near-lossless behavior and stability.
+
+R2-Table 1: Average / standard deviation analysis of the retention ratios of LVSpec (w/o PST). The experiment is conducted using Qwen2.5-VL-32B / 7B and VDC benchmark. 
+𝜆
+ = 0.7.
+Method	VDC (Score)	VDC (Acc%)	VDD (Score)	Moviechat (Score)	Moviechat (Acc%)	Video-MME (Short)	Video-MME (Long)
+Autoregressive	1.93	31.27	3.93	2.95	0.54	67.6 ± 0.00	61.8
+LVSpec	1.92 ± 0.02	30.85 ± 0.21	3.78 ± 0.06	3.04 ± 0.04	0.56 ± 0.03	67.6 ± 0.00	61.8 ± 0.00
+Retention Ratio (%)	99.5% ± 1.0%	98.7% ± 0.7%	96.2% ± 1.5%	103.1% ± 1.4%	103.7% ± 5.6%	100.0% ± 0.0%	100.0% ± 0.0%
+
+In addition, LVSpec’s statistically significant performance retention is also reflected in its comparisons with other baselines. Across all model settings and tasks, LVSpec retains at least 93.2% of the original accuracy, outperforming other lossy varients like FLy
+⊖
+ (86.9%) and FLy (86.6%), while achieving substantially higher speedups. We will incorporate this study in Appendix I titled Stability Study.
+
+[Weakness 3 (Experiments)] The authors mention in 4.3 that they also ablate N=5, but I don't see it in the table results.
+
+[Response] Our sensitivity study on the number of critical visual tokens N was intended to capture differences across orders of magnitude (e.g., 1, 10, 100), and we omitted some intermediate, more arbitrary values. We are happy to provide additional results for more choices of N, as shown in Table 2.
+
+R2-Table 2: More ablation study on hyperparameter N.
+Hyperparameter N	Average Accepted Length	Speedup	Retention(%)
+1	7.15	2.46x	94.6
+5	7.26	2.58x	96.3
+10	7.27	2.54x	98.5
+100	7.47	2.65x	93.4
+500	7.44	2.61x	91.4
+
+The conclusion still holds: using too small an N fails to capture sufficient visual cues, whereas using too large an N can partially dilute truly salient information. A moderate choice is generally preferable.
+
+References
+
+[1] EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty. Li et al. ICML 2024.
+
+−
+＝
+≡
+Comments to the Area Chair
+Copy URL of note 1OudyTQaoQ
+Author-Editor Confidential Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)17 Feb 2026, 00:51Program Chairs, Senior Area Chairs, Area Chairs, Authors
+Comment:
+
+Dear Area Chair,
+
+Thank you for organizing the review process for our submission. We fully understand the difficulty of recruiting a sufficient number of reviewers within a limited timeframe.
+
+However, we have noticed that only one review is available until now. To facilitate a more comprehensive discussion, we would greatly appreciate your assistance in inviting additional reviewers to participate in the discussion phase. We look forward to the opportunity to engage in further discussion with more reviewers so that all aspects of our work can be thoroughly evaluated.
+
+Thank you for your time and consideration.
+
+Best regards,
+
+The Authors
+
+−
+＝
+≡
+Author-Editor Confidential Comment by Senior Area Chairs
+Copy URL of note KviDBegIW5
+Author-Editor Confidential Commentby Senior Area Chairs17 Feb 2026, 01:24Program Chairs, Senior Area Chairs, Area Chairs, Authors
+Comment:
+
+We are very sorry that your reviews are late. We are actively working on this and expect the emergency reviews to come in today or tomorrow at the latest.
+
+−
+＝
+≡
+Official Review of Submission3143 by Reviewer Hhmf
+Copy URL of note h4wZSrwdUH
+Official Reviewby Reviewer Hhmf06 Feb 2026, 17:11 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer Hhmf, Commitment ReadersRevisions
+Paper Summary:
+
+This paper tackles the slow inference speed of Video-LLMs. The authors argue that existing Speculative Decoding (SD) methods are too strict because they reject tokens that are different from the target but semantically correct. To solve this, they propose LVSPEC, a training-free "loosely" speculative decoding framework. The key idea is "Visual-Semantic Guidance." It calculates the similarity between text tokens and visual features.
+
+High visual relevance: The token is strictly verified (must match exactly).
+
+Low visual relevance: The token is loosely verified (accepted even if it mismatches, assuming it is just a filler). They also introduce a Position Shift-Tolerant (PST) mechanism to handle order differences. Experiments on Qwen2.5-VL and LLaVA-OneVision show about 2.7x speedup with over 99.8% performance retention on video benchmarks.
+
+Summary Of Strengths:
+
+Impressive Efficiency: The method achieves significant speedups (2.7x - 2.94x) on state-of-the-art models like Qwen2.5-VL-32B, which is a strong practical contribution.
+
+Strong Motivation: The "Oracle Study" effectively demonstrates that only a small portion of generated tokens are visually important "anchors." This justifies the strategy of relaxing verification for "filler" words.
+
+Training-Free: The approach does not require training extra modules or finetuning, making it easy to deploy.
+
+Theoretical Support: The paper provides a mathematical analysis showing why loose verification can theoretically outperform the speed limits of strict verification.-
+
+Summary Of Weaknesses:
+
+Critical Risk in Non-Visual Queries (Major Concern): The method assumes that "low visual similarity" means "unimportant." This is dangerous for text-only or logical queries (e.g., "What is 12+12?" or general knowledge) even when a video is loaded. In these cases, all tokens have low visual relevance. The system might classify critical logic tokens as "fillers" and loosely verify them, potentially accepting hallucinations from the draft model.
+
+Lack of General Safety Testing: The experiments are limited to video captioning and video QA. There are no tests on pure text benchmarks (like MMLU or GSM8K) or video-unrelated questions. It is unclear if this acceleration method degrades the model's general intelligence or factual accuracy.
+
+Static Hyperparameters: The method uses a fixed threshold (
+𝜆
+=
+0.7
+) to determine which tokens are loose. This might not work well for information-dense tasks where every word matters (e.g., reading text from a screen), potentially leading to over-relaxation.
+
+Heuristic Limitations: The visual relevance metric is based on simple cosine similarity. This might fail to capture tokens that are visually irrelevant but linguistically essential (e.g., negations like "not").
+
+Comments Suggestions And Typos:
+
+Robustness Check: I strongly suggest adding an experiment with text-only questions (e.g., logic or math) while a video is in the context. If the model performance drops or hallucinations increase, the method needs a fallback mechanism (e.g., disabling LVSPEC when visual relevance is globally low).
+
+Clarification: Please explain what happens if the user asks a question unrelated to the video. Does the model blindly accept the draft tokens because they don't look like the video?
+
+Typos:
+
+Figure 1: "visual-irrlevant" should be "visual-irrelevant."
+Table 1 caption: "mean accepted length 7" seems to be a typo for the symbol 
+𝜏
+.
+Confidence: 4 = Quite sure. I tried to check the important points carefully. It's unlikely, though conceivable, that I missed something that should affect my ratings.
+Soundness: 3 = Acceptable: This study provides sufficient support for its main claims. Some minor points may need extra support or details.
+Excitement: 3 = Interesting: I might mention some points of this paper to others and/or attend its presentation in a conference if there's time.
+Overall Assessment: 3 = Findings: I think this paper could be accepted to the Findings of the ACL.
+Ethical Concerns:
+
+There are no concerns with this submission
+
+Needs Ethics Review: No
+Reproducibility: 4 = They could mostly reproduce the results, but there may be some variation because of sample variance or minor variations in their interpretation of the protocol or method.
+Datasets: 1 = No usable datasets submitted.
+Software: 4 = Useful: I would recommend the new software to other researchers or developers for their ongoing work.
+Knowledge Of Or Educated Guess At Author Identity: No
+Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Knowledge Of Paper Source: N/A, I do not know anything about the paper from outside sources
+Impact Of Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Reviewer Certification: I certify that the review I entered accurately reflects my assessment of the work. If you used any type of automated tool to help you craft your review, I hereby certify that its use was restricted to improving grammar and style, and the substance of the review is either my own work or the work of an acknowledged secondary reviewer.
+Publication Ethics Policy Compliance: I used a privacy-preserving tool exclusively for the use case(s) approved by PEC policy, such as language edits
+−
+＝
+≡
+Follow-up Discussion with Reviewer Hhmf
+Copy URL of note XBMYq0mWJB
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)22 Feb 2026, 18:28 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer Hhmf, Commitment ReadersRevisions
+Comment:
+
+Dear Reviewer Hhmf,
+
+We hope this message finds you well. As the discussion phase enters its final hours, we would like to kindly follow up on our rebuttal to ensure all your concerns have been fully addressed.
+
+We have meticulously resolved the points you raised through the following strategic updates:
+
+Risk in Non-Visual Queries (Major Concern): We clarified that our research is focused on the visual grounding tasks for Video LLMs. Text-only setting fall outside the scope of our method, and are more appropriately handled by engineering effort such as system-level routing and fallback mechanism as you suggest.
+General Safety Testing and Robustness Check: We have followed your suggestion to conduct experiments on text-only task (GSM8K) and video-unrelated query. We validate the stability of LVSpec and summarize the experiments in Appendix I titled General Safety Testing.
+Hyperparameter and Heuristic: We examine the insensitivity of 
+𝜆
+ and discuss the design choice of LVSpec. We appreciate your suggestions and summarize the discussions in Appendix K.
+
+We are proud that these enhancements have solidified the paper’s contribution as a novel exploration of loosely speculative decoding for Video LLMs. We believe our work provides substantial value to the community, through the impressive efficiency, strong motivation, and theoretical support which you highlighted as a key strength.
+
+If our responses and manuscript updates have successfully resolved your concerns, we kindly invite you to consider re-evaluating and updating your score to reflect the current quality and contribution of the paper. We remain eager to address any remaining feedback you may have in these final hours.
+
+Thank you again for your valuable time and insights.
+
+Best regards,
+
+The Authors
+
+−
+＝
+≡
+Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)
+Copy URL of note X9AWIlsrAl
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)21 Feb 2026, 22:56 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer Hhmf, Commitment ReadersRevisions
+Comment:
+
+Dear Reviewer Hhmf,
+
+We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards.
+
+Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have.
+
+Looking forward to hearing from you!
+
+Best regards,
+
+Authors
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer Hhmf (Comments Suggestions 2 & Typos)
+Copy URL of note QGgF74dtUB
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)20 Feb 2026, 19:04 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer Hhmf, Commitment ReadersRevisions
+Comment:
+
+[Comments Suggestion 2] Clarification: Please explain what happens if the user asks a question unrelated to the video. Does the model blindly accept the draft tokens because they don't look like the video?
+
+[Response] Please refer to Response to Weakness 1&2 for detailed clarification and experiment. In short, our research scope lies in visual grounding (visual understanding), which is essential in Video LLMs. If visual-unrelated queries are forced into the system, it may not function properly in theory. However, we do not recommend such usage, and a straightforward potential solution is to incorporate a fallback mechanism (the robustness is validated in Response to Weakness 2). We argue that such corner cases should be handled by system-level routing mechanisms in production environments.
+
+[Typos] (1) Figure 1: "visual-irrlevant" should be "visual-irrelevant." (2) Table 1 caption: "mean accepted length 7" seems to be a typo for the symbol 
+𝜏
+.
+
+[Response] Thanks for pointing out these typos. We will revise the caption of Figure 1 to "visual-irrelevant". However, the typo in the caption of Table 1 appears to be a recognition error, and the symbol "mean accepted length 
+𝜏
+" is correct in our original manuscript.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer Hhmf (Weakness 3~4)
+Copy URL of note X3dQ0bAy0R
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)20 Feb 2026, 19:03 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer Hhmf, Commitment ReadersRevisions
+Comment:
+
+Weakness 3: Static Hyperparameters: The method uses a fixed threshold (
+𝜆
+=0.7) to determine which tokens are loose. This might not work well for information-dense tasks where every word matters (e.g., reading text from a screen), potentially leading to over-relaxation.
+
+[Response] Hyperparameters are indeed an important issue. We have studied the sensitivity of our method to 
+𝜆
+ in Section 4.3 and further discussed it in the Limitation section. The results are summarized in Table 2 for better clarity. Our method is generally insensitive to the loose hyperparameter 
+𝜆
+ when 
+𝜆
+≤
+0.7
+. Therefore, users can flexibly tune this parameter according to their inference latency requirements. When generalizing to tasks with substantially higher or lower visual information density, tuning 
+𝜆
+ may be required.
+
+Based on the effectiveness of our method under a fixed threshold, we intentionally maintain a simple and effective design. We acknowledge that a task-adaptive threshold could potentially further improve performance. However, as a training-free approach, we consider this limitation a necessary trade-off, since such tasks are relatively rare and our method’s performance has already been validated on mainstream benchmarks.
+
+R1-Table 2: The insensitivity of 
+𝜆
+ enables a flexible tuning to balance quality and efficiency.
+Value	Mean Accepted Length	Speedup	Retention Ratio (%)
+0.0	3.41	1.40x	100
+0.2	4.12	1.55x	99.3
+0.5	5.83	2.14x	97.8
+0.7	7.27	2.54x	98.5
+0.9	8.97	3.03x	92.8
+
+Weakness 4: Heuristic Limitations: The visual relevance metric is based on simple cosine similarity. This might fail to capture tokens that are visually irrelevant but linguistically essential (e.g., negations like "not").
+
+[Response] We have recognized this minor issue and have discussed it in both the Limitations and Appendix K. We acknowledge that some cases may involve tokens that are visually irrelevant yet logically critical (e.g., ``not''). We further address this concern from the following three perspectives.
+
+(1) Our method primarily aims to explore the performance boundary of loosely speculative decoding on mainstream video understanding tasks, and to provide a empirically validated solution that is effective under common model settings. Although such cases can arise in theory, the proportion of visually irrelevant but harmful draft tokens is small in descriptive output patterns, and the impact on overall performance is limited according to empirical results according to Figure 6 and Table 7 in the paper.
+
+(2) When the output patterns do contain substantial visually irrelevant yet logically critical tokens, improvements can be directly made upon LVSpec. First, we can augment the visual relevance metric with additional heuristics (e.g., entropy) to identify non-visual keywords. This would not undermine the role of the visual relevance metric since visually grounded tokens still remain critical. Second, when such tokens cannot be reliably identified, a simple fallback to strict verification can be used to avoid performance degradation.
+
+(3) Potential failure cases are a shared issue in the area of loosely speculative decoding. JudgeDecoding [1] can degrade in quality when encountering out-of-domain inputs or output patterns unseen during training. FLy [2] treats a current mismatch as a synonym if it is followed by several matches, which may inadvertently accept drafts that preserve superficial structural consistency but are nonetheless lower-quality than the target model’s output.
+
+Reference
+
+[1] Judge Decoding: Faster Speculative Sampling Requires Going Beyond Model Alignment. Sanakoyeu et al. ICLR 2025.
+
+[2] Training-Free Loosely Speculative Decoding: Accepting Semantically Correct Drafts Beyond Exact Match. Li et al. ICLR 2026.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer Hhmf (Weakness 2 & Comments Suggestions 1)
+Copy URL of note Ht5E13p9bY
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)20 Feb 2026, 19:02 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer Hhmf, Commitment ReadersRevisions
+Comment:
+
+[Weakness 2 & Comments Suggestion 1] (1) Lack of General Safety Testing: The experiments are limited to video captioning and video QA. There are no tests on pure text benchmarks (like MMLU or GSM8K) or video-unrelated questions. It is unclear if this acceleration method degrades the model's general intelligence or factual accuracy. (2) Robustness Check: I strongly suggest adding an experiment with text-only questions (e.g., logic or math) while a video is in the context. If the model performance drops or hallucinations increase, the method needs a fallback mechanism (e.g., disabling LVSPEC when visual relevance is globally low).
+
+[Response] Thank you for the suggestion. We address your concern from both theoretical and empirical perspectives.
+
+Theoretical Feasibility
+
+LVSpec calculates visual relevance metric to perform subsequent relaxed verfication strategy. Since the visual relevance metric is designed for visual grounding scenarios, we believe this setting falls outside its applicable range even if a fake video is in the context. Theoretically, for the text-only setting, our relaxed verification strategy falls back to text domain methods (e.g., FLy [1]). However, we do not recommend the model-serving provider (Qwen, OpenAI, Gemini) to route such text-only or visually unrelated queries to VLMs in the first place. Instead, they should be directed to LLMs, given their stronger performance on such tasks [2].
+
+Empirical Results
+
+Even though the above experiment is not directly applicable in theory, we attempt to construct such inputs and handle such corner cases to empirically evaluate the robustness after fallback. We have added experiments on GSM8K (both text-only and loading an unrelated video) in Table 1-1 and Table 1-2. Specifically, we use Qwen2.5-VL-32B and Qwen2.5-VL-7B as target and draft model, and set shots number = 5 and draft length = 10. Hyperparamter is set: (1) window_size = 2, (2) entropy_gate = 0.1. As shown in the table, loosely verified speculative decoding methods for VLMs can still maintain near-lossless (99.2% and 98.8%) performance on pure text task, demonstrating its conservative nature.
+
+R1-Table 1-1: Results using Qwen2.5-VL-32B and Qwen2.5-VL-7B as target and draft model on GSM8K (Text-Only).
+Method	Mean Accepted Length	Accuracy (%)	Retention Ratio (%)
+Naive SD	5.71	95.5	100
++LVSpec (fall back to FLy)	5.89	94.4	98.8
+Update 2.20 (Experiment Using Unrelated Videos)
+R1-Table 1-2: Results using Qwen2.5-VL-32B and Qwen2.5-VL-7B as target and draft model on GSM8K (Unrelated Videos).
+Method	Mean Accepted Length	Accuracy (%)	Retention Ratio (%)
+Naive SD	6.03	95.5	100
++LVSpec (fall back to FLy)	6.40	94.7	99.2
+Update 2.21 (Experiment Using Unrelated Videos)
+
+For the above case involving mathematical reasoning queries paired with unrelated videos, we also conduct experiments using LVSpec without fallback, as summarized in Tables 1–3. Due to time and resource constraints, we evaluate on a subset of the test set (300 queries). Although we do not recommend such usage for VLMs, by setting a conservative relaxation parameter 
+𝜆
+=
+0.1
+, we find that LVSpec can still maintain lossless performance (100.1%), demonstrating its safety. We attribute this to the fact that even in text-only tasks, not all tokens require strict matching (consistent with the finding in [3]), thus a conservative loosened verification strategy remains robust.
+
+R1-Table 1-3: Results using Qwen2.5-VL-32B and Qwen2.5-VL-7B as target and draft model on GSM8K (Unrelated Videos).
+Method	Mean Accepted Length	Accuracy (%)	Retention Ratio (%)
+Naive SD	6.02	96.2	100
++LVSpec (
+𝜆
+=
+0.1
+)	6.15	96.3	100.1
+
+We will summarize the above experiments in Appendix I titled General Safety Testing.
+
+Reference
+
+[1] Training-Free Loosely Speculative Decoding: Accepting Semantically Correct Drafts Beyond Exact Match. Li et al. ICLR 2026.
+
+[2] Qwen2.5-VL Technical Report. 2025.
+
+[3] Judge Decoding: Faster Speculative Sampling Requires Going Beyond Model Alignment. Sanakoyeu et al. ICLR 2025.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer Hhmf (Weakness 1)
+Copy URL of note wip6Qo6yRK
+Official Commentby Authors (Jinpeng Chen, Huan Li, Gang Chen, Jun Zhang, +3 more)20 Feb 2026, 19:02 (modified: 18 Mar 2026, 00:05)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer Hhmf, Commitment ReadersRevisions
+Comment:
+
+[Weakness 1] Critical Risk in Non-Visual Queries (Major Concern): The method assumes that "low visual similarity" means "unimportant." This is dangerous for text-only or logical queries (e.g., "What is 12+12?" or general knowledge) even when a video is loaded. In these cases, all tokens have low visual relevance. The system might classify critical logic tokens as "fillers" and loosely verify them, potentially accepting hallucinations from the draft model.
+
+[Response] Thanks for your response. It is important to reiterate the research scope of LVSpec. Our study focuses on inference for visual grounding tasks in Video-LLMs, and we argue that text-only tasks fall outside the research scope of our work. We believe this edge case is more relevant to practical deployment (mixed visual grounding and text-only queries) as an engineering setup, and we are happy to discuss it further. We will elaborate on this from the following perspectives:
+
+Fundamental Differences Between Text-Only and Visual Grounding Study
+
+Our research falls within the scope of visual grounding (visual understanding), which requires establishing correspondence between linguistic expressions and visual content and performing understanding or localization based on visual evidence (e.g., visual question answering, visual captioning). We believe the mentioned "text-only queries when an unrelated video is loaded" does not belong to this category. In essence, it remains a text domain task or edge case.
+
+The most fundamental difference between text-only and visual grounding research lies in the interaction with visual content, which directly leads to substantial differences in their model training, task formulations, and technical approaches. Unlike LLMs, vision–language models (VLMs) require specialized designs to encode and process visual inputs and to account for the internal information flow between visual and textual modalities, rather than treating them as unrelated components. These distinctions clearly separate visual grounding research from text-only studies, making technologies for visual grounding both necessary and an important research area apart from the text domain.
+
+Established Practice in Vision–Language Model Research
+
+Moreover, existing research based on VLMs also typically focuses within the scope of visual grounding. Mainstream technical approaches such as token compression [1,2] and KV cache optimization for VLMs [3] are developed and evaluated on visual grounding tasks (e.g., visual question answering and visual captioning), and are rarely studied in text-only settings or when the video is unrelated to the query. Therefore, we believe that evaluating LVSpec on various visual grounding tasks is sufficient to demonstrate our contributions.
+
+In conclusion, we believe that addressing the inference efficiency of VLMs with a simple yet effective approach is already highly promising. We understand that in practical deployment scenarios, VLMs may receive purely textual queries or queries unrelated to the video content. But that such cases fall outside the scope of our method rather than constituting its limitations, and are more appropriately handled by engineering effort such as system-level routing and fallback mechanism as you mentioned. To maintain the focus of our research, we concentrate on the properties and challenges of visual grounding. And we believe the community can build upon our strong empirical performance and simple yet effective method to pursue further research in this direction.
+
+Reference
+
+[1] An Image is Worth 1/2 Tokens After Layer 2: Plug-and-PLay Acceleration for VLLM Inference. Chen et al. ECCV 2024.
+
+[2] SparseVLM: Visual Token Sparsification for Efficient Vision-Language Model Inference. Zhang et al. ICML 2025.
+
+[3] LOOK-M: Look-Once Optimization in KV Cache for Efficient Multimodal Long-Context Inference. Wan et al. EMNLP 2024.

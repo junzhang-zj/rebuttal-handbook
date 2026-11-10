@@ -1,0 +1,713 @@
+4 Versions 
+FloE: On-the-Fly MoE Inference on Memory-constrained GPU
+Yuxin Zhou, zheng li, Jun Zhang, Jue WANG, Yiping Wang, Zhongle Xie, Ke Chen, Lidan Shou
+Published: 01 May 2025, Last Modified: 24 Jul 2025
+ICML 2025 poster
+Everyone
+Revisions
+BibTeX
+CC BY-NC 4.0
+Verify Author List: I have double-checked the author list and understand that additions and removals will not be allowed after the abstract submission deadline.
+TL;DR: An on-the-fly MoE inference system on memory-constrained GPU, founded on the insight that substantial untapped redundancy exists within sparsely activated experts.
+Abstract:
+
+With the widespread adoption of Mixture-of-Experts (MoE) models, there is a growing demand for efficient inference on memory-constrained devices. While offloading expert parameters to CPU memory and loading activated experts on demand has emerged as a potential solution, the large size of activated experts overburdens the limited PCIe bandwidth, hindering the effectiveness in latency-sensitive scenarios. To mitigate this, we propose FloE, an on-the-fly MoE inference system on memory-constrained GPUs. FloE is built on the insight that there exists substantial untapped redundancy within sparsely activated experts. It employs various compression techniques on the expert's internal parameter matrices to reduce the data movement load, combined with low-cost sparse prediction, achieving perceptible inference acceleration in wall-clock time on resource-constrained devices. Empirically, FloE achieves a 9.3
+×
+ compression of parameters per expert in Mixtral-8
+×
+7B; enables deployment on a GPU with only 11GB VRAM, reducing the memory footprint by up to 8.5
+×
+; and delivers a 48.7
+×
+ inference speedup compared to DeepSpeed-MII on a single GeForce RTX 3090—all with only a 4.4% 
+∼
+ 7.6% average performance degradation.
+
+Lay Summary:
+
+Language models known as "Mixture-of-Experts" (MoE) are powerful tools, but their huge size makes it difficult to run them quickly on devices with limited memory, such as consumer-grade GPUs. To manage this, some systems temporarily store model parts on slower memory (e.g., CPU main memory) and load them only when needed—but this method is slow, especially when quick responses are crucial. We developed a new approach called FloE, which cleverly compresses parts of these models to significantly speed up the process. FloE finds hidden redundancies within the model's expert components—essentially, unnecessary details that can be trimmed without significantly harming accuracy. By reducing the size of the experts’ internal data, FloE lets these large models fit comfortably into small memory spaces. Our tests show that FloE makes these models almost 49 times faster on common GPUs and reduces the memory requirement dramatically, all while maintaining excellent performance. This advancement makes powerful machine learning tools accessible for more users, even with limited hardware resources.
+
+Verify Author Names: My co-authors have confirmed that their names are spelled correctly both on OpenReview and in the camera-ready PDF. (If needed, please update ‘Preferred Name’ in OpenReview to match the PDF.)
+No Additional Revisions: I understand that after the May 29 deadline, the camera-ready submission cannot be revised before the conference. I have verified with all authors that they approve of this version.
+Pdf Appendices: My camera-ready PDF file contains both the main text (not exceeding the page limits) and all appendices that I wish to include. I understand that any other supplementary material (e.g., separate files previously uploaded to OpenReview) will not be visible in the PMLR proceedings.
+Latest Style File: I have compiled the camera ready paper with the latest ICML2025 style files <https://media.icml.cc/Conferences/ICML2025/Styles/icml2025.zip> and the compiled PDF includes an unnumbered Impact Statement section.
+Paper Verification Code: Zjk4Z
+Reciprocal Reviewing Status: This submission is NOT exempt from the Reciprocal Reviewing requirement. (We expect most submissions to fall in this category.)
+Permissions Form:  pdf
+Primary Area: Deep Learning->Large Language Models
+Keywords: Mixture-of-Experts, Efficient Inference, Model Compression, Experts Offloading
+Reciprocal Reviewing Author:  Jue WANG
+Ethics Agreement: I certify that all co-authors of this work have read and committed to adhering to the Call for Papers, Author Instructions, and Publication Ethics.
+Submission Number: 6552
+Filter by reply type...
+Filter by author...
+Sort: Newest First
+Sort: Oldest First
+Linear
+Threaded
+Nested
+−
+Collapsed
+＝
+Default
+≡
+Expanded
+Copy link
+Everyone
+Program Chairs
+Submission6552...
+Submission6552 Area...
+Submission6552 Authors
+Submission6552...
+Reset
+19 / 19 replies shown
+Add:Retraction
+−
+＝
+≡
+Paper Decision
+Copy URL of note cAGENgqIAd
+Decisionby Program Chairs01 May 2025, 14:09 (modified: 18 Jun 2025, 20:30)EveryoneRevisions
+Decision: Accept (poster)
+Comment:
+
+The authors propose the FloE algorithm, a mixture of experts (MoE) inference system on memory constrained GPUs, that uses various compression techniques on the experts' internal parameter matrices to reduce data movement load to the GPU. Overall the paper received 3 favorable reviews and one slightly negative review of weak accept. Amongst the positives comments are that the work has a good experimental setup, it is a well written paper, and that the work seems to offer improvements in efficiency and performance. The reviewers point a lack of theoretical justification for the method as part of the negatives as well as a lack of a deeper investigation of failure cases. Overall I did not notice any deal-breaker comments that would make me reject the paper, so I am leaning towards acceptance.
+
+−
+＝
+≡
+General Response & Summary of the Discussion Period
+Copy URL of note Yq7RSYACyP
+Author AC Confidential Commentsby Authors (Zhongle Xie, Yuxin Zhou, Jun Zhang, Yiping Wang, +4 more)09 Apr 2025, 19:48 (modified: 09 Apr 2025, 22:36)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+Comment:
+
+For clarity, we refer to Reviewers oREx, u26i, bhnT, and ZXAh as R1, R2, R3, and R4, respectively.
+
+We sincerely thank all reviewers for their thoughtful feedback. We are encouraged by their recognition of the key contributions and strengths of our work. In particular, we deeply appreciate their acknowledgment of the importance of our research problem, which addresses the critical challenge of enabling efficient inference of MoE models on resource-constrained devices in latency-sensitive scenarios (R1, R2, R3, R4). The efficacy of our approach (R1, R2, R4) has motivated us to pursue open-source dissemination to foster reproducibility and community adoption (R4). We also appreciate the recognition of the rigorous theoretical claim and proof of FloE as a cornerstone of our work’s validity (R4), and the acknowledgment of our comprehensive experiments (R1, R2, R3, R4).
+
+We have carefully addressed each individual comment provided by the reviewers. Below, we summarize the core contributions of our study, updates to our experiments, and discussions during Rebuttal.
+
+Core Contributions of Our Work
+Novel Inference System: We propose FloE, an on-the-fly MoE inference system designed for memory-constrained GPUs, leveraging untapped redundancy in sparsely activated experts to enhance performance.
+Effective Compression Scheme: FloE introduces new hybrid compression techniques to reduce the data movement load of expert parameter matrices, combined with low-cost sparse prediction, achieving significant inference acceleration on resource-constrained devices.
+Efficient System Optimization: We introduce an efficient sparse kernel and a compact asynchronous transfer mechanism from DRAM to VRAM, boosting system-wide efficiency.
+Extensive Experimental Evaluation: FloE achieves 9.3× parameter compression per expert in Mixtral-8×7B, enabling deployment on a GPU with only 11GB VRAM and reducing the memory footprint by up to 8.5×. It delivers a 48.7× inference speedup compared to DeepSpeed-MII on a single GeForce RTX 3090, with only a 4.4%–7.6% average performance degradation.
+Updates on Experiments and Discussions
+
+Impact of Compression on Routing Distribution:
+We measured the shift in routing logits due to compression and found consistent results with downstream task performance. Our method induces significantly less distortion in the routing distribution compared to other baselines with the same sparsity ratio, aligning with the theoretical proof in Appendix B.
+
+Retaining Degraded Experts:
+In our compression scheme, we applied uniform sparsity across experts and measured the L2 norm of output errors before and after expert compression. Compression of experts in the 30th and 31st layers caused the most degradation. By preserving these layers as non-sparse, the model showed improvements of 1.3 on the MMLU benchmark and a 1.66 average gain across six CSR tasks.
+
+Evaluation on Other MoE Models and Tasks:
+We incorporated advanced baselines, Llama3.2-3B and Mistral-7B, to highlight the advantages of our method over distillation or smaller model deployment. We also added experimental results for MMLU (5-shot), GSM8K (8-shot), and HumanEval, confirming FloE's strong generalizability across models and downstream tasks.
+
+Evaluation of GPU Utilization and Predictor Latency:
+On the ShareGPT corpus, GPU utilization was 63.2% during 50 forward passes with 20 tokens each. Despite large matrix dimensions on consumer GPUs, GPU utilization remained reasonably high in practice.The inter-expert sparse predictor latency is 0.11 ms, while the intra-expert predictor’s latency is 0.27 ms. Compared to the average execution time of 5.74 ms for a single FloE Transformer block, these latencies contribute only 1.9% and 4.7% to the total execution time, showing minimal impact on generation speed.
+
+Clarification of the Research Focus:
+Our work focuses on addressing the challenge where substantial latency occurs during inference due to parameter transfers between DRAM and VRAM, by reducing weight transfer latency while preserving model accuracy through a hybrid compression strategy paired with a prediction mechanism.
+
+FloE's Compatibility with Dense Models:
+We evaluated the quantization and sparsification sensitivity on Mistral-7B, with results consistent with our findings on MoE models, demonstrating FloE’s robustness across model types.
+
+We sincerely appreciate the time and effort the Area Chairs have dedicated to reviewing our submission. We recognize the challenges of reviewing within limited time constraints and are grateful for the reviewers' valuable suggestions. Based on our thorough responses and revisions, we hope the revised manuscript will receive a fair evaluation.
+
+Wishing you a pleasant day ahead.
+
+Authors
+
+−
+＝
+≡
+Official Review of Submission6552 by Reviewer oREx
+Copy URL of note qhnvvPrtPb
+Official Reviewby Reviewer oREx16 Mar 2025, 23:46 (modified: 18 Jun 2025, 17:41)EveryoneRevisions
+Summary:
+
+The paper presents FloE, a system for on-the-fly inference of Mixture-of-Experts (MoE) models on memory-constrained GPUs. It addresses the challenge of high memory and I/O overhead in MoE inference by introducing a hybrid compression strategy, which combines contextual sparsification of gate and down projection matrices with ultra-low-bit quantization of up projection matrices. Additionally, FloE leverages learning-based expert sparsity predictors to reduce the overhead of expert offloading while maintaining inference efficiency. Experimental results show that FloE achieves a 9.3× parameter compression per expert, enables inference on a GPU with only 11GB VRAM, and delivers a 48.7× speedup over DeepSpeed-MII on an RTX 3090, with only 4.4%–7.6% accuracy degradation.
+
+Claims And Evidence:
+
+The paper makes claims about compressing experts in MoE models while maintaining accuracy, demonstrating 4.4%–7.6% accuracy degradation through empirical results. However, this trade-off is non-trivial, as it remains unclear how compression affects routing behavior and knowledge retention within experts.
+
+A key concern is the lack of theoretical justification for why the proposed hybrid compression strategy—contextual sparsification for gate/down projections and ultra-low-bit quantization for up projections—preserves model performance. While empirical results show competitive accuracy, the paper does not provide a formal analysis of how different compression techniques influence expert activation patterns, routing stability, or downstream generalization.
+
+Without a deeper theoretical understanding, it is difficult to assess whether the observed accuracy retention is inherent to the method or merely specific to the evaluated models and tasks. This raises concerns about the generality of the approach across different MoE architectures (e.g., DeepSeek-MoE, Switch Transformers) and long-form inference stability, where routing mispredictions might accumulate.
+
+To strengthen its claims, the paper would benefit from:
+
+A theoretical analysis of how expert sparsification and quantization affect routing distributions and model expressiveness.
+A deeper investigation into failure cases, such as whether certain compressed experts become underutilized or degrade faster than others.
+Additional studies on compression effects across different MoE models and more diverse tasks, to validate generalization beyond Mixtral-8×7B. For instance, how does DeepSeek-v2 or v3 behave in your system? Other open-source MoE models also include the Arctic model from SnowFlake.
+Methods And Evaluation Criteria:
+
+The paper presents a strong evaluation setup, including multiple baselines (DeepSpeed-MII, Mixtral-Offloading, Fiddler), datasets, and diverse GPU configurations (RTX 3090, A100, H100, A6000). This comprehensive benchmarking makes the results more convincing. However, testing on more advanced MoE models (e.g., DeepSeek-MoE, Switch Transformers) would provide stronger evidence of FloE’s generalizability across architectures with different routing mechanisms.
+
+A 7% accuracy loss is non-trivial, raising the question of whether model distillation could achieve a similar efficiency gain with lower accuracy degradation. Comparing FloE with distilled MoE models or smaller dense alternatives would clarify its trade-offs. I would not expect a real comparison here but I would need some justification that 4 -7 % accuracy loss is something we can expect better than distillation and make the proposed method valuable for the MoE model community (the proposed approach is indeed easier to be deployed since it does require the expensive distillation process, which I have been convinced). Additionally, the paper could discuss how much accuracy loss is acceptable in real applications, as the impact varies across tasks.
+
+Theoretical Claims:
+
+Like I said above, strong theoretical understanding would significantly strengthen the soundness of the proposed approach.
+
+Experimental Designs Or Analyses:
+
+Check my review above.
+
+Supplementary Material:
+
+N/A
+
+Relation To Broader Scientific Literature:
+
+Yes, it is related to a broad scientific literature, since it aligns with key ML topics, such as MoE architecture, compression, sparsity and system designs.
+
+Essential References Not Discussed:
+
+This paper did a good job of covering most key references in MoE inference systems.
+
+Other Strengths And Weaknesses:
+
+See my review above.
+
+Other Comments Or Suggestions:
+
+See my review above.
+
+Questions For Authors:
+
+See my review above.
+
+Code Of Conduct: Affirmed.
+Overall Recommendation: 3: Weak accept (i.e., leaning towards accept, but could also be rejected)
+−
+＝
+≡
+Rebuttal by Authors
+Copy URL of note OUrtNoixQv
+Rebuttalby Authors (Zhongle Xie, Yuxin Zhou, Jun Zhang, Yiping Wang, +4 more)01 Apr 2025, 11:16 (modified: 18 Jun 2025, 18:53)EveryoneRevisions
+Rebuttal:
+
+Dear reviewer oREx,
+
+Thanks for your careful review. We summarize and address your key concerns as follows:
+
+[Suggestion 1] A theoretical analysis of how expert sparsification and quantization affect routing distributions and model expressiveness.
+
+[Response] In Appendix B, we provide a detailed theoretical proof explaining the sparsity sensitivity differences observed in models with SiLU activations. Based on the distribution characteristics of the three matrices, we demonstrate why the output activations of the up projection exhibit lower sparsity sensitivity. Additionally, in lines 190 - 201 (Section 2.2.2), we offer qualitative analysis regarding the quantization sensitivity differences.
+
+The impact of compression methods on routing was evaluated by performing 500 forward passes on the ShareGPT corpus. We measured the shift in routing logits caused by compression and found the results to be consistent with downstream task performance. Our method induces significantly less distortion to the routing distribution compared to other baselines with the same sparsity ratio. This observation aligns with the theoretical proof provided in Appendix B, further validating our approach.
+
+[Suggestion 2] A deeper investigation into failure cases, such as whether certain compressed experts become underutilized or degrade faster than others.
+
+[Response] In our current compression scheme that applies a uniform sparsity ratio to all experts, we have supplemented additional tests measuring the L2 norm of output errors before and after expert compression to investigate failure cases (as shown in expert sparsity loss figure). Our findings revealed that compression of experts in the 30th and 31st layers induces the most pronounced performance degradation. When preserving these critical layers as non-sparse, the model showed improvements of 1.3 on the MMLU benchmark and an average gain of 1.66 across six CSR tasks (BoolQ, SciQ, ARC-C, ARC-E, QA and WG).
+
+These empirical results substantiate our hypothesis regarding layer-specific compression sensitivity. Accordingly, we develop to implement more fine-grained compression by selectively reducing the sparsity ratio for these critical experts, which can better preserve model performance while maintaining compression benefits.
+
+[Suggestion 3] Additional studies on compression effects across different MoE models and more diverse tasks, to validate generalization beyond Mixtral-8×7B. For instance, how does DeepSeek-v2 or v3 behave in your system? Other open-source MoE models also include the Arctic model from SnowFlake.
+
+[Response] In the Appendix E and F, we evaluate the sparsity sensitivity of Deepseek V2 and Phi 3.5, as well as the quantization sensitivity of Phi 3.5, Qwen 1.5A 2.7B, and Deepseek MoE. These results are consistent with the conclusions on Mixtral 8×7B, further validating our findings. Furthermore, we have supplemented the experimental results for MMLU (5-shot), GSM8K (8-shot), and HumanEval, providing a comprehensive comparison between FloE and the baseline models. These results demonstrate the strong generalizability of our method across different models and downstream tasks.
+
+[Experiment Issue] Is the accuracy loss caused by FloE's compression sufficiently competitive compared to model distillation or direct deployment of smaller models?
+
+Comparing with smaller non-compressed models is indeed crucial. However, due to time and resource constraints, we were unable to distill smaller models and instead chose the more advanced Llama3.2-3B and Mistral-7B as baselines for comparison. More details refer to the response to Reviewer bhnT.
+
+We evaluated performance on three complex downstream tasks: MMLU, GSM8K, and HumanEval, which pose significant challenges for both small distilled models and sparse methods. Our method not only exhibits the least performance degradation among sparse baselines but also outperforms smaller models of similar scale across tasks. Despite retaining only 93% of the base model's accuracy on these tasks, it significantly surpasses other baselines. (Resualt Table in response to Reviewer bhnT)
+
+Thus, we argue that appropriately compressing larger models is more competitive than directly deploying or distilling smaller models, especially in scenarios involving resource-constrained environments and complex reasoning tasks.
+
+Cheers,
+
+Authors
+
+Results Table:
+Router Logits Shift
+Sparsity (%)	50	60	70	80	90
+FloE	0.9941	0.9888	0.9794	0.9607	0.9212
+CATS	0.9744	0.9626	0.9455	0.9181	0.8608
+Downstream Task Performance of Pin Higher Layer
+Model	MMLU-5 shot (Acc)	CSR (Acc)
+FloE-80	65.4	68.77
+FloE-80 pin 30 & 31	66.7	70.43
+−
+＝
+≡
+ Replying to Rebuttal by Authors
+Rebuttal Acknowledgement by Reviewer oREx
+Copy URL of note tMGh2O3Vqc
+Rebuttal Acknowledgementby Reviewer oREx03 Apr 2025, 19:23Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors
+Acknowledgement: I confirm that I have read the author response to my review and will update my review in light of this response as necessary.
+−
+＝
+≡
+We submit a comprehensive rebuttal thoroughly addressing Reviewer oREx's theoretical, empirical, and comparative concerns through rigorous validation, supplemental experiments, and extended benchmarking across diverse MoE architectures and tasks, while respectfully requesting acknowledgment of our efforts to resolve all raised issues.
+Copy URL of note gmurpB5fE0
+Author AC Confidential Commentsby Authors (Zhongle Xie, Yuxin Zhou, Jun Zhang, Yiping Wang, +4 more)06 Apr 2025, 20:25 (modified: 06 Apr 2025, 20:28)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+Comment:
+
+Dear ICML 2025 AC, SAC, and PC,
+
+We sincerely thank the Area Chairs for their diligent oversight, which has fostered a constructive review process. We are also grateful to the reviewers for their valuable feedback, all of which we have carefully addressed through corresponding discussions and experiments. we have yet to receive a response from Reviewer oREx, who raised three suggestions and one experimental concern:
+
+Reviewer oREx's Concerns
+
+• Suggestions:
+
+Provide a theoretical analysis of how expert sparsification and quantization influence routing distributions and model expressiveness.
+Conduct a deeper investigation into failure cases.
+Conduct additional studies on compression effects across different MoE models and more diverse tasks.
+
+• Experiment Issue: Determine whether the accuracy loss caused by FloE's compression is sufficiently competitive compared to model distillation or direct deployment of smaller models.
+
+Our Responses
+
+• Theoretical Analysis:
+
+In Appendix B, we present a detailed theoretical proof elucidating the sparsity sensitivity differences in models with SiLU activations.
+Additionally, in lines 190–201 (Section 2.2.2), we offer a qualitative analysis of the quantization sensitivity differences.
+Our method causes significantly less distortion to the routing distribution compared to other baselines at the same sparsity ratio. This finding corroborates the theoretical proof in Appendix B, further validating our approach.
+
+• Failure Case Investigation:
+
+We have supplemented additional tests measuring the L2 norm of output errors before and after expert compression.
+Preliminary experimental results corroborate our conclusions.
+
+• Evaluation on Other MoE Models and More Tasks:
+
+In Appendices E and F, we assess the sparsity sensitivity of Deepseek V2 and Phi 3.5, along with the quantization sensitivity of Phi 3.5, Qwen 1.5A 2.7B, and Deepseek MoE.
+These results align with those on Mixtral 8×7B, further validating our findings.
+Moreover, we have added experimental results for MMLU (5-shot), GSM8K (8-shot), and HumanEval, providing a comprehensive comparison between FloE and the baseline models, demonstrating the strong generalizability of our method across different models and downstream tasks.
+
+• Comparison with Baselines:
+
+We have incorporated more advanced baselines, Llama3.2-3B and Mistral-7B, to highlight the advantages of our method over model distillation or direct deployment of smaller models.
+
+With only three days remaining for the discussion, we have not received any response regarding our first-round rebuttal since receiving the acknowledgment. We sincerely and respectfully hope that the reviewer can confirm that the acknowledgment indicates our response has satisfactorily addressed their concerns. We sincerely hope for a fair evaluation, given that the issues raised by the reviewer have been properly addressed, despite the lack of further interactive feedback.
+
+Best regards,
+The authors of Paper 6552
+
+−
+＝
+≡
+ Replying to We submit a comprehensive rebuttal thoroughly addressing Reviewer oREx's theoretical, empirical, and comparative concerns through...
+Author AC Confidential Comments by Area Chair Vbqi
+Copy URL of note w7CDFcOnM9
+Author AC Confidential Commentsby Area Chair Vbqi07 Apr 2025, 10:29Program Chairs, Senior Area Chairs, Area Chairs, Authors
+Comment:
+
+Dear Authors
+
+We have send a reminder to the reviewers in case they have any other questions with regards to the submission. All reviewer comments will be taken into account when evaluating a paper.
+
+Regards AC
+
+−
+＝
+≡
+Official Review of Submission6552 by Reviewer u26i
+Copy URL of note OgdLgpbPyk
+Official Reviewby Reviewer u26i16 Mar 2025, 21:48 (modified: 18 Jun 2025, 17:41)EveryoneRevisions
+Summary:
+
+The paper introduces FloE which is an inference system to run MoE models on memory constrained GPUs. FloE includes various techniques (1) compression coupled with (2) dual predictors. (1) the work suggests that there is an internal sparsity in experts that can be set to zero during inference by using magnitude based sparsification. Also, the work suggests using various bit-widths to quantize the different projection matrices can provide good perplexity. Also, the paper proposes some system optimizations such as development of efficient sparse kernels and compact asynchronous transfer. This results in a significant speedup in running MoE models.
+
+Claims And Evidence:
+
+It seems like the main claims are backed by data Figure 2, 3. The ideas seem to make sense.
+
+Methods And Evaluation Criteria:
+
+Evaluations seem to be reasonable.
+
+Theoretical Claims:
+
+I was not able to scrutinize the theoretical proofs in the supplementary material.
+
+Experimental Designs Or Analyses:
+
+More data may be helpful but overall it seems to be reasonable.
+
+Supplementary Material:
+
+I only looked at some key results in the supplementary material.
+
+Relation To Broader Scientific Literature:
+
+Common understanding in the field is that the mixture of experts are good for training high performance models. However, it still incurs high memory usage and it may lead to low GPU utilization. The paper focuses on the first issue and claims that the large size of activated experts overburdens the limited PCIe bandwidth is a challenge that limits the use of MoEs in latency-critical scenarios.
+
+Essential References Not Discussed:
+
+NA
+
+Other Strengths And Weaknesses:
+Ideas presented in this paper may help reduce the memory burden of running MoE based networks.
+Other Comments Or Suggestions:
+
+Minor issue, but the paper is very difficult to read as it skips proper description of the terminologies used in the paper. Although it is understandable that it is challenging to put a lot of content into short 8 pages, I believe a little section to describe some background would be very helpful for readers.
+
+Questions For Authors:
+
+Key question I have about the paper is on the GPU utilization w/ and w/o this work. Although memory is a big bottleneck in MoE adoption is "the large size of activated experts overburdens the limited PCIe bandwidth", another big contributor is the low GPU utilization that spikes up the cost of running services using MoE. I think it would be great to understand how GPU utilization is impacted.
+
+Code Of Conduct: Affirmed.
+Overall Recommendation: 2: Weak reject (i.e., leaning towards reject, but could also be accepted)
+−
+＝
+≡
+Rebuttal by Authors
+Copy URL of note RNa5lFqnlJ
+Rebuttalby Authors (Zhongle Xie, Yuxin Zhou, Jun Zhang, Yiping Wang, +4 more)01 Apr 2025, 00:46 (modified: 18 Jun 2025, 18:53)EveryoneRevisions
+Rebuttal:
+
+Dear Reviewer u26i,
+
+We sincerely thank you for your thorough and thoughtful review of our submission. Your feedback is invaluable, and we will provide a concise response to the knowledge background and GPU utilization concerns you raised.
+
+[Minor issue] The paper is very difficult to read as it skips proper description of the terminologies used in the paper. Although it is understandable that it is challenging to put a lot of content into short 8 pages, I believe a little section to describe some background would be very helpful for readers.
+
+[Responce] Thank you for your understanding regarding the difficulty of including rich content within the 8 pages. We agree that a more thorough background would be helpful for readers. As such, we have placed the related work on expert offloading and sparsity in LLMs in Appendix A, with a concise introduction and positioning provided in Lines 105-108, Section 2, Page 2 of the main text. We would be happy to move Appendix A to Section 2 if given any opportunity to revise.
+
+In Appendix A, we introduce experts offloading and sparsity in LLMs, two key areas critical to the efficient deployment of large language models. Experts offloading addresses the memory bottlenecks caused by the massive parameter counts in Mixture-of-Experts (MoE) models, with frameworks like Llama.cpp and DeepSpeed Inference transferring expert weights between VRAM and DRAM. However, limited PCIe bandwidth leads to communication delays, and existing prefetching strategies face tradeoffs in accuracy, latency, and scalability, especially under multi-expert activation. Sparsity in LLMs, on the other hand, minimizes computational and memory overhead through techniques like weight pruning and activation sparsity. While these methods show promise, they are often hindered by performance degradation, hardware inefficiency, or limited adaptability to modern architectures like SwiGLU.
+
+Our work builds on these foundations by addressing the gaps in both areas. We propose an approach for on-the-fly inference in MoE models and explore contextual sparsity techniques tailored for modern architectures. By optimizing parameter utilization and reducing hardware bottlenecks, our solutions aim to improve the efficiency, accuracy, and practicality of deploying MoE models in resource-constrained environments.
+
+[Key Issue] Key question I have about the paper is on the GPU utilization w/ and w/o this work. Although memory is a big bottleneck in MoE adoption is "the large size of activated experts overburdens the limited PCIe bandwidth", another big contributor is the low GPU utilization that spikes up the cost of running services using MoE. I think it would be great to understand how GPU utilization is impacted.
+
+[Responce] Two challenges stemming from distinct scenarios. Your analysis of the bottlenecks in MoE deployment is insightful. Indeed, PCIe transmission bandwidth and GPU utilization represent two critical challenges that arise from distinct scenarios and are driven by different underlying causes in the current deployment of MoE models.
+
+The first challenge, which occurs in scenarios with limited GPU memory resources, compels the heterogeneous storage of model weights. Consequently, substantial latency occurs during inference due to the transfer of parameters between DRAM and VRAM.
+
+The second challenge arises from an imbalance between computational load and memory usage in GPU-deployed MoE inference scenarios. This frequently leads to suboptimal GPU utilization, especially when processing small-batch requests, leaving GPU cores underutilized.
+
+Our work primarily focuses on addressing the first challenge. Our work reduces the latency of model inference caused by weight transfer while maximizing the preservation of model accuracy. This is achieved by designing an ingenious hybrid compression strategy and pairing it with a corresponding prediction mechanism. Though our solution does not directly resolve GPU utilization concerns, we would be happy to share additional insights into how our approach interacts with GPU performance. We tested on the ShareGPT corpus and measured the GPU utilization rate at 63.2% during 50 forward passes with 20 tokens each. Given the relatively large matrix dimensions of MoE models compared to consumer-grade GPUs, we have observed that GPU utilization remains reasonably high in practice.
+
+The research on the second challenge is orthogonal to our work. The challenge of GPU utilization that you raised is indeed one of the major challenges in MoE deployment. It is also a key direction for our future research and exploration. We deeply appreciate your feedback and hope to continue advancing our understanding as we work toward optimizing MoE deployment.
+
+We hope the above clarifications address your concerns and would greatly appreciate your further feedback.
+
+Cheers,
+
+Authors
+
+−
+＝
+≡
+A summary of answers to Reviewer `u26i`'s questions to assist the AC's review.
+Copy URL of note h5YCqQazMy
+Author AC Confidential Commentsby Authors (Zhongle Xie, Yuxin Zhou, Jun Zhang, Yiping Wang, +4 more)07 Apr 2025, 21:28 (modified: 07 Apr 2025, 21:28)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+Comment:
+
+Dear ICML 2025 AC, SAC, and PC,
+
+We are grateful to reviewers for their feedback. We've addressed all suggestions and concerns and updated our submission accordingly. However, we haven't received an acknowledgement from Reviewer u26i. Despite the lack of acknowledgement for our previous response, we provide this concise summary of answers to Reviewer u26i's questions to assist the AC's review.
+
+Reviewer u26i raised one minor issue and one key issue:
+
+Reviewer u26i's Concerns
+​​Minor Issue​​: A section to describe some background
+​​Key Issue​​: The reviewer argues that "the large size of activated experts overburdens the limited PCIe bandwidth" as a critical MoE adoption bottleneck and suggests we understand how GPU utilization is impacted.
+Our Responses
+
+We have placed the related work on expert offloading and sparsity in LLMs in Appendix A, with a concise introduction and positioning provided in Lines 105-108 (Section 2, Page 2) of the main text. We would be happy to move Appendix A to Section 2 if requested during revisions.
+
+Regarding the reviewer's key issue, we clarify: PCIe transmission bandwidth and GPU utilization represent two critical challenges arising from distinct scenarios and driven by different underlying causes in current MoE model deployments.
+
+​​Memory-Centric Challenge​​:
+Limited GPU memory necessitates heterogeneous storage of model weights, causing significant inference latency due to parameter transfers between DRAM and VRAM [1-5].
+
+​​Compute-Utilization Challenge​​:
+An imbalance between computational load and memory usage in GPU-deployed MoE inference often leads to suboptimal GPU utilization, especially with small-batch requests.
+
+Our work focuses on addressing the first challenge by reducing weight transfer latency while preserving model accuracy via a hybrid compression strategy paired with a prediction mechanism. Although it does not directly solve GPU utilization issues, our approach maintains reasonably high GPU utilization (63.2% during 50 forward passes with 20 tokens each on ShareGPT corpus, despite large MoE model matrix dimensions).
+
+Research on the second challenge is orthogonal to ours; GPU utilization remains a major MoE deployment challenge and a key focus for future research. We appreciate your feedback and aim to further optimize MoE deployment.
+
+Best regards,
+The authors of Paper 6552
+
+[1] Kong, R., Li, Y., Feng, Q., Wang, W., Ye, X., Ouyang, Y., Kong, L., & Liu, Y. SwapMoE: Serving off-the-shelf MoE-based large language models with tunable memory budget. ACL, 2024.
+
+[2] Eliseev, A., & Mazur, D. Fast inference of mixture-of-experts language models with offloading. CoRR, 2023.
+
+[3] Hwang, R., Wei, J., Cao, S., Hwang, C., Tang, X., Cao, T., & Yang, M. Pre-gated moe: An algorithm-system co-design for fast and scalable mixture-of-expert inference. ISCA, 2024.
+
+[4] Sarkar, R., Liang, H., Fan, Z., Wang, Z., & Hao, C. Edge-moe: Memory-efficient multi-task vision transformer architecture with task-level sparsity via mixture-of-experts. ICCAD, 2023.
+
+[5] Kamahori, K., Tang, T., Gu, Y., Zhu, K., & Kasikci, B. Fiddler: CPU-GPU Orchestration for Fast Inference of Mixture-of-Experts Models. ICLR, 2025.
+
+−
+＝
+≡
+Official Review of Submission6552 by Reviewer bhnT
+Copy URL of note H78CSV6D2U
+Official Reviewby Reviewer bhnT13 Mar 2025, 08:26 (modified: 18 Jun 2025, 17:41)EveryoneRevisions
+Summary:
+
+The paper introduces an on-the-fly inference system (called FloE) for Mixture of Experts models on memory-constrained GPUs. The utilization of the limited GPU memory is optimized by a hybrid compression scheme, especially focused on intra-expert sparsity - while still utilizing inter-expert sparsity. When the memory required by all the experts exceeds the GPU memory, some of the experts parameters are offloaded to CPU memory, and then loaded onto the GPU when required. This shifts the LLM decoding bottleneck from memory-bound to I/O-bound, because of the bandwidth limitations of the PCIe bus.
+
+A study of the activation distribution within experts shows that many activations are very close to zero. This led the authors to propose a magnitude-based activation sparse strategy, where activations close to zero are set to be exactly zero, resulting in the elimination of the corresponding weight computations (and therefore transfers) during inference.
+
+The experimental evaluation shows some of the advantages of FloE, and compares it with other schemes.
+
+Claims And Evidence:
+
+Intra-expert sparsity can be exploited via compression techniques, resulting in significant speedups of MoE execution on consumer-grade hardware with limited memory. Empirical evaluation is presented.
+
+Methods And Evaluation Criteria:
+
+The experimental evaluation and comparison with other schemes are reasonable.
+
+Theoretical Claims:
+
+I did not check the Appendices.
+
+Experimental Designs Or Analyses:
+
+Yes, I followed most of the experimental evaluation.
+
+Figure 10 is the one I found more interesting, showing the performance. On some of the larger corpus tasks (e.g., MMLU), the performance goes down quite a bit compared to Mixtral-8x7B (60.1 and 65.4 vs 69.5). If we accept degradation in performance, then it may be possible to use smaller models without any compression, that are the the same performance level. Therefore, it may be good to compare not just other compression methods, but also non-compression methods on smaller models with the same performance.
+
+Supplementary Material:
+
+No.
+
+Relation To Broader Scientific Literature:
+
+The paper belongs to a line of work concerned with making large model perform inference efficiently on edge hardware, typically at single batch size; offloading and compression techniques are used.
+
+Essential References Not Discussed:
+
+Not that I can suggest.
+
+Other Strengths And Weaknesses:
+
+NA
+
+Other Comments Or Suggestions:
+
+NA
+
+Questions For Authors:
+
+No questions.
+
+Code Of Conduct: Affirmed.
+Overall Recommendation: 3: Weak accept (i.e., leaning towards accept, but could also be rejected)
+−
+＝
+≡
+Rebuttal by Authors
+Copy URL of note kyvWCY4VKH
+Rebuttalby Authors (Zhongle Xie, Yuxin Zhou, Jun Zhang, Yiping Wang, +4 more)31 Mar 2025, 22:50 (modified: 18 Jun 2025, 18:53)EveryoneRevisions
+Rebuttal:
+
+Dear reviewer bhnT：
+
+Thank you for recognizing the importance of the research problem, as well as the soundness of our methodology and experiments. Below, we address the key concerns regarding MMLU performance and comparisons with non-compressed baselines:
+
+1. FloE achieves competitive performance on MMLU.
+
+As you noted, MMLU performance is relatively sensitive to sparsity, which is reasonable given its complexity as a large-scale, multi-task NLP benchmark covering 57 subjects. Similar sparsity-sensitive trends are observed in other challenging tasks such as GSM8K (math reasoning) and HumanEval (code generation), which aligns with the observations in Sirius [1].
+
+However, FloE demonstrates best performance retention compared to other baselines (see Figure 10 of original manuscript). Specifically, as shown in the table below, at 90% sparsity, CATS almost completely fails on these three tasks, achieving an average score of only 16.2, while FLoE maintains a score of 43.8. At 80% sparsity, FLoE retains over 93% of the base model's capabilities.
+
+2. Non-compressed baselines exhibit limited performance.
+
+To address your concerns, we have used Mistral-7B and Llama-3.2-3B as baselines for non-compressed methods.
+
+(1) Clarification of Fair Evaluation Setup.
+
+To ensure that the activation parameter count of FLoE aligns with that of similarly sized non-compressed models, we applied INT8 quantization to the attention layers of FLoE at 90% sparsity. This adjustment ensures that the memory footprint of FLoE is comparable to that of Llama-3.2-3B in its FP16 configuration. For FLoE at 80% sparsity, the memory usage remains consistent with the original setup and matches that of Mistral-7B. Furthermore, we have supplemented the experimental results for MMLU (5-shot), GSM8K (8-shot), and HumanEval, providing a comprehensive comparison between FLoE and the baseline models.
+
+(2) Analysis of New Results.
+
+Not only on MMLU, but also on complex tasks such as GSM8K and HumanEval, various sparse methods face significant challenges, with performance tending to degrade more rapidly. However, our method, FLoE, demonstrates the best performance retention. At 90% sparsity, CATS almost completely fails on these three tasks, achieving an average score of only 16.2, while FLoE maintains a score of 43.8. At 80% sparsity, FLoE retains over 93% of the base model's capabilities.
+
+Even smaller non-compressed models struggle to match the performance of large compressed models on complex reasoning tasks. On MMLU, GSM8K, and HumanEval, FloE at 90% sparsity outperforms both Mistral-7B and Llama-3.2-3B. Moreover, FloE at 80% sparsity preserves performance closest to the base model, demonstrating its clear advantage in these tasks. These results highlight that compressing large models can be more beneficial than relying on smaller non-compressed models, particularly for demanding reasoning tasks.
+
+In summary, FloE not only achieves superior performance retention under high sparsity but also surpasses smaller non-compressed models across multiple benchmarks. This underscores the effectiveness of our approach in balancing model efficiency and task performance, especially in scenarios where computational resources are limited.
+
+We believe these findings strongly reinforce FloE’s robustness and practicality, making it a compelling choice for deploying MoE-based LLMs in resource-constrained environments. For users with limited resources who cannot deploy MoE models, we highly recommend FloE as an efficient and practical alternative, delivering high performance while significantly reducing computational costs.
+
+Looking forward to hearing from you!
+
+Best,
+
+Authors
+
+Results Table:
+Model	GSM8K-8 shot (Acc)	Humaneval-0 shot (Pass@1)	MMLU-5 shot (Acc)	Average
+Base Model	58	33.5	69.5	53.67
+FLoE-80	51.7	32.3	65.4	49.8
+CATS-80	31.1	28.7	61.7	40.5
+FLoE-90	40.9	30.5	60.1	43.83
+CATS-90	2.42	8.54	37.7	16.22
+Mistral-7B	39.4	29.2	62.5	43.7
+Llama-3.2-3B	26.6	25.6	56.4	36.2
+
+[1] Zhou, Y., Chen, Z., Xu, Z., Lin, V., & Chen, B. Sirius: Contextual Sparsity with Correction for Efficient LLMs. NeurIPS, 2024.
+
+−
+＝
+≡
+ Replying to Rebuttal by Authors
+Rebuttal Acknowledgement by Reviewer bhnT
+Copy URL of note o8EizGOyqe
+Rebuttal Acknowledgementby Reviewer bhnT04 Apr 2025, 02:48Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors
+Acknowledgement: I confirm that I have read the author response to my review and will update my review in light of this response as necessary.
+−
+＝
+≡
+ Replying to Rebuttal Acknowledgement by Reviewer bhnT
+We comprehensively address Reviewer bhnT's concerns on MMLU performance and non-compressed baselines by demonstrating FloE's superior task performance retention under high sparsity and its advantage over smaller models across MMLU, GSM8K, and HumanEval, while requesting acknowledgment of our resolution to ensure fair evaluation.
+Copy URL of note p2jB2YFk9P
+Author AC Confidential Commentsby Authors (Zhongle Xie, Yuxin Zhou, Jun Zhang, Yiping Wang, +4 more)06 Apr 2025, 20:27Program Chairs, Senior Area Chairs, Area Chairs, Authors
+Comment:
+
+Dear ICML 2025 AC, SAC, and PC,
+
+We are sincerely grateful to all the reviewers for their invaluable feedback. We have meticulously addressed each suggestion and concern, making corresponding updates to our submission. However, we have yet to receive a response from Reviewer bhnT. Reviewer bhnT raised key concerns regarding MMLU performance and comparisons with non-compressed baselines.
+
+We evaluated performance on three complex downstream tasks: MMLU, GSM8K, and HumanEval, which pose significant challenges for both small distilled models and sparse methods. FloE not only achieves superior performance retention under high sparsity but also surpasses smaller non-compressed models across multiple benchmarks. This underscores the effectiveness of our approach in balancing model efficiency and task performance, especially in scenarios where computational resources are limited.
+
+With only three days remaining for the discussion, we have not received any response regarding our first-round rebuttal since we received the acknowledgement. We sincerely and respectfully hope that the reviewer can confirm that the acknowledgement means our response has satisfactorily addressed their concerns. We earnestly look forward to a fair review under the premise that the issues raised by the reviewers have been resolved, despite the lack of any further interactive feedback.
+
+Best regards,
+
+The authors of Paper 6552
+
+−
+＝
+≡
+Official Review of Submission6552 by Reviewer ZXAh
+Copy URL of note 9ARuuvw6b7
+Official Reviewby Reviewer ZXAh12 Mar 2025, 10:31 (modified: 18 Jun 2025, 17:41)EveryoneRevisions
+Summary:
+
+Mixture-of-experts have become a popular way to scale up the transformer models these days, but the large model scale creates challenge when deploying the model under limited resources.This paper introduces FloE, an inference system designed for on-the-fly MoE inference on consumer-grade GPUs. FloE integrates quantization, offloading, prefetching, and optimized kernels to reduce memory overhead and latency with limited performance degradation. The authors evaluate their approach against multiple baselines.
+
+Claims And Evidence:
+
+Most claims in this paper are either supported by evidence or well-known facts in this area.
+
+Methods And Evaluation Criteria:
+
+The proposed method and evaluation criteria are well-aligned with the problem at hand.
+
+Theoretical Claims:
+
+The theoretical claim and proof in App. B looks reasonable.
+
+Experimental Designs Or Analyses:
+
+The experimental setup is well-structured and appropriately evaluates the proposed approach. However, one minor issue is the absence of Mixtral-GPU performance results in Section 3.2. While HQQ Int2 seems to reflect the same setting, the authors should clarify this explicitly.
+
+Supplementary Material:
+
+I reviewed the supplementary materials but could not find code assets related to the optimized kernels discussed in Section 2.4. Providing these resources would enhance the clarity and reproducibility of this section. I strongly encourage the authors to include such details during the rebuttal period.
+
+Relation To Broader Scientific Literature:
+
+The proposed method builds upon prior work in deploying MoE models on personal devices, offering improvements in efficiency and performance preservation.
+
+Essential References Not Discussed:
+
+I'm not aware of any essential references that were not discussed.
+
+Other Strengths And Weaknesses:
+
+The paper is well-written, but the absence of code assets limits reproducibility.
+
+Other Comments Or Suggestions:
+
+Figures 6–8 use color schemes that are difficult to read. Additionally, Figure 8's caption contains a missing space.
+
+Questions For Authors:
+What is the latency of the predictor described in Section 2.3?
+Given that the proposed quantization method outperforms existing approaches, could it also be applied to dense models, particularly due to the similarities with the SwiGLU module?
+Code Of Conduct: Affirmed.
+Overall Recommendation: 4: Accept
+−
+＝
+≡
+Rebuttal by Authors
+Copy URL of note N798t55dFZ
+Rebuttalby Authors (Zhongle Xie, Yuxin Zhou, Jun Zhang, Yiping Wang, +4 more)31 Mar 2025, 23:14 (modified: 18 Jun 2025, 18:53)EveryoneRevisions
+Rebuttal:
+
+Dear reviewer ZXAh,
+
+We sincerely appreciate your recognition and valuable suggestions. Below, we summarize and respond to the issues, suggestions, and questions you raised.
+
+[Minor Issue 1] The absence of Mixtral-GPU performance results in Section 3.2. While HQQ Int2 seems to reflect the same setting, the authors should clarify this explicitly.
+
+[Response] We sincerely appreciate you pointing out the issue with our inconsistent terminology. Indeed, HQQ-INT2 refers to the performance of Mixtral-GPU on downstream tasks. We utilized HQQ to quantize the experts to INT2, enabling the entire Mixtral-8×7B model to fit within GPU memory. In future versions of the paper, we will ensure the consistency of the configurations for HQQ-INT2 and Mixtral-GPU by clearly stating their alignment.
+
+[Suggestion 1] I strongly encourage the authors to include code assets during the rebuttal period.
+
+[Response] We genuinely hope that our efforts can contribute to the community by facilitating the deployment of MoE models on consumer-grade GPUs and edge devices. We have provided the current version of our code via an anonymous link below Code Link of FloE, and we plan to open-source it after completing the adaptation for more models.
+
+[Suggestion 2] Figures 6–8 use color schemes that are difficult to read. Additionally, Figure 8's caption contains a missing space.
+
+[Response] For later versions of the paper, we will refine the color schemes and captions for Figures 6-8.
+
+[Question 1] What is the latency of the predictor described in Section 2.3?
+
+[Response] We measured the latency of the predictor over 500 forward passes and calculated the average values. The results show that the inter-expert sparse predictor has a latency of 0.11 milliseconds, while the intra-expert predictor's latency is 0.27 milliseconds. In comparison, the average execution time for a single FloE Transformer block is 5.74 milliseconds. These latencies account for only 1.9% and 4.7% of the total execution time, respectively, indicating that they have almost no significant impact on the model's generation speed.
+
+[Question 2] Given that the proposed quantization method outperforms existing approaches, could it also be applied to dense models, particularly due to the similarities with the SwiGLU module?
+
+[Response] The evaluation methods for quantization and sparsification sensitivity are equally applicable to dense models. The theoretical proof presented in Appendix B is also generalizable and can be applied to MoE models. These are our preliminary results on Mistral. Moving forward, we plan to further explore how to compress the size of MLPs in dense models to improve inference speed and reduce deployment costs. This will be one of the key directions for our future work.
+
+Looking forward to hearing from you!
+
+Best regards,
+
+Authors
+
+Code Link of FloE:
+
+https://anonymous.4open.science/r/floe-5843
+
+Results Table:
+Quantization Sensitivity of Mistral-7B
+Quantization	INT8	INT4	INT3	INT2	INT1
+gate	5.252	5.271	5.350	5.839	1025.0
+down	5.252	5.309	5.544	13.51	12022
+up	5.552	5.264	5.324	5.753	301.28
+Sparsification Sensitivity of Mistral-7B
+Sparsification	50%	60%	70%	80%	90%
+gate	6.91	8.67	18.76	2902	21857
+down	5.29	5.35	5.503	5.940	7.92
+up	5.46	5.74	6.404	8.581	20.47
+−
+＝
+≡
+ Replying to Rebuttal by Authors
+Rebuttal Acknowledgement by Reviewer ZXAh
+Copy URL of note l5tAJjOfLj
+Rebuttal Acknowledgementby Reviewer ZXAh02 Apr 2025, 00:53Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors
+Acknowledgement: I confirm that I have read the author response to my review and will update my review in light of this response as necessary.
+−
+＝
+≡
+ Replying to Rebuttal by Authors
+Rebuttal Comment by Reviewer ZXAh
+Copy URL of note 8AyoOC8vmR
+Rebuttal Commentby Reviewer ZXAh02 Apr 2025, 00:56 (modified: 18 Jun 2025, 23:56)EveryoneRevisions
+Comment:
+
+I appreciate the authors' response, especially the open-sourcing effort. The response addressed my concern, and therefore I have increased my rating to 4.
+
+−
+＝
+≡
+ Replying to Rebuttal Comment by Reviewer ZXAh
+Reply Rebuttal Comment by Authors
+Copy URL of note v5vJxVTUZo
+Reply Rebuttal Commentby Authors (Zhongle Xie, Yuxin Zhou, Jun Zhang, Yiping Wang, +4 more)02 Apr 2025, 11:02 (modified: 19 Jun 2025, 02:15)EveryoneRevisions
+Comment:
+
+We are deeply grateful for your timely response and for recognizing our efforts. Your support is incredibly meaningful to us, and we truly appreciate your kind acknowledgment. Thank you so much for your encouragement—it means a lot!

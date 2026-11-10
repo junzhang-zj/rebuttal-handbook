@@ -1,0 +1,1044 @@
+4 Versions 
+Efficient Inference for Large Vision-Language Models: Bottlenecks, Techniques, and Prospects
+Jun Zhang, Yicheng Ji, Feiyang Ren, Yihang Li, Bowen Zeng, Zonghao Chen, Ke Chen, Lidan Shou, Gang Chen, Huan Li 
+05 Jan 2026 (modified: 07 Jun 2026)
+ACL ARR 2026 January Submission
+January, Senior Area Chairs, Area Chairs, Reviewers, Authors
+Revisions
+CC BY 4.0
+Keywords: Large Vision-Language Models, Efficient Inference
+Abstract:
+
+Large Vision-Language Models (LVLMs) enable sophisticated reasoning over images and videos, yet their inference is hindered by a systemic efficiency barrier known as visual token dominance. This overhead is driven by a multi-regime interplay between high-resolution feature extraction, quadratic attention scaling, and memory bandwidth constraints. We present a systematic taxonomy of efficiency techniques structured around the inference lifecycle, consisting of encoding, prefilling, and decoding. Unlike prior reviews focused on isolated optimizations, we analyze the end-to-end pipeline to reveal how upstream decisions dictate downstream bottlenecks, covering compute-bound visual encoding, the intensive prefilling of massive contexts, and the ''visual memory wall'' in bandwidth-bound decoding. By decoupling the efficiency landscape into the axes of shaping information density, managing long-context attention, and overcoming memory limits, this work provides a structured analysis of how isolated optimizations compose to navigate the trade-off between visual fidelity and system efficiency. The survey concludes by outlining four future frontiers supported by pilot empirical insights, including hybrid compression based on functional unit sensitivity, modality-aware decoding with relaxed verification, progressive state management for streaming continuity, and stage-disaggregated serving through hardware-algorithm co-design. The submitted software contains a snapshot of our literature repository, which is designed to be maintained as a living resource for the community.
+
+Paper Type: Long
+Research Area: LLM Efficiency
+Research Area Keywords: Efficient/Low-Resource Methods for NLP
+Contribution Types: Surveys
+Languages Studied: English
+Reassignment Request Area Chair: This is not a resubmission
+Reassignment Request Reviewers: This is not a resubmission
+Software:  zip
+A1 Limitations Section: This paper has a limitations section.
+A2 Potential Risks: N/A
+B Use Or Create Scientific Artifacts: Yes
+B4 Data Contains Personally Identifying Info Or Offensive Content: N/A
+B6 Statistics For Data: Yes
+B6 Elaboration: Section D
+C Computational Experiments: Yes
+C2 Experimental Setup And Hyperparameters: Yes
+C2 Elaboration: Section D
+C3 Descriptive Statistics: Yes
+C3 Elaboration: Section D
+D Human Subjects Including Annotators: No
+D1 Instructions Given To Participants: N/A
+D2 Recruitment And Payment: N/A
+D3 Data Consent: N/A
+D4 Ethics Review Board Approval: N/A
+E Ai Assistants In Research Or Writing: Yes
+E1 Information About Use Of Ai Assistants: Yes
+E1 Elaboration: Section F
+Author Submission Checklist: yes
+TLDR: A systematic survey of efficient LVLM inference, structured around a stage-wise taxonomy across encoding, prefilling, and decoding.
+Preprint: no
+Preprint Status: We are considering releasing a non-anonymous preprint in the next two months (i.e., during the reviewing process).
+Preferred Venue: ACL
+Consent To Share Data: yes
+Consent To Share Submission Details: On behalf of all authors, we agree to the terms above to share our submission details.
+Association For Computational Linguistics - Blind Submission License Agreement: On behalf of all authors, I agree
+B1 Cite Creators Of Artifacts: Yes
+B1 Elaboration: Section 9
+B2 Discuss The License For Artifacts: Yes
+B2 Elaboration: Section 9
+B3 Artifact Use Consistent With Intended Use: N/A
+B5 Documentation Of Artifacts: N/A
+C1 Model Size And Budget: Yes
+C1 Elaboration: Section D
+C4 Parameters For Packages: Yes
+C4 Elaboration: Section D
+D5 Characteristics Of Annotators: N/A
+Submission Number: 5782
+Discussion
+Filter by reply type...
+Filter by author...
+Sort: Newest First
+Sort: Oldest First
+Linear
+Threaded
+Nested
+−
+Collapsed
+＝
+Default
+≡
+Expanded
+Copy link
+Everyone
+Submission5782...
+Submission5782 Area...
+Submission5782 Authors
+Submission5782...
+Program Chairs
+Submission5782...
+Submission5782...
+Submission5782...
+Submission5782...
+Submission5782...
+Reset
+28 / 28 replies shown
+−
+＝
+≡
+Meta Review of Submission5782 by Area Chair P5Hv
+Copy URL of note nzJKJYe3qK
+Meta Reviewby Area Chair P5Hv04 Mar 2026, 12:40 (modified: 18 Mar 2026, 00:00)Senior Area Chairs, Area Chairs, Authors, Reviewers Submitted, Program Chairs, Commitment ReadersRevisions
+Metareview:
+
+This survey provides a comprehensive analysis of efficient inference techniques for large vision-language models, structured around a novel three-stage taxonomy that maps algorithmic optimizations to hardware bottlenecks. The authors have diligently addressed reviewer concerns through substantial revisions, including expanded empirical validation across three models and eleven tasks, formalization of their literature selection protocol, and addition of real-world deployment metrics. While Reviewer 1 raised initial concerns about experimental rigor that have been satisfactorily resolved, and Reviewer 3 acknowledged the work as suitable for Findings, Reviewer 2 noted scope limitations regarding quantization depth despite high technical ratings. The area chair finds that the manuscript offers significant value as a systematic roadmap for the community, particularly given its forward-looking empirical insights and practical framework for deployment trade-offs, warranting acceptance to the Findings track.
+
+Summary Of Reasons To Publish:
+
+The paper presents a timely and well-organized survey that systematically categorizes efficiency bottlenecks in multimodal inference pipelines, offering actionable insights for both researchers and practitioners. Its integration of hardware-algorithm co-design perspectives with pilot empirical studies fills a critical gap in existing literature on vision-language model optimization.
+
+Summary Of Suggested Revisions:
+
+The authors should ensure that the appendix materials containing the detailed literature selection protocol and Pareto frontier analyses remain accessible and clearly referenced in the main text. Additionally, integrating the real-world deployment metrics more prominently into the survey's core discussion would further enhance the practical utility of this work for the ACL community.
+
+Overall Assessment: 3 = Findings: I think this paper could be accepted to the Findings of the ACL.
+Reported Issues: No
+Publication Ethics Policy Compliance: I did not use any generative AI tools for this review
+−
+＝
+≡
+Summary of the Discussion Period
+Copy URL of note hTxjH5dpzj
+Author-Editor Confidential Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)23 Feb 2026, 18:02 (modified: 12 Mar 2026, 19:18)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+Comment:
+
+We sincerely thank the Area Chairs for their diligent oversight. As the discussion concludes, we would like to highlight that through proactive revisions and robust empirical validation, our submission has matured into a high-impact contribution suitable for the ACL conference.
+
+We are deeply encouraged by the reviewers' consensus on the significance, novelty, and high value of our work (R1, R2, R3). Our paper is recognized as a comprehensive and well-written survey that thoroughly examines the systemic challenges and bottlenecks of LVLM inference (R1, R2, R3). Reviewers specifically lauded our detailed stage-wise analysis for its structured approach, which decomposes the inference lifecycle into Encoding, Prefilling, and Decoding regimes, making it remarkably easy to follow key issues and optimizations in each stage (R1, R2, R3). Unlike previous studies, our unified end-to-end perspective successfully maps algorithmic optimizations to specific hardware bottlenecks using the Roofline model (R2). Furthermore, our pilot empirical insights (e.g., on Qwen2.5-VL) were praised for adding significant value beyond a literature list (R2), while our forward-looking research directions provide well-grounded and actionable insights for the community (R3). These strengths are reflected in our high scores for Soundness (4/5) (R2, R3), Excitement (4/5) (R2), and Confidence (4/5) (R2, R3). All concerns raised have been fully resolved through comprehensive revisions, in-depth discussions, and new quantitative frameworks. Detailed descriptions can be found in our General Response.
+
+We are especially encouraged by Reviewer yhsG (R1), who raised their score to reflect their affirmation of our updated manuscript and the strengthened empirical foundation.
+
+However, we respectfully request the AC's attention to the following procedural inconsistencies regarding the remaining reviews:
+
+Reviewer sNUJ (R2): While R2 explicitly rated our study’s Soundness as 4 (Strong) and Excitement as 4 (Exciting) under Confidence as 4 (Quite sure), they assigned a contradictory Overall Assessment of 2.5. This score is a significant outlier that directly conflicts with their own highly positive technical evaluation. We have thoroughly addressed R2's three primary non-technical concerns:
+Strategic Depth: The perceived lack of depth in quantization reflects a deliberate taxonomic choice; since these techniques are largely modality-agnostic, we prioritized multimodal-specific optimizations to avoid redundancy with general LLM surveys, as formalized in our Systematic Literature Selection Protocol (Appendix H).
+Model Coverage: We incorporated discussions on the latest state-of-the-art models, including Qwen3-VL (Appendix B), ensuring the survey remains at the academic frontier.
+ACL Scope: Although the reviewer initially questioned the scope, they simultaneously acknowledged the work as "highly relevant to current NLP/multimodal research". We have clarified why LVLM inference efficiency is a pivotal and urgent concern for the ACL community in the large-scale multimodal serving era.
+Despite these resolutions, R2 has remained silent, leaving this internal contradiction and the resolved concerns unacknowledged.
+Reviewer 4cnA (R3): R3 expressed concerns regarding efficiency-performance trade-offs and real-world deployment scenarios. We have since introduced Appendix I (dedicated Pareto frontier analysis) and Appendix C.2 (formalizing CPSR, Scalability, and Energy metrics). While these enhancements directly fulfill R3's requirements, they have yet to receive feedback.
+Reviewer yhsG (R1): R1 originally raised concerns about sample sizes and generalizability. Our expansion to 3 models across 11 tasks with rigorous statistical testing (Appendix D) has successfully converted this assessment into a strong endorsement.
+
+Given that the current borderline ratings primarily stem from R2's self-contradictory score and a lack of final feedback from R3 (despite their technical and scope concerns being addressed), we believe the revised manuscript's quality and comprehensive depth now fully align with the standards of the ACL Conference.
+
+We sincerely appreciate the time and effort the Area Chairs have dedicated to considering our submission. We recognize the challenges of reviewing within limited time constraints and are grateful for the reviewers' valuable suggestions. Based on our thorough responses and revisions, we hope the revised manuscript will receive a fair and holistic evaluation, especially given the multiple clarifications on unaddressed misconceptions despite the lack of further feedback.
+
+Wishing you a pleasant day ahead.
+
+Authors of Submission 5782
+
+−
+＝
+≡
+General Response
+Copy URL of note f7Q0oRBCoF
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)22 Feb 2026, 10:57 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers, Reviewers Submitted, Authors, Commitment ReadersRevisions
+Comment:
+
+We sincerely thank Reviewer yhsG, Reviewer sNUJ, and Reviewer 4cnA (referred to as R1, R2, and R3, respectively) for their thoughtful and constructive feedback. We are deeply encouraged by the collective recognition of our work's quality and its systematic impact on the field.
+
+In particular, we appreciate the recognition that our paper is well-written (R1) and provides a comprehensive survey of efficiency techniques for LVLMs (R1, R2, R3). Our work is noted for thoroughly examining the challenges and bottlenecks in LVLM inference (R3), specifically focusing on the systemic challenge of "visual token dominance" (R2, R3). We provide a detailed stage-wise analysis that decomposes the inference lifecycle into three distinct hardware-algorithm regimes: Encoding, Prefilling, and Decoding (R1, R2). This structured approach was praised for making it easy to follow the key issues and optimizations in each stage (R3).
+
+Unlike previous reviews focusing on isolated techniques, our work provides a unified end-to-end perspective that maps algorithmic optimizations to specific hardware bottlenecks (compute vs. memory bound) using the Roofline model (R2). The survey’s coverage of various models makes it highly relevant to current NLP/multimodal research (R2). We are especially honored by the feedback that our pilot empirical insights add significant value beyond a literature list (R2) and that our forward-looking research directions provide actionable insights for further exploration (R3). These strengths are reflected in our high scores for Soundness (4/5) (R2, R3), Excitement (4/5) (R2), and Confidence (4/4) (R2, R3).
+
+We have carefully addressed each individual comment provided by the reviewers. Below, we summarize the core contributions of our study, the updates to our experiments, and the in-depth discussions in our revision.
+
+Core Contributions of Our Work
+Stage-Aware Taxonomy: We decompose the LVLM inference lifecycle into three distinct regimes, Encoding, Prefilling, and Decoding, mapping algorithmic optimizations to hardware bottlenecks using the Roofline model.
+Hardware-Algorithm Co-Design Perspective: We move beyond isolated algorithmic improvements by analyzing how specific software optimizations interact with hardware constraints across the entire pipeline.
+Forward-Looking Empirical Insights: We propose visionary research directions, such as hybrid KV cache compression and relaxed speculative decoding, which are empirically grounded through visionary proofs-of-concept.
+Updates of Experimental Results during Rebuttal
+Appendix D (Extended Pilot Explorations): To address concerns regarding sample size and generalizability, we have merged and significantly strengthened our pilot explorations.
+Performance Robustness: We broadened the evaluation of Hybrid KV Cache Compression to 3 models across 11 tasks with robustness testing across multiple seeds, different hardware architectures, and sample sizes.
+Generalization Assessment: We conducted additional tests for Relaxed Speculative Decoding to verify its generalization.
+Appendix I (Pareto Frontier Analysis): We added a dedicated analysis of efficiency-performance trade-offs, evaluating how KV cache compression impacts the Pareto frontier of LVLMs).
+Updates of In-depth Discussions during Rebuttal
+Appendix C.2 (Real-world Deployment Framework): We introduced a quantitative framework to map technical performance to production constraints, defining metrics for Cost (CPSR), Scalability (
+𝜂
+𝑠
+𝑐
+𝑎
+𝑙
+𝑒
+), and Energy (EPT).
+Appendix H (Selection Protocol): We formalized our Systematic Literature Selection Protocol to clarify our methodology and inclusion/exclusion criteria.
+Appendix B (SOTA Model Coverage): We have incorporated discussions on the latest state-of-the-art models, including Qwen3-VL, as suggested by the reviewers.
+
+We believe these additions comprehensively address the reviewers' concerns and enhance the overall quality of our manuscript. All revisions will be highlighted in our updated version.
+
+We look forward to the reviewers' favorable consideration.
+
+Wishing you a pleasant day ahead.
+
+Authors of Submission 5782
+
+−
+＝
+≡
+Seeking Further Feedback (Last Day of Discussion)
+Copy URL of note g4B5ttNFK4
+Author-Editor Confidential Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)21 Feb 2026, 22:24Program Chairs, Senior Area Chairs, Area Chairs, Authors
+Comment:
+
+Dear ACs, SACs, and PCs,
+
+Thank you for overseeing the review process of our submission. We have carefully prepared our rebuttal. However, we have not yet received any feedback from the reviewers on our rebuttal responses. As we are committed to addressing all reviewers' concerns comprehensively, we would greatly appreciate your assistance in encouraging their participation in the discussion phase. Their additional feedback would be valuable in helping us address any remaining concerns they may have.
+
+We look forward to the opportunity to engage in further discussion with reviewers to ensure all aspects of our work are thoroughly evaluated.
+
+Thank you for your time and consideration.
+
+Best regards,
+
+Authors
+
+−
+＝
+≡
+Official Review of Submission5782 by Reviewer yhsG
+Copy URL of note kxscAL6zTr
+Official Reviewby Reviewer yhsG15 Feb 2026, 13:30 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer yhsG, Commitment ReadersRevisions
+Paper Summary:
+
+This paper presents a structured survey of efficient inference in Large Vision-Language Models (LVLMs), identifying visual token dominance as the primary bottleneck limiting scalability and real-world deployment. It introduces a stage-wise perspective covering encoding, prefilling, and decoding to analyze how computation, attention complexity, and memory bandwidth constraints interact across the inference pipeline. By organizing existing optimization techniques along the axes of information density, long-context attention, and memory efficiency, the work highlights how design choices in early stages propagate downstream performance challenges. The paper also outlines emerging research directions such as hybrid compression, modality-aware decoding, streaming-oriented state management, and hardware–algorithm co-design, offering a holistic roadmap for improving LVLM inference efficiency while preserving visual reasoning capability.
+
+Summary Of Strengths:
+
+The paper is well written, and the survey is comprehensive.
+
+Summary Of Weaknesses:
+
+I would like to raise a few concerns that may help the authors strengthen their work:
+
+While this is presented as a survey paper that aims to cover recent developments, the methodology for selecting the included studies is not clearly described. A systematic selection process should be outlined to clarify which papers were included or excluded and on what basis. Providing this explanation would improve the work.
+
+The experiments described in Section D appear to rely on relatively small data samples, which raises concerns about the generalizability of the findings. The use of small evaluation sets (e.g., limited random samples), the lack of reported variance across runs, the absence of statistical testing, and the narrow coverage of models, hardware, and tasks limit the strength of the conclusions.
+
+At this stage, I am not deeply familiar with this specific area. After reviewing the other reviewers’ feedback, I will be better positioned to make a final assessment of the work.
+
+Comments Suggestions And Typos:
+
+Please read the weaknesses.
+
+Confidence: 2 =  Willing to defend my evaluation, but it is fairly likely that I missed some details, didn't understand some central points, or can't be sure about the novelty of the work.
+Soundness: 3.5
+Excitement: 3 = Interesting: I might mention some points of this paper to others and/or attend its presentation in a conference if there's time.
+Overall Assessment: 3.5 = Borderline Conference
+Ethical Concerns:
+
+There are no concerns with this submission
+
+Needs Ethics Review: No
+Reproducibility: 2 = They would be hard pressed to reproduce the results: The contribution depends on data that are simply not available outside the author's institution or consortium and/or not enough details are provided.
+Datasets: 1 = No usable datasets submitted.
+Software: 1 = No usable software released.
+Knowledge Of Or Educated Guess At Author Identity: No
+Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Knowledge Of Paper Source: N/A, I do not know anything about the paper from outside sources
+Impact Of Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Reviewer Certification: I certify that the review I entered accurately reflects my assessment of the work. If you used any type of automated tool to help you craft your review, I hereby certify that its use was restricted to improving grammar and style, and the substance of the review is either my own work or the work of an acknowledged secondary reviewer.
+Publication Ethics Policy Compliance: I did not use any generative AI tools for this review
+−
+＝
+≡
+Review Issue Report of Submission5782 by Authors
+Copy URL of note JQmimy8XPW
+Review Issue Reportby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)24 Feb 2026, 11:35 (modified: 19 Apr 2026, 07:14)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+I5 Expertise: The review does not evince expertise.
+Justification:
+
+Dear ACs, SACs, and PCs,
+
+We are writing to report a procedural issue regarding Reviewer yhsG via I5 (Expertise).
+
+I5 Expertise leading to Conservative Rating. Reviewer yhsG explicitly stated, "At this stage, I am not deeply familiar with this specific area," and assigned a Confidence score of 2. While we appreciate the reviewer’s effort to update their score to 3.5 following our rebuttal, we believe their self-admitted lack of domain expertise resulted in a critically conservative assessment. This rating fails to capture the manuscript's true impact, especially when contrasted with the Confidence 4/5 = Quite sure evaluations from other reviewers who recognized its high technical merit, specifically awarding Soundness: 4/5 = Strong (R2, R3) and Excitement: 4/5 =Exiciting (R2).
+
+Structural Resolution of Weaknesses. We have comprehensively addressed the primary concerns raised by R1, which should merit a stronger endorsement:
+
+W1 (Selection Methodology): Formalized a Systematic Literature Selection Protocol in Appendix H, ensuring transparency.
+W2 (Empirical Generalizability): Expanded evaluation to 3 models across 11 tasks with rigorous statistical testing in Appendix D, addressing the initial concern regarding sample size.
+
+With technical doubts resolved and the survey noted as "comprehensive", the 3.5 score remains an underestimation. Our unified taxonomy and empirical insights offer substantial value to the ACL community for building efficient multimodal systems. Given the score-praise mismatch and silence from other reviewers, we request the AC to prioritize their high technical marks (Soundness/Excitement) and our significant improvements in the final decision.
+
+Best regards,
+
+Authors of Submission 5782
+
+−
+＝
+≡
+Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)
+Copy URL of note reqLHPGljd
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)21 Feb 2026, 10:23 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer yhsG, Commitment ReadersRevisions
+Comment:
+
+Dear Reviewer yhsG,
+
+We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards.
+
+Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have.
+
+Looking forward to hearing from you!
+
+Best regards,
+
+Authors
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer yhsG (W2 [3/3])
+Copy URL of note BWBq4lDrN4
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:13 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer yhsG, Commitment ReadersRevisions
+Comment:
+Appendix D.2: Relaxed Speculative Decoding
+Table 4: Performance Metric using Qwen2.5-VL-32B and Qwen2.5-VL-7B as target model and draft model on Video Detail Caption benchmark.
+Method	Main Acc. (%)	Main Score	Detail Acc. (%)	Detail Score	Camera Acc. (%)	Camera Score	Background Acc. (%)	Background Score	Average Acc. (%)	Average Score	Ret. (%)
+SpecVLM	34.52	2.11	31.12	1.93	28.59	1.78	30.85	1.91	31.27	1.93	100.0
++Random Relaxation (50%)	31.39 ± 1.08	1.98 ± 0.04	32.88 ± 0.71	2.02 ± 0.06	27.76 ± 0.55	1.75 ± 0.06	27.17 ± 1.94	1.77 ± 0.07	29.80 ± 1.07	1.88 ± 0.06	96.4% ± 1.5%
++Random Relaxation (75%)	31.91 ± 0.64	2.00 ± 0.03	31.96 ± 0.43	1.97 ± 0.06	26.41 ± 0.82	1.73 ± 0.05	27.67 ± 1.95	1.74 ± 0.02	29.49 ± 0.70	1.86 ± 0.02	95.3% ± 1.5%
+Table 5: Efficiency Metric using Qwen2.5-VL-32B and Qwen2.5-VL-7B as target model and draft model on Video Detail Caption benchmark.
+Method	Mean Accepted Length	Speedup
+SpecVLM	3.40	1.40x
++Random Relaxation (50%)	5.54 ± 0.07	2.06x ± 0.02x
++Random Relaxation (75%)	7.43 ± 0.02	2.60x ± 0.02x
+References
+
+[1] MileBench (COLM 2024): MileBench: Benchmarking MLLMs in Long Context.
+[2] LMMs-Eval (NAACL-Findings-2024): LMMs-Eval: Reality Check on the Evaluation of Large Multimodal Models.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer yhsG (W2 [2/3])
+Copy URL of note iw4Aq68AeX
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:12 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer yhsG, Commitment ReadersRevisions
+Comment:
+Appendix D.1: Hybrid KV Cache Compression
+Table 1: Performance of KV cache compression strategies on three MLLMs on 11 multimodal tasks (8 image tasks and 3 video tasks).
+
+(We allocate only 10% of the full KV cache to evaluate performance under high compression settings.)
+
+Method	CL-CH	DocVQA	MMCoQA	MM-QA	SlideVQA	STD	WebQA	WikiVQA	Image Avg	VATEX (Avg)	NextQA (WUPS)	Video-ChatGPT (Avg)	Video Avg
+Qwen2.5-VL-7B													
+Full Cache	43.07	97.50	66.50	75.00	83.50	29.79	76.50	92.50	70.55	0.3321	33.79	2.93	12.35
+Look-M	38.81	97.50	52.50	73.50	82.50	29.25	71.00	88.00	66.63	0.3301	33.07	2.76	12.05
+MadaKV	37.86	97.50	55.00	74.50	82.00	28.24	70.50	90.00	66.95	0.3186	33.25	2.79	12.12
+SparseMM	37.63	97.50	62.00	75.50	83.50	28.69	70.50	92.50	68.48	0.3169	33.84	2.75	12.30
+Hybrid	40.57	97.50	63.00	76.00	83.50	29.84	76.00	93.00	69.93	0.3399	33.86	2.85	12.35
+Qwen2.5-VL-3B													
+Full Cache	38.34	96.00	56.50	80.00	80.00	29.37	72.00	88.00	67.53	0.3967	29.81	2.55	10.92
+Look-M	35.12	96.00	42.50	79.00	80.00	26.24	66.50	83.50	63.61	0.3757	30.49	2.52	11.13
+MadaKV	33.66	96.00	43.50	79.50	80.00	26.02	66.00	84.00	63.59	0.3523	30.00	2.49	10.95
+SparseMM	35.05	96.00	50.50	79.00	79.50	26.80	65.00	87.00	64.86	0.3421	31.07	2.51	11.31
+Hybrid	37.75	96.00	51.00	79.50	80.00	29.22	72.00	88.00	66.68	0.3855	30.70	2.56	11.21
+LLaVA-OV-7B													
+Full Cache	44.76	97.00	53.50	77.00	77.50	31.23	76.50	88.00	68.18	0.2331	20.18	2.84	7.75
+Look-M	44.15	97.00	51.00	77.00	77.50	30.57	76.50	87.50	67.65	0.2140	18.69	2.74	7.21
+MadaKV	43.37	97.00	52.00	77.00	77.50	30.69	76.50	87.50	67.70	0.2052	18.79	2.77	7.26
+SparseMM	43.72	97.00	52.50	77.00	77.50	30.56	76.50	86.50	67.66	0.2061	18.86	2.72	7.26
+Hybrid	44.31	97.00	52.50	77.00	77.50	30.71	76.50	88.00	67.94	0.2246	19.62	2.79	7.56
+Table 2: Efficiency evaluation across different models and hardware architectures on Video-ChatGPT (Sample Size N=20, averaged over 3 seeds).
+Method	Budget	GPU Memory (GB)	Latency (L40S)	Latency (A100)	Latency (RTX5000)
+Qwen2.5-VL-7B					
+Full Cache	100%	1.68	57.98 ± 1.32	43.37 ± 0.69	76.26 ± 2.33
+Hybrid	20%	0.40	43.66 ± 0.95	37.53 ± 0.51	44.07 ± 1.63
+Hybrid	10%	0.22	37.98 ± 0.82	35.03 ± 0.66	38.36 ± 0.88
+Qwen2.5-VL-3B					
+Full Cache	100%	1.58	46.27 ± 1.18	39.40 ± 0.22	69.25 ± 0.83
+Hybrid	20%	0.35	42.38 ± 0.69	37.28 ± 0.38	37.17 ± 0.49
+Hybrid	10%	0.19	40.70 ± 0.21	34.56 ± 0.33	33.28 ± 0.53
+LLaVA-OV-7B					
+Full Cache	100%	1.34	39.96 ± 0.77	31.13 ± 0.75	43.64 ± 0.21
+Hybrid	20%	0.31	35.18 ± 1.09	28.70 ± 0.38	39.52 ± 0.63
+Hybrid	10%	0.17	31.56 ± 0.53	27.57 ± 0.15	36.04 ± 0.58
+Table 3: Stability of evaluation across different sample sizes (Tested on Qwen2.5-VL-7B, averaged over 3 seeds).
+Method	Budget	Latency on L40S (ms/token, Mean ± Std)
+Sample Size N=20		
+Full Cache	100%	57.98 ± 1.32
+Hybrid	20%	43.66 ± 0.95
+Hybrid	10%	37.98 ± 0.82
+Sample Size N=40		
+Full Cache	100%	58.82 ± 0.76
+Hybrid	20%	43.15 ± 1.13
+Hybrid	10%	38.21 ± 0.64
+Sample Size N=60		
+Full Cache	100%	55.75 ± 0.68
+Hybrid	20%	44.82 ± 0.31
+Hybrid	10%	38.86 ± 0.42
+−
+＝
+≡
+Official Comment by Reviewer yhsG
+Copy URL of note 8ETFpTb0AG
+Official Commentby Reviewer yhsG22 Feb 2026, 06:17 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer yhsG, Commitment ReadersRevisions
+Comment:
+
+Thank you for conducting the additional experiments. I would like to improve my score.
+
+−
+＝
+≡
+ Replying to Official Comment by Reviewer yhsG
+Follow up Response to Reviewer yhsG
+Copy URL of note xaVjuX3AdC
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)22 Feb 2026, 09:38 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer yhsG, Commitment ReadersRevisions
+Comment:
+
+Thanks for raising the score, it’s a huge recognition of our work!
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer yhsG (W2 [1/3])
+Copy URL of note 1SehoIZzEV
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:11 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer yhsG, Commitment ReadersRevisions
+Comment:
+
+[W2] The experiments described in Section D appear to rely on relatively small data samples, which raises concerns about the generalizability of the findings. The use of small evaluation sets (e.g., limited random samples), the lack of reported variance across runs, the absence of statistical testing, and the narrow coverage of models, hardware, and tasks limit the strength of the conclusions.
+
+Indeed, we take great pride in Appendix D: Future-Forward Pilot Explorations and hope it encourages the community to push the boundaries of this field. Unlike traditional surveys that focus solely on retrospective summaries, our work provides a proactive roadmap for the community through these pioneering explorations. These experiments were designed as visionary proofs-of-concept to empirically ground the future frontiers we identified, specifically hybrid kv cache compression and relaxed speculative decoding. We believe these findings offer substantial reference value and serve as a catalyst for future research in LVLM efficiency.
+
+Within the constraints of available resources and time, we have significantly strengthened the empirical foundation of these explorations:
+
+Hardware-Agnostic Performance Evaluation (Appendix D.1): For Hybrid KV Cache Compression, we extended our performance evaluation to 3 models across 11 multimodal tasks, including 8 image tasks and 3 video tasks. We emphasize that performance metrics are hardware-agnostic. Thus, while results are reported using NVIDIA L40S GPUs, they represent the model's intrinsic capabilities. The reduction of evaluation randomness is strictly guaranteed by the adoption of standardized benchmarks and tools [1, 2], following the rigorous protocols established in prior compression research.
+
+Multi-Platform Efficiency Profiling: We expanded our efficiency analysis across three distinct hardware architectures, namely L40S, A100, and RTX 5000. To ensure statistical rigor, we report results based on statistical testing across 3 random seeds and conduct unbiased efficiency tests over multiple sampling subsets.
+
+Generalization and Consistency: The extended results presented in Tables 1-5 fully align with our original conclusions, effectively addressing concerns regarding empirical depth. Furthermore, we conducted additional generalization assessments for Appendix D.2: Relaxed Speculative Decoding to verify its efficacy across broader scenarios.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer yhsG (W1)
+Copy URL of note 11SaHtoFv6
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:06 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer yhsG, Commitment ReadersRevisions
+Comment:
+
+[W1] While this is presented as a survey paper that aims to cover recent developments, the methodology for selecting the included studies is not clearly described. A systematic selection process should be outlined to clarify which papers were included or excluded and on what basis. Providing this explanation would improve the work.
+
+We thank the reviewer for the constructive suggestion. We agree that a transparent selection methodology is essential for a comprehensive survey. In the revised manuscript, we will incorporate Appendix H: Systematic Literature Selection Protocol to explicitly detail our systematic selection process. This process is anchored in our stage-aware taxonomy and the physics of inference bottlenecks. The methodology for determining which studies were included or excluded, and on what basis, is structured as follows:
+
+Appendix H: Systematic Literature Selection Protocol
+1. Systematic Multi-Phase Search Process:
+a. Phase 1 (Broad Exploration): We conducted an initial keyword-based search using Google Scholar as the primary engine to map the general landscape of Large Vision-Language Models (LVLMs) and inference efficiency.
+b. Phase 2 (Targeted Filtering): We performed a deep-dive screening focused on major NLP/ML/AI/CV venues (e.g., ACL, EMNLP, NAACL, ICML, NeurIPS, ICLR, CVPR, and ICCV) and arXiv. We prioritized research from 2020 to early 2026 to ensure our analysis remains at the academic frontier.
+c. Phase 3 (Relational Tracking): We employed a bidirectional citation tracking strategy. This involved both backward tracking (examining reference lists of seminal architectures like LLaVA and BLIP-2) and forward tracking (identifying recent SOTA adaptations that cite these foundational works), ensuring the inclusion of cutting-edge 2024-2026 models such as the Qwen series.
+2. Inclusion Basis (Technical Relevance):
+
+To ensure technical depth, we prioritized works that directly address the specific efficiency bottlenecks identified across the three inference stages in our taxonomy:
+
+a. Encoding Stage (Compute-Bound): We included research targeting high-intensity workloads and dense matrix operations during high-resolution feature extraction, which primarily impacts the Time-to-First-Token (TTFT).
+b. Prefilling Stage (Compute & Memory Bound): We selected strategies aimed at mitigating the quadratic complexity and the heavy memory write burden associated with materializing KV caches for massive visual contexts.
+c. Decoding Stage (Memory-Bound): We focused on techniques tackling the "visual memory wall", where autoregressive generation is throttled by memory bandwidth due to the low arithmetic intensity of loading model weights and static visual KV caches.
+3. Exclusion Basis (Scope Filtering):
+
+Studies were excluded if they:
+
+a. Focused exclusively on text-only optimizations: We excluded LLM-centric works that lack direct multimodal transferability to Large Vision-Language inference.
+b. Focused purely on training or data curation: We excluded studies that do not explicitly address inference-time efficiency or real-world deployment bottlenecks.
+c. Lacked generalizability to mainstream architectures: We excluded isolated optimizations that rely on non-standard backbones, prioritizing techniques that offer scalable gains across unified pipelines.
+
+We believe that this structured selection framework ensures a holistic analysis of the trade-off between visual fidelity and inference acceleration within the LVLM landscape. While the rapid, daily influx of new research makes exhaustive inclusion an ongoing challenge, we emphasize that our submitted software serves as a living repository for the community. We are committed to periodically updating this resource to reflect the most recent advancements at the academic frontier.
+
+−
+＝
+≡
+Official Review of Submission5782 by Reviewer sNUJ
+Copy URL of note q6FhLSfmDf
+Official Reviewby Reviewer sNUJ11 Feb 2026, 12:16 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer sNUJ, Commitment ReadersRevisions
+Paper Summary:
+
+The paper provides a comprehensive survey of efficiency techniques for Large Vision-Language Models (LVLMs), focusing on the systemic challenge of "visual token dominance". The authors propose a stage-aware taxonomy that decomposes the LVLM inference lifecycle into three distinct hardware-algorithm regimes:
+
+Encoding: Compute-bound high-resolution feature extraction.
+Prefilling: A mixed-bottleneck stage where quadratic attention complexity and memory I/O for massive visual contexts interact.
+Decoding: A strictly memory-bound stage throttled by memory bandwidth and the "visual memory wall".
+
+The work analyzes how upstream decisions (e.g., encoder resolution) dictate downstream performance and reviews techniques across architectural optimization, input reduction, sparse attention, and KV cache management. It concludes with four future frontiers for efficient LVLM serving based on pilot empirical insights.
+
+Summary Of Strengths:
+Unlike previous review papers that focus on isolated techniques (e.g., just pruning), this paper provides a unified end-to-end perspective that maps algorithmic optimizations to specific hardware bottlenecks (compute vs. memory bound) using the Roofline model.
+The survey covers various models, such as Qwen2-VL, LLaVA-OneVision, and VideoLLaMA 3, making it highly relevant to current NLP/multimodal research.
+The paper includes pilot empirical insights, demonstrating the real-world impact of hybrid KV cache compression on the Qwen2.5-VL-7B model, which adds significant value beyond a literature list.
+Summary Of Weaknesses:
+While the taxonomy is broad, some specific sub-fields like quantization or hardware-specific kernels are discussed with less depth compared to token reduction and KV cache management.
+More recent and state-of-the-art models should be included and discussed, e.g., Qwen3-VL
+A significant concern is whether this survey paper's core contribution aligns with the scope of ACL.
+Comments Suggestions And Typos:
+
+NA
+
+Confidence: 4 = Quite sure. I tried to check the important points carefully. It's unlikely, though conceivable, that I missed something that should affect my ratings.
+Soundness: 4 = Strong: This study provides sufficient support for all of its claims. Some extra experiments could be nice, but not essential.
+Excitement: 4 = Exciting: I would mention this paper to others and/or make an effort to attend its presentation in a conference.
+Overall Assessment: 2.5 = Borderline Findings
+Ethical Concerns:
+
+There are no concerns with this submission
+
+Needs Ethics Review: No
+Reproducibility: 4 = They could mostly reproduce the results, but there may be some variation because of sample variance or minor variations in their interpretation of the protocol or method.
+Datasets: 1 = No usable datasets submitted.
+Software: 1 = No usable software released.
+Knowledge Of Or Educated Guess At Author Identity: No
+Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Knowledge Of Paper Source: N/A, I do not know anything about the paper from outside sources
+Impact Of Knowledge Of Paper: N/A, I do not know anything about the paper from outside sources
+Reviewer Certification: I certify that the review I entered accurately reflects my assessment of the work. If you used any type of automated tool to help you craft your review, I hereby certify that its use was restricted to improving grammar and style, and the substance of the review is either my own work or the work of an acknowledged secondary reviewer.
+Publication Ethics Policy Compliance: I used a privacy-preserving tool exclusively for the use case(s) approved by PEC policy, such as language edits
+−
+＝
+≡
+Review Issue Report of Submission5782 by Authors
+Copy URL of note Y3lcL4XJgx
+Review Issue Reportby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)24 Feb 2026, 11:08 (modified: 19 Apr 2026, 07:14)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+I3 Score Mismatch: The review score(s) do not match the text of the review.
+I11 Non Response: The review does not acknowledge critical evidence in the author response.
+Justification:
+
+Dear ACs, SACs, and PCs,
+
+We are writing to report specific issues regarding Reviewer sNUJ via I3 (Score Mismatch) and I11 (Non Response).
+
+I3 Score Mismatch. The reviewer rated Soundness as 4 and Excitement as 4 with Confidence 4, but gave a contradictory Overall Assessment of 2.5. This outlier score directly conflicts with their praise of our "unified end-to-end perspective" and acknowledgment that our insights add "significant value beyond a literature list". A 2.5 score typically indicates fundamental flaws, which are irreconcilable with the reviewer's own high marks for technical soundness.
+
+I11 Non Response. We thoroughly addressed all three primary non-technical concerns (W1-W3):
+
+W1 (Depth/Scope): Clarified that quantization depth was a deliberate taxonomic choice to avoid redundancy; formalized in Appendix H.
+W2 (Coverage): Added latest SOTA models like Qwen3-VL (Appendix B).
+W3 (ACL Scope): Critically, the reviewer contradicts themselves by questioning the scope while simultaneously acknowledging the work as "highly relevant to current NLP/multimodal research".
+
+Despite these clarifications and the reviewer’s own admission of the work’s relevance, they remained silent, leaving critical manuscript updates and logical inconsistencies unacknowledged. Such procedural oversight undermines the fairness of the discussion phase. We respectfully request the Area Chair to re-evaluate the score in light of these documented resolutions to ensure the submission receives a holistic assessment aligned with its acknowledged technical merit.
+
+Best regards,
+
+Authors of Submission 5782
+
+−
+＝
+≡
+Follow-up Discussion with Reviewer sNUJ (Critical Deadline Reminder: ~10 Hours Remaining)
+Copy URL of note ozWpJogqd2
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)22 Feb 2026, 09:42 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer sNUJ, Commitment ReadersRevisions
+Comment:
+
+Dear Reviewer sNUJ,
+
+We hope this message finds you well. As the discussion phase enters its final hours, with approximately 10 hours remaining, we would like to kindly follow up on our rebuttal to ensure all your concerns have been fully addressed.
+
+We have meticulously resolved the points you raised through the following strategic updates:
+
+Strategic Depth & Selection Protocol (W1): We clarified that our focus on multimodal-customized "root-cause" optimizations was a deliberate taxonomic choice. To ensure transparency, we introduced Appendix H to detail our systematic literature selection protocol.
+Model Coverage (W2): We have incorporated discussions on the latest state-of-the-art models, including Qwen3-VL, as suggested.
+ACL Scope (W3): We reinforced why LVLM inference efficiency is a pivotal concern for the ACL community, aligning with your observation that the work is "highly relevant to current NLP/multimodal research".
+
+We are proud that these enhancements have solidified the paper’s contribution as a systematic and practical roadmap for the field of LVLM efficiency. We believe our work provides substantial value to the community, not only through its systematic retrospective summary but also through the future-forward pilot explorations (e.g., Hybrid KV Cache Compression and Relaxed Speculative Decoding) which you highlighted as a key strength.
+
+If our responses and manuscript updates have successfully resolved your concerns, we kindly invite you to consider re-evaluating and updating your score to reflect the current quality and contribution of the paper. We remain eager to address any remaining feedback you may have in these final hours.
+
+Thank you again for your invaluable time and insights.
+
+Best regards,
+
+Authors of Submission 5782
+
+−
+＝
+≡
+Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)
+Copy URL of note qTn9iPv6n3
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)21 Feb 2026, 10:24 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer sNUJ, Commitment ReadersRevisions
+Comment:
+
+Dear Reviewer sNUJ,
+
+We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards.
+
+Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have.
+
+Looking forward to hearing from you!
+
+Best regards,
+
+Authors
+
+−
+＝
+≡
+Formal Feedback regarding Reviewer sNUJ
+Copy URL of note zY6DCI3p2s
+Author-Editor Confidential Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 14:23 (modified: 20 Feb 2026, 14:27)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+Comment:
+
+Dear ACs, SACs, and PCs,
+
+We are writing to respectfully draw your attention to a significant inconsistency in the evaluation provided by Reviewer sNUJ. While the reviewer recognizes the paper's strengths with high scores in Soundness (4), Excitement (4), and Confidence (4), the resulting Overall Assessment (2.5) appears to be a statistical outlier that contradicts the reviewer's own positive qualitative assessment.
+
+We would like to highlight the following points for your consideration:
+
+1. Contradiction Between Qualitative Praise and Quantitative Rating
+
+Reviewer sNUJ explicitly praises our work for providing a "unified end-to-end perspective" and notes that our pilot empirical insights add "significant value beyond a literature list." Given these strong endorsements and a Confidence score of 4, a score of 2.5, typically reserved for papers with fundamental flaws, seems irreconcilable with the reviewer’s recognition of the paper’s technical "Soundness."
+
+2. Comprehensive Resolution of Identified Weaknesses
+
+The reviewer raised three primary concerns, all of which have been thoroughly addressed in our rebuttal through strategic clarification and manuscript updates:
+
+Strategic Depth and Scope (W1): The perceived lack of depth in quantization and hardware-specific kernels reflects a deliberate taxonomic choice. Our analysis confirms these techniques are largely modality-agnostic and function identically to their LLM counterparts. To avoid redundancy with general LLM surveys, we prioritized multimodal-specific optimizations that address the "root causes" of LVLM inefficiencies. We have added Appendix H to detail this systematic selection protocol.
+Model Coverage (W2): We have incorporated discussions on the latest state-of-the-art models, including Qwen3-VL, ensuring the survey remains at the academic frontier as suggested.
+ACL Scope (W3): While the reviewer initially questioned the scope, they simultaneously acknowledged the work as "highly relevant to current NLP/multimodal research." We have clarified why LVLM inference efficiency is now a pivotal and urgent concern for the ACL community in the era of large-scale multimodal serving.
+3. Solidification of Empirical Contributions
+
+The reviewer highlighted our "future-forward pilot explorations" as a key strength. We have since reinforced these explorations with extensive cross-hardware profiling (A100, L40S, RTX 5000) and statistical testing across multiple seeds. These additional results fully align with and solidify our original conclusions, addressing any concerns regarding empirical robustness.
+
+In conclusion, the reviewer acknowledges that our survey is highly relevant, technically sound, and provides value well beyond a simple literature list. In light of this, the overall score of 2.5 appears to be an anomaly. We kindly request the Area Chair to consider whether this rating accurately reflects the manuscript's contribution and the reviewer's highly positive, detailed feedback.
+
+Best regards,
+
+Authors of Submission 5782
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer sNUJ (W3)
+Copy URL of note LUai0C7FgD
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:19 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer sNUJ, Commitment ReadersRevisions
+Comment:
+
+[W3] A significant concern is whether this survey paper's core contribution aligns with the scope of ACL.
+
+We appreciate the opportunity to clarify the alignment of our work with the ACL community. To substantiate our contribution within the NLP domain, we have specifically filtered and highlighted representative works from the ACL Anthology and associated top-tier venues (e.g., ACL and EMNLP) that underscore the relevance of our topic.
+
+We firmly believe that efficient LVLM inference sits at the heart of the ACL 2026 technical program, specifically aligning with the tracks [1]: (1) Multimodality and Language Grounding to Vision, Robotics and Beyond, and (2) LLM Efficiency. Our alignment is based on the following pillars:
+
+Linguistic Primacy in Multimodal Evolution: As the community pivots from text-only models to multimodal reasoning infrastructures [2], managing dense visual contexts has become a fundamental NLP challenge. Seminal works like Video-ChatGPT [3] and the robust MMMU-Pro [4] demonstrate that efficiency directly impacts the model's ability to maintain conversational coherence [5] over multimodal (image and video) contexts, which remains a core priority for the ACL community.
+
+Exploiting Language Priors for Efficiency: The most advanced efficiency techniques rely on deep linguistic insights to navigate the "visual memory wall." For instance, SpecVLM [6] leverages verifier-guided token pruning to accelerate video LLMs, while MadaKV [7] introduces modality-perception KV cache eviction specifically for multimodal long-context inference. These works prove that "efficiency" in this domain is achieved by understanding the semantic utility of tokens within the LLM's latent space.
+
+Hardware-Linguistic Co-design: Our survey aligns with the emerging ACL trend of hardware-aligned and compute-optimal mechanisms. This is exemplified by NSA [8] and recent systematic studies on Inference Compute-Optimal Video LLMs [9], both of which emphasize balancing natively trainable efficiency with linguistic fidelity. Our stage-aware analysis complements existing high-impact ACL surveys on data-centric LLM training [10] by focusing on the equally critical deployment and inference lifecycle.
+
+As ACL continues to expand its focus on the Practical Deployment and Sustainability of large-scale models, a comprehensive analysis of the trade-offs between visual fidelity and inference cost is essential for the community.
+
+References (Filtered from ACL Anthology & Related Venues)
+
+[1] ACL 2026 Call for Papers: ACL 2026 Call for Papers: Multimodality and Language Grounding; LLM Efficiency.
+[2] Advances (ACL-Findings 2024): MM-LLMs: Recent Advances in MultiModal Large Language Models.
+[3] Video-ChatGPT (ACL 2024-Main): Video-ChatGPT: Towards Detailed Video Understanding via Large Vision and Language Models.
+[4] MMMU-Pro (ACL 2025-Main): MMMU-Pro: A More Robust Multi-Discipline Multimodal Understanding Benchmark.
+[5] CoQA (ACL 2022-Main): CoQA: A Conversational Question Answering Challenge.
+[6] SpecVLM (EMNLP 2025-Main): SpecVLM: Enhancing Speculative Decoding of Video LLMs via Verifier-Guided Token Pruning.
+[7] MadaKV (ACL 2025-Main): MadaKV: Adaptive Modality-Perception KV Cache Eviction for Efficient Multimodal Long-Context Inference.
+[8] NSA (ACL 2025-Main-Best Paper): Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention.
+[9] Video LLM (ACL 2025-Main): Inference Compute-Optimal Video Vision Language Models.
+[10] Survey (ACL 2025-Main): A Survey on Efficient Large Language Model Training: From Data-centric Perspectives.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer sNUJ (W2)
+Copy URL of note W2un7Zy7wV
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:17 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer sNUJ, Commitment ReadersRevisions
+Comment:
+
+[W2] More recent and state-of-the-art models should be included and discussed, e.g., Qwen3-VL.
+
+We thank the reviewer for this constructive suggestion. In the revised version, we have expanded Appendix B.3 to incorporate the latest SOTA models, including Qwen3-VL [1] and the newly released Qwen3.5 [2] (published on Feb 17, 2026). Additionally, we provide a finer-grained discussion of the following representative architectures and integrate these analyses into Appendix B:
+
+Qwen Series [1,2]: We highlight the paradigm shift toward Native Dynamic Resolution and Qwen3.5's Hybrid Attention + Sparse MoE, which achieves a remarkable 19x throughput gain in long-context scenarios.
+DeepSeek-VL2 [3]: We analyze its Mixture-of-Experts (MoE) architecture as a benchmark for sparse computation, effectively decoupling model capacity from per-token inference costs.
+InternVL-3.5 [4]: We showcase its Visual Resolution Router and Decoupled Deployment, which collectively achieve a 4.05x system-level inference speedup.
+Llama-3.2-Vision [5]: We explore its Cross-Attention Injection mechanism as a memory-efficient alternative to concatenation, specifically designed to mitigate the "visual memory wall."
+
+These additions ensure that our survey maintains both comprehensive coverage and cutting-edge relevance by capturing the most significant recent advancements in the field.
+
+References
+
+[1] Qwen3-VL (2025): Qwen3-VL Technical Report
+
+[2] Qwen3.5 (2026): Qwen3.5: Towards Native Multimodal Agents
+
+[3] DeepSeek-VL2 (2024): DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding
+
+[4] InternVL-3.5 (2025): InternVL3.5: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency
+
+[5] Llama-3.2-Vision (2024): The Llama 3 Herd of Models
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer sNUJ (W1)
+Copy URL of note 3YqDWIV95o
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:16 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer sNUJ, Commitment ReadersRevisions
+Comment:
+
+[W1] While the taxonomy is broad, some specific sub-fields like quantization or hardware-specific kernels are discussed with less depth compared to token reduction and KV cache management.
+
+We thank the reviewer for this insightful observation regarding the depth of coverage for quantization and hardware-specific kernels. We would like to clarify the design philosophy behind our taxonomy and scope:
+
+Taxonomic Positioning & Modality-Correlation: At the inception of this work, we systematically mapped quantization and hardware-specific kernels across our stage-aware framework. We observed that these techniques indeed span both the prefilling and decoding stages. However, through our extensive literature review, we identified a critical trend: these techniques exhibit a very weak correlation with the multimodal nature of LVLMs. Specifically, most quantization schemes (e.g., GPTQ [1], AWQ [2], and SpinQuant [3]) and kernels (e.g., FlashAttention series [4, 5, 6]) are applied directly to LVLM backbones without additional multimodal-specific customization. Their implementation and performance characteristics remain virtually identical to their text-only LLM counterparts.
+
+Strategic Prioritization of "Root-Cause" Solutions: Given that these general-purpose techniques are already extensively documented in existing LLM surveys [7, 8], we made a deliberate choice to prioritize multimodal-customized optimizations that address the root causes of LVLM-specific inefficiency.
+
+Systematic Selection & Living Resource (Appendix H): To ensure transparency, we will incorporate Appendix H: Systematic Literature Selection Protocol, which details our multi-phase selection process. We prioritize works that offer scalable efficiency gains across unified multimodal pipelines. Furthermore, our submitted software serves as a living repository. This infrastructure is designed to be dynamically updated, allowing us to incorporate the daily influx of research and capture the emergence of customized kernels and quantization as the field matures toward the academic frontier.
+
+References
+
+[1] GPTQ (ICLR 2023): GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers
+[2] AWQ (MLSys 2024): AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration
+[3] SpinQuant (ICLR 2025): SpinQuant: LLM quantization with learned rotations.
+[4] FlashAttention (NeurIPS 2022): FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
+[5] FlashAttention-2 (ICLR 2024): FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning
+[6] FlashAttention-3 (NeurIPS 2024): FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision
+[7] Survey (TMLR 2024): Efficient Large Language Models: A Survey
+[8] Survey (ArXiv 2024): A Survey on Efficient Inference for Large Language Models
+
+−
+＝
+≡
+Official Review of Submission5782 by Reviewer 4cnA
+Copy URL of note 7OCk7S2NcM
+Official Reviewby Reviewer 4cnA07 Feb 2026, 00:37 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer 4cnA, Commitment ReadersRevisions
+Paper Summary:
+
+This paper provides a comprehensive survey of efficiency techniques for large vision-language models (LVLMs), focusing on the systemic bottlenecks in the inference pipeline. It identifies three critical stages in the inference lifecycle, and proposes a taxonomy of optimization techniques for each stage. The paper highlights the challenges of "visual token dominance," where the sheer volume of visual tokens compared to text tokens creates computational and memory bottlenecks. The authors also outline future directions, including hybrid compression, modality-aware decoding, streaming continuity, and hardware-algorithm co-design.
+
+Summary Of Strengths:
+
+The paper thoroughly examines the challenges and bottlenecks in LVLM inference, providing a detailed stage-wise analysis. This structured approach makes it easy to follow the key issues and optimizations in each stage.
+
+The work introduces a well-organized taxonomy of efficiency techniques categorized by execution stages. This is valuable for both researchers and practitioners looking to identify specific areas for improvement.
+
+The paper goes beyond summarizing existing techniques by proposing forward-looking research directions, such as hybrid compression and stage-disaggregated serving architectures. These suggestions are well-grounded in the identified bottlenecks and provide actionable insights for further exploration.
+
+Summary Of Weaknesses:
+
+Although the paper discusses various optimization techniques, it does not sufficiently explore the trade-offs between efficiency and model performance. For example, how do different compression methods impact model accuracy across diverse tasks?
+
+While the paper outlines standard efficiency metrics and benchmarks, it could benefit from a more detailed discussion of how these metrics align with real-world deployment scenarios. For instance, how do these metrics translate to cost savings or scalability in production environments?
+
+Comments Suggestions And Typos:
+Include a more detailed analysis of the trade-offs between efficiency and performance, as well as a discussion on energy efficiency and its implications for real-world applications.
+Confidence: 4 = Quite sure. I tried to check the important points carefully. It's unlikely, though conceivable, that I missed something that should affect my ratings.
+Soundness: 4 = Strong: This study provides sufficient support for all of its claims. Some extra experiments could be nice, but not essential.
+Excitement: 3.5
+Overall Assessment: 3 = Findings: I think this paper could be accepted to the Findings of the ACL.
+Ethical Concerns:
+
+There are no concerns with this submission
+
+Needs Ethics Review: No
+Reproducibility: 4 = They could mostly reproduce the results, but there may be some variation because of sample variance or minor variations in their interpretation of the protocol or method.
+Datasets: 4 = Useful: I would recommend the new datasets to other researchers or developers for their ongoing work.
+Software: 4 = Useful: I would recommend the new software to other researchers or developers for their ongoing work.
+Knowledge Of Or Educated Guess At Author Identity: Yes
+Knowledge Of Paper: After the review process started
+Knowledge Of Paper Source: Preprint on arxiv
+Impact Of Knowledge Of Paper: Not at all
+Reviewer Certification: I certify that the review I entered accurately reflects my assessment of the work. If you used any type of automated tool to help you craft your review, I hereby certify that its use was restricted to improving grammar and style, and the substance of the review is either my own work or the work of an acknowledged secondary reviewer.
+Publication Ethics Policy Compliance: I used a privacy-preserving tool exclusively for the use case(s) approved by PEC policy, such as language edits
+−
+＝
+≡
+Review Issue Report of Submission5782 by Authors
+Copy URL of note nCBiw5fqfM
+Review Issue Reportby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)24 Feb 2026, 11:16 (modified: 19 Apr 2026, 07:14)Program Chairs, Senior Area Chairs, Area Chairs, AuthorsRevisions
+I11 Non Response: The review does not acknowledge critical evidence in the author response.
+Justification:
+
+Dear ACs, SACs, and PCs,
+
+We are writing to report a procedural issue regarding Reviewer 4cnA via I11 (Non Response).
+
+I11 Non Response. Reviewer 4cnA rated our study’s Soundness as 4 (Strong) and Excitement as 3.5 with Confidence 4. The reviewer praised the work for its "thorough examination of bottlenecks" and "well-grounded forward-looking research directions" providing "actionable insights". During the discussion phase, we thoroughly addressed the reviewer's concerns regarding practical deployment:
+
+W1, C1-1 (Performance-Efficiency Trade-off): We introduced Appendix I, providing a quantitative Pareto frontier analysis of mainstream KV cache compression methods.
+W2, C1-2 (Real-world Deployment Metrics): We formalized production-level indicators in Appendix C.2, introducing quantitative formulations for CPSR (Cost Per Successful Request), Scalability, and Energy Efficiency.
+
+Despite these extensive enhancements that directly fulfill the reviewer's requests, and our proactive follow-up in the final hours, Reviewer 4cnA remained silent and did not acknowledge this critical evidence.
+
+Given the reviewer’s high marks for Soundness (4) and the actionable nature of our contributions, the current Overall Assessment appears to be a mismatch with the manuscript's matured quality. We respectfully request the AC to consider these resolved concerns and re-evaluate the submission.
+
+Best regards,
+
+Authors of Submission 5782
+
+−
+＝
+≡
+Follow-up Discussion with Reviewer 4cnA (Critical Deadline Reminder: ~10 Hours Remaining)
+Copy URL of note t0Il1Adwqq
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)22 Feb 2026, 09:46 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer 4cnA, Commitment ReadersRevisions
+Comment:
+
+Dear Reviewer 4cnA,
+
+We hope this message finds you well. As the discussion phase enters its final 10 hours, we would like to kindly follow up on our rebuttal to ensure that our detailed responses and manuscript updates have fully addressed your insights.
+
+To address your concerns regarding the performance-efficiency trade-off and real-world deployment metrics, we have incorporated the following systematic enhancements:
+
+Quantitative Trade-off Analysis (W1, C1-1): We introduced Appendix I: Efficiency-Performance Trade-offs in KV Cache Compression. This section provides an empirical evaluation of mainstream KV cache methods and their impact on the Pareto frontier of MLLMs.
+Real-world Deployment Framework (W2, C1-2): We formalize the transition from technical metrics to production-level indicators in Appendix C.2: Real-world Alignment: Cost, Scalability, and Energy Efficiency. This includes new quantitative formulations for Cost Per Successful Request (CPSR), Scalability Efficiency (
+𝜂
+𝑠
+𝑐
+𝑎
+𝑙
+𝑒
+), and Energy Per Token (EPT) to guide practitioners in assessing operational sustainability.
+
+We believe these additions significantly strengthen the practical value and empirical depth of our survey, aligning with your valuable suggestions.
+
+We are proud that these enhancements have solidified the paper’s contribution as a systematic and practical roadmap for the field of LVLM efficiency. We believe our work provides substantial value to the community, not only through its systematic retrospective summary but also through the future-forward pilot explorations (e.g., Hybrid KV Cache Compression and Relaxed Speculative Decoding), which you highlighted as a key strength.
+
+If our responses and the newly added appendices have resolved your concerns, we kindly invite you to consider re-evaluating and updating your score to reflect the current quality and contribution of the paper. We remain eager to address any remaining feedback you may have in these final hours.
+
+Thank you again for your time and for helping us improve this work.
+
+Best regards,
+
+Authors of Submission 5782
+
+−
+＝
+≡
+Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)
+Copy URL of note 57LbO6Lh0c
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)21 Feb 2026, 10:25 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer 4cnA, Commitment ReadersRevisions
+Comment:
+
+Dear Reviewer 4cnA,
+
+We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards.
+
+Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have.
+
+Looking forward to hearing from you!
+
+Best regards,
+
+Authors
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer 4cnA (W2, C1-2)
+Copy URL of note BEZmsYs7C6
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:25 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer 4cnA, Commitment ReadersRevisions
+Comment:
+
+[W2] While the paper outlines standard efficiency metrics and benchmarks, it could benefit from a more detailed discussion of how these metrics align with real-world deployment scenarios. For instance, how do these metrics translate to cost savings or scalability in production environments?
+
+[C1-2] Include A discussion on energy efficiency and its implications for real-world applications.
+
+We appreciate the reviewer’s insightful suggestion to better align technical metrics with production-level deployment. We fully concur that for real-world service providers, algorithmic speed-up is most meaningful when translated into economic efficiency, system scalability, and operational sustainability.
+
+To bridge this gap, we have introduced a detailed discussion in Appendix C.2, titled "Real-world Alignment: Cost, Scalability, and Energy Efficiency". This section provides a quantitative framework to map technical performance to production constraints:
+
+Appendix C.2: Real-world Alignment: Cost, Scalability, and Energy Efficiency
+
+To bridge the gap between technical metrics and production-level deployment, we formalize the transition of the metrics defined in~\Cref{tab:metrics} into economic and operational indicators through a detailed discussion:
+
+Cost Savings (CPSR): For service providers, raw throughput must be translated into the Cost Per Successful Request (CPSR, [
+USD
+/
+req
+]), representing unit economic efficiency. We derive this as:
+
+𝐶
+𝑃
+𝑆
+𝑅
+=
+𝐶
+node
+𝐺
+⋅
+𝑇
+ref
+
+where 
+𝐶
+node
+ denotes the operational expenditure (OpEx) of the hardware instance [
+USD
+/
+node
+] over a reference time window 
+𝑇
+ref
+ [s], and 
+𝐺
+ represents the Goodput [req / s]. This formulation clarifies how maximizing 
+𝐺
+ allows developers to increase request density per hardware unit, directly lowering the CPSR by reducing amortized infrastructure overhead.
+
+Scalability Efficiency (
+𝜂
+scale
+): To evaluate how systems handle growth, we define Scalability Efficiency (
+𝜂
+scale
+), which measures SLO Attainment under an iso-resource scaling scenario (where both hardware 
+𝐻
+ and workload 
+𝑀
+ are increased by factor 
+𝑘
+):
+
+𝜂
+scale
+=
+SLO Attainment
+(
+𝑘
+⋅
+𝑀
+∣
+𝑘
+⋅
+𝐻
+)
+SLO Attainment
+(
+𝑀
+∣
+𝐻
+)
+
+where the notation 
+(
+𝑀
+∣
+𝐻
+)
+ denotes the performance measured under workload 
+𝑀
+ conditioned on hardware resources 
+𝐻
+. This discussion provides a rigorous metric for identifying linear scalability (
+𝜂
+scale
+≈
+1
+) or systemic bottlenecks, such as VRAM saturation or interconnect contention, in large-scale clusters.
+
+Energy Efficiency (EPT): We expand our discussion on sustainability by defining Energy Per Token (EPT, [J / token]). While TTFT captures the compute-bound energy burst during prefilling, the memory-bound nature of decoding (
+𝐴
+𝐼
+≪
+1
+) ensures that TPOT dominates cumulative energy overhead:
+
+𝐸
+𝑃
+𝑇
+≈
+𝑃
+TDP
+×
+𝑇
+𝑃
+𝑂
+𝑇
+effective
+
+where 
+𝑃
+TDP
+ is the Thermal Design Power [W, or J/s] and 
+𝑇
+𝑃
+𝑂
+𝑇
+effective
+ is the effective decoding latency [s / token]. By minimizing effective decoding latency, developers can significantly reduce the duration GPUs remain in high-power active states, driving operational energy sustainability.
+
+We believe this enhanced discussion and the accompanying explicit formulations offer a systematic framework for practitioners to assess the real-world impact of the acceleration techniques surveyed in this work.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer 4cnA (W1, C1-1 [2/2])
+Copy URL of note RHHJ34hNkj
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:24 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer 4cnA, Commitment ReadersRevisions
+Comment:
+Table 1: Performance of representative KV cache compression strategies on three MLLMs on 8 image tasks and 3 video tasks.
+
+(We allocate only 10% of the full KV cache to evaluate performance under high compression settings.)
+
+Model / Method	CL-CH	DocVQA	MMCoQA	MM-QA	SlideVQA	STD	WebQA	WikiVQA	Image Avg	VATEX (Avg)	NextQA (WUPS)	Video-ChatGPT (Avg)	Video Avg
+Qwen2.5-VL-7B													
+Full Cache	43.07	97.50	66.50	75.00	83.50	29.79	76.50	92.50	70.55	0.3321	33.79	2.93	12.35
+SnapKV[2]	37.41	97.50	54.00	73.00	83.00	29.02	71.00	89.50	66.80	0.3252	33.29	2.75	12.12
+Look-M[3]	38.81	97.50	52.50	73.50	82.50	29.25	71.00	88.00	66.63	0.3301	33.07	2.76	12.05
+MadaKV[4]	37.86	97.50	55.00	74.50	82.00	28.24	70.50	90.00	66.95	0.3186	33.25	2.79	12.12
+SparseMM[5]	37.63	97.50	62.00	75.50	83.50	28.69	70.50	92.50	68.48	0.3169	33.84	2.75	12.30
+Qwen2.5-VL-3B													
+Full Cache	38.34	96.00	56.50	80.00	80.00	29.37	72.00	88.00	67.53	0.3967	29.81	2.55	10.92
+SnapKV[2]	34.78	96.00	43.00	78.50	80.00	26.16	68.00	83.50	63.74	0.3687	30.10	2.48	10.98
+Look-M[3]	35.12	96.00	42.50	79.00	80.00	26.24	66.50	83.50	63.61	0.3757	30.49	2.52	11.13
+MadaKV[4]	33.66	96.00	43.50	79.50	80.00	26.02	66.00	84.00	63.59	0.3523	30.00	2.49	10.95
+SparseMM[5]	35.05	96.00	50.50	79.00	79.50	26.80	65.00	87.00	64.86	0.3421	31.07	2.51	11.31
+LLaVA-OV-7B													
+Full Cache	44.76	97.00	53.50	77.00	77.50	31.23	76.50	88.00	68.18	0.2331	20.18	2.84	7.75
+SnapKV[2]	44.13	97.00	51.50	77.00	77.50	30.17	76.50	87.50	67.66	0.2062	18.56	2.72	7.16
+Look-M[3]	44.15	97.00	51.00	77.00	77.50	30.57	76.50	87.50	67.65	0.2140	18.69	2.74	7.21
+MadaKV[4]	43.37	97.00	52.00	77.00	77.50	30.69	76.50	87.50	67.70	0.2052	18.79	2.77	7.26
+SparseMM[5]	43.72	97.00	52.50	77.00	77.50	30.56	76.50	86.50	67.66	0.2061	18.86	2.72	7.26
+Table 2: Scalability under extreme KV cache budgets (Qwen2.5-VL-7B)
+Method	40% Budget	30% Budget	20% Budget	10% Budget	5% Budget
+WebQA (Accuracy)					
+Full Cache	76.5	76.5	76.5	76.5	76.5
+SnapKV[2]	76.0	76.0	72.0	71.0	51.0
+Look-M[3]	76.5	76.5	75.0	71.0	55.0
+MadaKV[4]	76.5	76.0	76.0	70.5	53.0
+SparseMM[5]	75.0	75.0	72.5	70.5	62.0
+VATEX (Meteor)					
+Full Cache	0.2209	0.2209	0.2209	0.2209	0.2209
+SnapKV[2]	0.2168	0.2175	0.2170	0.2125	0.2088
+Look-M[3]	0.2223	0.2212	0.2189	0.2174	0.2044
+MadaKV[4]	0.2236	0.2204	0.2178	0.2157	0.2104
+SparseMM[5]	0.2164	0.2142	0.2125	0.2110	0.2086
+References
+
+[1] Survey (TMLR 2026): A Survey of Token Compression for Efficient Multimodal Large Language Models.
+[2] SnapKV (NeurIPS 2024): SnapKV: LLM Knows What You are Looking for Before Generation.
+[3] LOOK-M (EMNLP 2024-Findings): LOOK-M: Look-Once Optimization in KV Cache for Efficient Multimodal Long-Context Inference.
+[4] MadaKV (ACL 2025-Main): MadaKV: Adaptive Modality-Perception KV Cache Eviction for Efficient Multimodal Long-Context Inference.
+[5] SparseMM (ICCV 2025): SparseMM: Head Sparsity Emerges from Visual Concept Responses in MLLMs.
+
+−
+＝
+≡
+Thanks & Initial Response to Reviewer 4cnA (W1, C1-1 [1/2])
+Copy URL of note 3Q9hHs5TdD
+Official Commentby Authors (Bowen Zeng, Feiyang Ren, Huan Li, liyihang1005@outlook.com, +6 more)20 Feb 2026, 13:22 (modified: 18 Mar 2026, 00:00)Program Chairs, Senior Area Chairs, Area Chairs, Reviewers Submitted, Authors, Reviewer 4cnA, Commitment ReadersRevisions
+Comment:
+
+[W1] Although the paper discusses various optimization techniques, it does not sufficiently explore the trade-offs between efficiency and model performance. For example, how do different compression methods impact model accuracy across diverse tasks.
+
+[C1-1] Include a more detailed analysis of the trade-offs between efficiency and performance.
+
+We thank the reviewer for highlighting the importance of the performance-efficiency trade-off. We agree that the viability of lossy compression hinges on its ability to maintain accuracy while reducing resource consumption. While visual token pruning has been extensively discussed in recent literature [1], its impact on the KV cache during the decoding stage remains an emerging bottleneck. To avoid redundancy and provide novel insights, we provide a dedicated analysis in Appendix I: Efficiency-Performance Trade-offs in KV Cache Compression focusing on the varying granularities of KV cache compression. This analysis evaluates how different levels of structural pruning impact the Pareto frontier of MLLMs.
+
+Our empirical findings from Table 1 and Table 2 reveal three key insights into how different compression levels impact the Pareto frontier:
+
+Hierarchy of Compression Granularity: Our analysis compares methods across three distinct dimensions. SnapKV [2] and LOOK-M [3] operate at the token-level by identifying salient visual tokens. MadaKV [4] introduces layer-level adaptability by distributing budgets based on modality preferences across the network depth. Finally, SparseMM [5] operates at the head-level by allocating budgets to specific attention heads. Our results indicate that head-level and layer-level methods generally provide a more robust trade-off than uniform token-level pruning.
+
+Redundancy and Scaling Law Resilience: As shown in Table 1, current MLLMs exhibit significant inherent redundancy. Advanced strategies such as SparseMM and MadaKV show negligible degradation across diverse tasks compared to the Full Cache baseline. Accuracy preservation is notably more pronounced in larger models like Qwen2.5-VL-7B. This suggests that high-capacity models develop more robust representations that are less sensitive to fine-grained pruning at the head or layer level.
+
+Performance under Extreme Budget Constraints: Table 2 explores the performance limit. While most methods are robust down to a 20% budget, performance diverges sharply at the 5% level. Notably, SparseMM demonstrates superior resilience at ultra-sparse levels compared to token-level methods. This underscores the importance of head-level modality awareness when resources are critically scarce, as it preserves the most semantically relevant attention paths.

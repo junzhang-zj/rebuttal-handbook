@@ -1,0 +1,3319 @@
+{
+  "total_notes": 145,
+  "author_notes_including_deleted": 105,
+  "available_author_notes": 104,
+  "deleted": [
+    {
+      "paper": "LVSpec",
+      "id": "2rOmGYcfyq",
+      "title": "Thanks & Initial Response to Reviewer RMKs (Question 1~2)"
+    }
+  ],
+  "papers": {
+    "LoRAM": {
+      "notes": 43,
+      "available_author_notes": 30
+    },
+    "FloE": {
+      "notes": 19,
+      "available_author_notes": 9
+    },
+    "LVSpec": {
+      "notes": 25,
+      "available_author_notes": 18
+    },
+    "LVLMSurvey": {
+      "notes": 28,
+      "available_author_notes": 23
+    },
+    "HybridKV": {
+      "notes": 30,
+      "available_author_notes": 24
+    }
+  },
+  "patterns": [
+    {
+      "stage": "initial",
+      "label": "将一问拆成几个子问题",
+      "quote": "We address the question in three parts for clarity:",
+      "template": "We address this question in [N] parts for clarity: [subquestions].",
+      "use": "先列子问题，再按相同顺序逐项回答。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "vh7M4ZxWr5",
+          "title": "Thanks & Initial Response to Reviewer EtZ8 (Q2)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=vh7M4ZxWr5",
+          "phase": "逐条技术回复",
+          "context": "We address the question in three parts for clarity:"
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "主动给回答路线",
+      "quote": "We will address this in two parts:",
+      "template": "We address this in two parts: first, [A]; second, [B].",
+      "use": "让 reviewer 在读论证前先知道回答路径。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "8WVJYIVF8c",
+          "title": "Thanks & Initial Response to Reviewer EtZ8 (W3,W4)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=8WVJYIVF8c",
+          "phase": "逐条技术回复",
+          "context": "Discussing LoRAM in the context of simple and standard pruning methods is indeed crucial to demonstrating its unique advantages. We will address this in two parts: first, by illustrating LoRAM's effectiveness when combined with simple pruning methods; second, by highlighting the limitations of naive pruning when paired with LoRA."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "从实际使用场景解释比较",
+      "quote": "Our comparison reflects practical use cases where resource constraints often guide model selection.",
+      "template": "Our comparison reflects [target use case], where users choose between [A] and [B] under [constraint].",
+      "use": "先解释要帮助谁作什么决策，再交代 baseline。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "9ykNB9GBcF",
+          "title": "Thanks & Initial Response to Reviewer aWyt (W3)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=9ykNB9GBcF",
+          "phase": "逐条技术回复",
+          "context": "1. Practical Considerations for Fine-Tuning: Our comparison reflects practical use cases where resource constraints often guide model selection. Practitioners typically choose between deploying larger models with reduced parameters (e.g., through LoRAM) or smaller models with full parameter usage. By including smaller models in the comparison, we aim to illustrate the trade-offs and advantages LoRAM offers in resource-constrained scenarios."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "直接承认性能上界",
+      "quote": "Certainly, LoRAM is designed to trade some performance for significant memory reduction",
+      "template": "Certainly, [method] trades [cost/quality] for [benefit] under [setting].",
+      "use": "不回避单项劣势，转入本文要解决的约束。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "dn0g7Mm07V",
+          "title": "Thanks & Initial Response to Reviewer EtZ8 (Q3,Q4)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=dn0g7Mm07V",
+          "phase": "逐条技术回复",
+          "context": "Certainly, LoRAM is designed to trade some performance for significant memory reduction, and thus, it theoretically underperforms standard LoRA at the same model scale, as LoRA serves as the performance upper bound."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "不寻找普遍最优参数",
+      "quote": "We did not seek a universally optimal parameter reduction ratio; this choice fundamentally depends on user-specific memory constraints.",
+      "template": "We do not seek a universally optimal [parameter]; the choice depends on [user constraint].",
+      "use": "说明选择准则，避免把特定设置称为普适最优。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "vh7M4ZxWr5",
+          "title": "Thanks & Initial Response to Reviewer EtZ8 (Q2)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=vh7M4ZxWr5",
+          "phase": "逐条技术回复",
+          "context": "We did not seek a universally optimal parameter reduction ratio; this choice fundamentally depends on user-specific memory constraints. Instead, we provide a reference competitive scenario, as discussed above. Furthermore, Section 4.6 shows that even with a reduction ratio as high as 8.21×, LoRAM still achieves competitive improvements in both PPL and downstream task performance."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "肯定比较的必要性",
+      "quote": "Comparing with smaller non-compressed models is indeed crucial.",
+      "template": "Comparing with [baseline] is indeed important for assessing [claim].",
+      "use": "承认具体评价需求，而非只写泛泛感谢。",
+      "hits": [
+        {
+          "paper": "FloE",
+          "id": "OUrtNoixQv",
+          "title": "Rebuttal by Authors",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=OUrtNoixQv",
+          "phase": "逐条技术回复",
+          "context": "Comparing with smaller non-compressed models is indeed crucial. However, due to time and resource constraints, we were unable to distill smaller models and instead chose the more advanced Llama3.2-3B and Mistral-7B as baselines for comparison. More details refer to the response to Reviewer bhnT."
+        }
+      ],
+      "papers": [
+        "FloE"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "说明约束并给替代方案",
+      "quote": "due to time and resource constraints, we were unable to distill smaller models",
+      "template": "Due to [constraint], we could not reliably evaluate [X]. We instead provide [Y], which addresses [part of the question].",
+      "use": "资源限制后面接可执行的证据；替代方案不冒充原实验。",
+      "hits": [
+        {
+          "paper": "FloE",
+          "id": "OUrtNoixQv",
+          "title": "Rebuttal by Authors",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=OUrtNoixQv",
+          "phase": "逐条技术回复",
+          "context": "Comparing with smaller non-compressed models is indeed crucial. However, due to time and resource constraints, we were unable to distill smaller models and instead chose the more advanced Llama3.2-3B and Mistral-7B as baselines for comparison. More details refer to the response to Reviewer bhnT."
+        }
+      ],
+      "papers": [
+        "FloE"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "解释合理的质量速度权衡",
+      "quote": "this slight trade-off in latency for a considerable gain in accuracy is well-justified and acceptable",
+      "template": "For [target scenario], the trade-off of [cost] for [benefit] is justified by [evidence].",
+      "use": "把优劣势放在同一 operating point 上比较。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "QvMPiZ8I1l",
+          "title": "Thanks & Initial Response to Reviewer mmBU (W1)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=QvMPiZ8I1l",
+          "phase": "逐条技术回复",
+          "context": "In summary, we believe that for resource-constrained scenarios where maintaining high model performance is as critical as efficiency, this slight trade-off in latency for a considerable gain in accuracy is well-justified and acceptable. We will add this comprehensive analysis to Section 4.3."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "先讲机制再给观测",
+      "quote": "Our analysis, combining both theoretical analysis and empirical results",
+      "template": "We explain [effect] through [mechanism], then evaluate it using [measurement].",
+      "use": "机制解释与实测结果分栏，形成可查证链条。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "OCJmsuCmTD",
+          "title": "Thanks & Initial Response to Reviewer JEeP (W4)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=OCJmsuCmTD",
+          "phase": "逐条技术回复",
+          "context": "We agree that the disadvantage of the all-dynamic variant compared to the hybrid strategy should be further comprehensively discussed to illustrate the necessity of our approach. Our analysis, combining both theoretical analysis and empirical results, shows that the all-dynamic variant is suboptimal due to both accuracy risks and significant efficiency costs."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "早在设计阶段做过",
+      "quote": "we have conducted early experiments during the method design stage",
+      "template": "We explored this during method design and compared [A] with [B].",
+      "use": "区分设计时研究、原稿报告与本轮补充的时间。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "VMCeO5xlzt",
+          "title": "Thanks & Initial Response to Reviewer RMKs (Question 1~2)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=VMCeO5xlzt",
+          "phase": "逐条技术回复",
+          "context": "[Response] Thanks for the insightful question. The relevance computation in LVSpec is performed within the LLM backbone space and is not affected by the text tokenizer. In fact, we have conducted early experiments during the method design stage, and have empirically compared using last-layer hidden states versus text and visual embeddings as the relevance signal, which involves the influence of a text tokenizer, as summarized in Table 1."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "原文已有，愿意再说明",
+      "quote": "We are happy to provide further explanations below.",
+      "template": "This is discussed in [original location]. We are happy to explain the reasoning here.",
+      "use": "指向原稿后，在当前帖子把答案重述清楚。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "uJyQ8V8HPs",
+          "title": "Thanks & Initial Response to Reviewer JEeP (W2)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=uJyQ8V8HPs",
+          "phase": "逐条技术回复",
+          "context": "Thank you for the valuable suggestion. We agree that providing deeper grounding for our hyperparameter choices is important. In fact, both the sparsity threshold ( 𝜃 ) and the budget allocation coefficient ( 𝑟 ) are selected based on theoretical grounding and systematic empirical validation, as detailed in Appendix D. We are happy to provide further explanations below."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "zfByp4Pr0a",
+          "title": "Thanks & Initial Response to Reviewer 4Xp9 (W1)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=zfByp4Pr0a",
+          "phase": "逐条技术回复",
+          "context": "Thanks for your strong support and suggestion. We agree that providing deeper grounding for our hyperparameter choices is important. In fact, both the sparsity threshold ( 𝜃 ) and the budget allocation coefficient ( 𝑟 ) are selected based on theoretical grounding and systematic empirical validation, as detailed in Appendix D. We are happy to provide further explanations below."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "乐意补上所需结果",
+      "quote": "We are happy to provide additional results for more choices of N",
+      "template": "We are happy to provide additional results for [settings], as shown in [table].",
+      "use": "表达配合并立刻给出具体证据。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "CBQBJuiKHd",
+          "title": "Thanks & Initial Response to Reviewer B2rN (Weakness 1~3)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=CBQBJuiKHd",
+          "phase": "逐条技术回复",
+          "context": "[Response] Our sensitivity study on the number of critical visual tokens N was intended to capture differences across orders of magnitude (e.g., 1, 10, 100), and we omitted some intermediate, more arbitrary values. We are happy to provide additional results for more choices of N, as shown in Table 2."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "承认范围与可迁移原则",
+      "quote": "Transferable Innovation.",
+      "template": "Our current implementation is designed for [scope]; the transferable principle is [X].",
+      "use": "分开当前可用范围与未来可迁移的想法。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "k97P2ufnla",
+          "title": "Thanks & Initial Response to Reviewer 4Xp9 (W2)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=k97P2ufnla",
+          "phase": "逐条技术回复",
+          "context": "(2) Transferable Innovation. However, we believe the core innovative principle of HybridKV is highly transferable. This principle is to identify head-level behavioral heterogeneity and then apply tailored compression. This general idea offers a promising paradigm for optimizing LLM inference, even if the specific classification method needs adaptation."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "解释合理局限",
+      "quote": "We acknowledge that a task-adaptive threshold could potentially further improve performance.",
+      "template": "We acknowledge that [extension] could improve [aspect]. Our current design prioritizes [constraint].",
+      "use": "承认进一步可能性，并说明当前设计取舍。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "X3dQ0bAy0R",
+          "title": "Thanks & Initial Response to Reviewer Hhmf (Weakness 3~4)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=X3dQ0bAy0R",
+          "phase": "逐条技术回复",
+          "context": "Based on the effectiveness of our method under a fixed threshold, we intentionally maintain a simple and effective design. We acknowledge that a task-adaptive threshold could potentially further improve performance. However, as a training-free approach, we consider this limitation a necessary trade-off, since such tasks are relatively rare and our method’s performance has already been validated on mainstream benchmarks."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "给 corner case 的修正路径",
+      "quote": "a simple fallback to strict verification can be used to avoid performance degradation",
+      "template": "When [failure condition] occurs, [fallback] can be used; [state whether it has been evaluated].",
+      "use": "区分已验证 fallback 与潜在改进。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "X3dQ0bAy0R",
+          "title": "Thanks & Initial Response to Reviewer Hhmf (Weakness 3~4)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=X3dQ0bAy0R",
+          "phase": "逐条技术回复",
+          "context": "(2) When the output patterns do contain substantial visually irrelevant yet logically critical tokens, improvements can be directly made upon LVSpec. First, we can augment the visual relevance metric with additional heuristics (e.g., entropy) to identify non-visual keywords. This would not undermine the role of the visual relevance metric since visually grounded tokens still remain critical. Second, when such tokens cannot be reliably identified, a simple fallback to strict verification can be used to avoid performance degradation."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "给出修改前后的具体措辞",
+      "quote": "we will revise \"effectively salvaging rejected mismatches into valid semantic equivalents\"",
+      "template": "We will revise “[old wording]” to “[new wording]” in [location].",
+      "use": "使呈现修改一眼可核对。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "D4Wqmar3Lp",
+          "title": "Thanks & Initial Response to Reviewer RMKs (Weakness 1~2 and Comments Suggestions)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=D4Wqmar3Lp",
+          "phase": "逐条技术回复",
+          "context": "[Response] Thank you for the suggestion on better articulating our contributions, which is very helpful for sharpening the contribution statements. For the first contribution, we will revise \"generation is governed by sparse yet critical visual-relevant anchors amidst a sea of visual-irrelevant linguistic filler\" to \"generation is governed by <20% sparse yet critical visual-relevant anchors amidst over 60% visual-irrelevant linguistic fillers,\" in line with the oracle-study findings. For the second contribution, we will revise \"effectively salvaging rejected mismatches into valid semantic equivalents\" to \"effectively relaxing unnecessary strict verification via text–vision relevance.\""
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "承诺把分析放进正文",
+      "quote": "We will add this comprehensive analysis to Section 4.3.",
+      "template": "We will add [analysis/results] to [specific section].",
+      "use": "不只说会改进，写明加什么、放哪里。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "QvMPiZ8I1l",
+          "title": "Thanks & Initial Response to Reviewer mmBU (W1)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=QvMPiZ8I1l",
+          "phase": "逐条技术回复",
+          "context": "In summary, we believe that for resource-constrained scenarios where maintaining high model performance is as critical as efficiency, this slight trade-off in latency for a considerable gain in accuracy is well-justified and acceptable. We will add this comprehensive analysis to Section 4.3."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "承认并修正 typo",
+      "quote": "We have corrected the typo in Table 3",
+      "template": "We have corrected [error] to [correction] in [location].",
+      "use": "小问题简明处理，状态如实。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "CpJ8e1wRq8",
+          "title": "Thanks & Initial Response to Reviewer H1mX (Q1, Q2)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=CpJ8e1wRq8",
+          "phase": "逐条技术回复",
+          "context": "Thank you for your meticulous review and positive feedback on the overall writing and presentation of our work. We have corrected the typo in Table 3 (0.3415 → 34.15) and highlighted the change in blue in the revised version uploaded for your reference."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "感谢带来更好的定位",
+      "quote": "which helps us to better frame the contributions and future potential of our work",
+      "template": "Thank you for this suggestion, which helps us clarify [specific aspect].",
+      "use": "感谢说明对方建议具体怎样改善论文。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "k97P2ufnla",
+          "title": "Thanks & Initial Response to Reviewer 4Xp9 (W2)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=k97P2ufnla",
+          "phase": "逐条技术回复",
+          "context": "We will incorporate this comprehensive discussion into the Limitation section of our final manuscript. Thank you again for this constructive feedback, which helps us to better frame the contributions and future potential of our work."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "novelty",
+      "label": "重新组织创新的评价维度",
+      "quote": "While novelty is a multifaceted concept in academic research",
+      "template": "We clarify our contribution along two dimensions: [empirical finding] and [technical mechanism].",
+      "use": "之后迅速落到本文证据，不停留在一般性定义。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "gTCmz3GdfG",
+          "title": "Thanks & Initial Response to Reviewer EtZ8 (W1,W2)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=gTCmz3GdfG",
+          "phase": "逐条技术回复",
+          "context": "While novelty is a multifaceted concept in academic research, we believe it can be broadly viewed from two perspectives:"
+        },
+        {
+          "paper": "LoRAM",
+          "id": "tCeYdilKRu",
+          "title": "Thanks & Initial Response to Reviewer asc9 (W1)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=tCeYdilKRu",
+          "phase": "逐条技术回复",
+          "context": "While novelty is a multifaceted concept in academic research, we believe it can be broadly viewed from two perspectives:"
+        },
+        {
+          "paper": "HybridKV",
+          "id": "JVdaImM9aV",
+          "title": "Thanks & Initial Response to Reviewer mmBU (W2) [1/2]",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=JVdaImM9aV",
+          "phase": "逐条技术回复",
+          "context": "We respectfully acknowledge the reviewer’s concern. While novelty is a multifaceted concept in academic research, we believe it can be broadly viewed from two perspectives: (1) Empirical Innovation: Uncovering new model behaviors and principles, as seen in works like Scaling Laws [2] and the Lottery Ticket Hypothesis [3], which expand our understanding of the field. (2) Technical Innovation: Developing novel methods or optimizations to advance existing technologies. For instance, LoRA [4] enables efficient fine-tuning for large models with low resource cost."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "novelty",
+      "label": "创新不是组件本身",
+      "quote": "Our core innovation, however, is not a new compression primitive",
+      "template": "Our core innovation lies in [new principle/framework], while [component] builds on existing work.",
+      "use": "承认组件复用，准确定位贡献层次。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "2t5DDYWUEh",
+          "title": "Thanks & Initial Response to Reviewer mmBU (W4)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=2t5DDYWUEh",
+          "phase": "逐条技术回复",
+          "context": "Thanks. We agree that the specific compression technique for static heads is inspired by existing work, as we discussed in Appendix A. Our core innovation, however, is not a new compression primitive, but the novel hybrid framework that orchestrates different strategies based on an effective head classification. We address the concern from several aspects:"
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "novelty",
+      "label": "区别研究粒度和对象",
+      "quote": "Distinct Scope and Granularity",
+      "template": "The distinction lies in [scope] and [granularity]: [precise comparison].",
+      "use": "把 related work 拉到相同轴上比较。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "NNpp0mtFOu",
+          "title": "Thanks & Initial Response to Reviewer mmBU (W2) [2/2]",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=NNpp0mtFOu",
+          "phase": "逐条技术回复",
+          "context": "(1) Distinct Scope and Granularity. The core contribution of HybridKV is not merely an implementation tweak, but the discovery and utilization of attention head heterogeneity within Multimodal LLMs (MLLMs). We observed that attention heads in MLLMs exhibit distinct behaviors (static vs. dynamic) that are critical for multimodal understanding. TailorKV is designed for standard LLMs and operates at a coarser layer granularity, applying a uniform strategy (static quantization vs. dynamic retrieval) across all heads in a layer. To leverage this insight, we propose a novel set of algorithms introduced in Section 3, including head classification, top-down budget allocation, and head-specific compression strategies. These are designed to handle the complexity of multimodal inputs at the head level, a dimension that TailorKV does not explore. Therefore, our work addresses a new problem space (MLLM attention heterogeneity) with a finer-grained conceptual solution. We demonstrate performance comparisons between TailorKV and HybridKV in the response to W3.1 below."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "novelty",
+      "label": "承认互补并说明结合方式",
+      "quote": "We consider these techniques orthogonal and complementary to our work.",
+      "template": "These techniques are complementary: [concrete integration].",
+      "use": "互补必须紧跟实际可如何结合。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "NNpp0mtFOu",
+          "title": "Thanks & Initial Response to Reviewer mmBU (W2) [2/2]",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=NNpp0mtFOu",
+          "phase": "逐条技术回复",
+          "context": "(2) Orthogonality to TailorKV's Techniques. We appreciate the technical innovations in TailorKV, specifically its use of static quantization for shallow layers and prefetching-based dynamic retrieval. We consider these techniques orthogonal and complementary to our work. TailorKV's static quantization can be seamlessly integrated into the static heads identified by HybridKV, and its prefetching strategy could further optimize the retrieval phase of our dynamic heads."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "novelty",
+      "label": "肯定简单设计的价值",
+      "quote": "We intentionally keep the method as simple as possible",
+      "template": "We intentionally keep the design simple, enabling [practical benefit] with [evidence].",
+      "use": "将简单与效果、可用性、部署成本相连。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "gTCmz3GdfG",
+          "title": "Thanks & Initial Response to Reviewer EtZ8 (W1,W2)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=gTCmz3GdfG",
+          "phase": "逐条技术回复",
+          "context": "Our method builds on LoRA but introduces a unique twist using two separate models during training and inference, achieving significant memory reduction on training while preserving inference performance. We intentionally keep the method as simple as possible, which, in our view, is more of an advantage than a drawback. This simplicity highlights the unexplored properties of low-rank adaption, and these insights, along with the new pathways they open for memory-efficient large-model tuning, represent the true innovation of our work."
+        },
+        {
+          "paper": "LoRAM",
+          "id": "tCeYdilKRu",
+          "title": "Thanks & Initial Response to Reviewer asc9 (W1)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=tCeYdilKRu",
+          "phase": "逐条技术回复",
+          "context": "Our method builds on LoRA but introduces a unique twist using two separate models during training and inference, achieving significant memory reduction on training while preserving inference performance. We intentionally keep the method as simple as possible, which, in our view, is more of an advantage than a drawback. This simplicity highlights the unexplored properties of low-rank adaption, and these insights, along with the new pathways they open for memory-efficient large-model tuning, represent the true innovation of our work."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "general",
+      "label": "稳定映射 Reviewer 编号",
+      "quote": "For clarity",
+      "template": "For clarity, we refer to Reviewers [IDs] as [R labels], respectively.",
+      "use": "全文使用同一套 ID 映射。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "PTFataqOVS",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PTFataqOVS",
+          "phase": "General Response",
+          "context": "For clarity and simplicity, we will refer to Reviewers EtZ8, aWyt, asc9, H1mX, and BSMa as R1, R2, R3, R4, and R5, respectively, in the following response."
+        },
+        {
+          "paper": "LoRAM",
+          "id": "vh7M4ZxWr5",
+          "title": "Thanks & Initial Response to Reviewer EtZ8 (Q2)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=vh7M4ZxWr5",
+          "phase": "逐条技术回复",
+          "context": "We address the question in three parts for clarity:"
+        },
+        {
+          "paper": "FloE",
+          "id": "Yq7RSYACyP",
+          "title": "General Response & Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=Yq7RSYACyP",
+          "phase": "General Response 与 Summary 合并",
+          "context": "For clarity, we refer to Reviewers oREx, u26i, bhnT, and ZXAh as R1, R2, R3, and R4, respectively."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "oyZOtIyQda",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=oyZOtIyQda",
+          "phase": "General Response",
+          "context": "We sincerely thank all reviewers for their thoughtful and constructive feedback. We are encouraged by their recognition of the key contributions and strengths of our work. For clarity, we will refer to Reviewers Hhmf, B2rN and RMKs as R1, R2, and R3, respectively."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "eoLnTsSl9a",
+          "title": "General Response [1/2]",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=eoLnTsSl9a",
+          "phase": "General Response",
+          "context": "For clarity, we will refer to Reviewers JEeP, mmBU and 4Xp9 as R1, R2, and R3, respectively."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "FloE",
+        "LVSpec",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "general",
+      "label": "先表达受到认可的鼓舞",
+      "quote": "We are encouraged by their recognition of the key contributions and strengths of our work.",
+      "template": "We are encouraged by the reviewers’ recognition of [specific strengths].",
+      "use": "下一段逐项对应 review 原话及 R 编号。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "PTFataqOVS",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PTFataqOVS",
+          "phase": "General Response",
+          "context": "We sincerely thank all reviewers for their thoughtful and constructive feedback. We are encouraged by their recognition of the key contributions and strengths of our work."
+        },
+        {
+          "paper": "FloE",
+          "id": "Yq7RSYACyP",
+          "title": "General Response & Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=Yq7RSYACyP",
+          "phase": "General Response 与 Summary 合并",
+          "context": "We sincerely thank all reviewers for their thoughtful feedback. We are encouraged by their recognition of the key contributions and strengths of our work. In particular, we deeply appreciate their acknowledgment of the importance of our research problem, which addresses the critical challenge of enabling efficient inference of MoE models on resource-constrained devices in latency-sensitive scenarios (R1, R2, R3, R4). The efficacy of our approach (R1, R2, R4) has motivated us to pursue open-source dissemination to foster reproducibility and community adoption (R4). We also appreciate the recognition of the rigorous theoretical claim and proof of FloE as a cornerstone of our work’s validity (R4), and the acknowledgment of our comprehensive experiments (R1, R2, R3, R4)."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "oyZOtIyQda",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=oyZOtIyQda",
+          "phase": "General Response",
+          "context": "We sincerely thank all reviewers for their thoughtful and constructive feedback. We are encouraged by their recognition of the key contributions and strengths of our work. For clarity, we will refer to Reviewers Hhmf, B2rN and RMKs as R1, R2, and R3, respectively."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "eoLnTsSl9a",
+          "title": "General Response [1/2]",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=eoLnTsSl9a",
+          "phase": "General Response",
+          "context": "We sincerely thank all reviewers for their thoughtful and constructive feedback. We are encouraged by their recognition of the key contributions and strengths of our work."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "FloE",
+        "LVSpec",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "general",
+      "label": "从认可转到更新",
+      "quote": "We have carefully addressed each individual comment provided by the reviewers.",
+      "template": "We have responded to each comment. Below, we summarize [contributions], [experiments], and [clarifications].",
+      "use": "这是认可段与更新目录之间的过渡。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "PTFataqOVS",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PTFataqOVS",
+          "phase": "General Response",
+          "context": "We have carefully addressed each individual comment provided by the reviewers. Below, we summarize the core contributions of our study, the updates to our experiments, and the in-depth discussions in our revision."
+        },
+        {
+          "paper": "FloE",
+          "id": "Yq7RSYACyP",
+          "title": "General Response & Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=Yq7RSYACyP",
+          "phase": "General Response 与 Summary 合并",
+          "context": "We have carefully addressed each individual comment provided by the reviewers. Below, we summarize the core contributions of our study, updates to our experiments, and discussions during Rebuttal."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "f7Q0oRBCoF",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=f7Q0oRBCoF",
+          "phase": "General Response",
+          "context": "We have carefully addressed each individual comment provided by the reviewers. Below, we summarize the core contributions of our study, the updates to our experiments, and the in-depth discussions in our revision."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "FloE",
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "general",
+      "label": "贡献栏目",
+      "quote": "Core Contributions of Our Work",
+      "template": "Core Contributions of Our Work\n1. [Finding]\n2. [Mechanism]\n3. [Validation]",
+      "use": "分清已有贡献与本轮新增回应。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "PTFataqOVS",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PTFataqOVS",
+          "phase": "General Response",
+          "context": "Core Contributions of Our Work"
+        },
+        {
+          "paper": "FloE",
+          "id": "Yq7RSYACyP",
+          "title": "General Response & Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=Yq7RSYACyP",
+          "phase": "General Response 与 Summary 合并",
+          "context": "Core Contributions of Our Work Novel Inference System: We propose FloE, an on-the-fly MoE inference system designed for memory-constrained GPUs, leveraging untapped redundancy in sparsely activated experts to enhance performance. Effective Compression Scheme: FloE introduces new hybrid compression techniques to reduce the data movement load of expert parameter matrices, combined with low-cost sparse prediction, achieving significant inference acceleration on resource-constrained devices. Efficient System Optimization: We introduce an efficient sparse kernel and a compact asynchronous transfer mechanism from DRAM to VRAM, boosting system-wide efficiency. Extensive Experimental Evaluation: FloE achieves 9.3× parameter compression per expert in Mixtral-8×7B, enabling deployment on a GPU with only 11GB VRAM and reducing the memory footprint by up to 8.5×. It delivers a 48.7× inference speedup compared to DeepSpeed-MII on a single GeForce RTX 3090, with only a 4.4%–7.6% average performance degradation. Updates on Experiments and Discussions"
+        },
+        {
+          "paper": "LVSpec",
+          "id": "oyZOtIyQda",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=oyZOtIyQda",
+          "phase": "General Response",
+          "context": "Core Contributions of Our Work Novel Discovery and Theoretical Potential: To the best of our knowledge, we are the first to explore loosely speculative decoding in the visual domain. We find that generation qualtiy is governed by sparse yet critical visual-relevant anchors and provide a rigorous theoretical analysis. Lightweight Framework: By employing a pinpoint and lightweight visual-relevant token identification and loose verification scheme, augmented by a position-shift tolerant mechanism, LVSPEC effectively shatters the rigid exact-match barrier in a training-free manner. Extensive Experimental Results: Comprehensive evaluations across four video understanding benchmarks show that LVSPEC is both high-fidelity and rapid. Updates on Experiments and Discussions During Rebuttal"
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "f7Q0oRBCoF",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=f7Q0oRBCoF",
+          "phase": "General Response",
+          "context": "Core Contributions of Our Work Stage-Aware Taxonomy: We decompose the LVLM inference lifecycle into three distinct regimes, Encoding, Prefilling, and Decoding, mapping algorithmic optimizations to hardware bottlenecks using the Roofline model. Hardware-Algorithm Co-Design Perspective: We move beyond isolated algorithmic improvements by analyzing how specific software optimizations interact with hardware constraints across the entire pipeline. Forward-Looking Empirical Insights: We propose visionary research directions, such as hybrid KV cache compression and relaxed speculative decoding, which are empirically grounded through visionary proofs-of-concept. Updates of Experimental Results during Rebuttal Appendix D (Extended Pilot Explorations): To address concerns regarding sample size and generalizability, we have merged and significantly strengthened our pilot explorations. Performance Robustness: We broadened the evaluation of Hybrid KV Cache Compression to 3 models across 11 tasks with robustness testing across multiple seeds, different hardware architectures, and sample sizes. Generalization Assessment: We conducted additional tests for Relaxed Speculative Decoding to verify its generalization. Appendix I (Pareto Frontier Analysis): We added a dedicated analysis of efficiency-performance trade-offs, evaluating how KV cache compression impacts the Pareto frontier of LVLMs). Updates of In-depth Discussions during Rebuttal Appendix C.2 (Real-world Deployment Framework): We introduced a quantitative framework to map technical performance to production constraints, defining metrics for Cost (CPSR), Scalability ( 𝜂 𝑠 𝑐 𝑎 𝑙 𝑒 ), and Energy (EPT). Appendix H (Selection Protocol): We formalized our Systematic Literature Selection Protocol to clarify our methodology and inclusion/exclusion criteria. Appendix B (SOTA Model Coverage): We have incorporated discussions on the latest state-of-the-art models, including Qwen3-VL, as suggested by the reviewers."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "eoLnTsSl9a",
+          "title": "General Response [1/2]",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=eoLnTsSl9a",
+          "phase": "General Response",
+          "context": "Core Contributions of Our Work"
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "FloE",
+        "LVSpec",
+        "LVLMSurvey",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "general",
+      "label": "争取正面评价",
+      "quote": "We look forward to the reviewers' favorable consideration.",
+      "template": "We look forward to the reviewers’ favorable consideration.",
+      "use": "正面但不替 reviewer 宣布立场。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "oyZOtIyQda",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=oyZOtIyQda",
+          "phase": "General Response",
+          "context": "We look forward to the reviewers' favorable consideration."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "f7Q0oRBCoF",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=f7Q0oRBCoF",
+          "phase": "General Response",
+          "context": "We look forward to the reviewers' favorable consideration."
+        }
+      ],
+      "papers": [
+        "LVSpec",
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "带日期的增量更新",
+      "quote": "Update 11.23 (Peformance of Domain-Specific Task):",
+      "template": "Update [date] — [topic]\n[What is new, main result, and location].",
+      "use": "保留原帖旧拼写用于核对；模板标题应改正拼写。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "awJv8NPCj9",
+          "title": "Thanks & Initial Response to Reviewer aWyt (Q1,Q2)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=awJv8NPCj9",
+          "phase": "逐条技术回复",
+          "context": "Update 11.23 (Peformance of Domain-Specific Task):"
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "分享新结果的兴奋感",
+      "quote": "We are excited to share",
+      "template": "We are excited to share [specific completed result].",
+      "use": "轻松语气后立刻给设置和结果。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "awJv8NPCj9",
+          "title": "Thanks & Initial Response to Reviewer aWyt (Q1,Q2)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=awJv8NPCj9",
+          "phase": "逐条技术回复",
+          "context": "We are excited to share our latest results on domain-specific fine-tuning tasks. We evaluated LoRAM on the GSM8K dataset's training set, a challenging mathematical reasoning benchmark that is highly sensitive to sparsification. Specifically, we trained LLaMA-3.1-70B using QLoRAM."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "oFASlr6Kyr",
+          "title": "Thanks & Initial Response to Reviewer mmBU (Q1)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=oFASlr6Kyr",
+          "phase": "逐条技术回复",
+          "context": "For Q1, we are excited to share the latency breakdown of HybridKV and the Full Cache baseline on Qwen2.5-VL-7B using the Video-ChatGPT dataset. The latency is decomposed into HybridKV-specific overheads (KV selection and KV loading as depicted in Figure 6) and standard inference operations, including attention computation, QKVO projection, MLP projection, and other operations (e.g., RoPE and RMSNorm)."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "分享可执行代码",
+      "quote": "We are delighted to share that an anonymous version of the LoRAM execution code has been uploaded",
+      "template": "We are delighted to share that [available implementation] is now provided in [permitted location].",
+      "use": "只报告已上传、可访问的实现。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "PYRFyPClEd",
+          "title": "Thanks & Initial Response to Reviewer H1mX (W2,W3,W4)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PYRFyPClEd",
+          "phase": "逐条技术回复",
+          "context": "We are delighted to share that an anonymous version of the LoRAM execution code has been uploaded to the supplementary materials. We sincerely hope you find the features of LoRAM both fascinating and highly practical, as it significantly reduces training memory usage while achieving impressive inference performance gains."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "欢迎合适用户采用",
+      "quote": "LoRAM is definitely worth recommending!",
+      "template": "For [users] facing [constraint], [method] is worth considering because [evidence].",
+      "use": "推荐面向明确受众，并与实证相连。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "PYRFyPClEd",
+          "title": "Thanks & Initial Response to Reviewer H1mX (W2,W3,W4)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PYRFyPClEd",
+          "phase": "逐条技术回复",
+          "context": "This version is relatively simple due to time constraints, but we are committed to addressing any issues you might encounter and plan to release an even more user-friendly implementation in the future. If you know users with resource constraints who could benefit from task-specific customization, LoRAM is definitely worth recommending! Your feedback and suggestions are always welcome, and we deeply appreciate your engagement with our work!"
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "欢迎反馈与使用交流",
+      "quote": "Your feedback and suggestions are always welcome",
+      "template": "Your feedback and suggestions are always welcome.",
+      "use": "邀请反馈自然地接在代码/部署讨论之后。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "PYRFyPClEd",
+          "title": "Thanks & Initial Response to Reviewer H1mX (W2,W3,W4)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PYRFyPClEd",
+          "phase": "逐条技术回复",
+          "context": "This version is relatively simple due to time constraints, but we are committed to addressing any issues you might encounter and plan to release an even more user-friendly implementation in the future. If you know users with resource constraints who could benefit from task-specific customization, LoRAM is definitely worth recommending! Your feedback and suggestions are always welcome, and we deeply appreciate your engagement with our work!"
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "愿意为呈现做调整",
+      "quote": "we would be more than happy to make adjustments",
+      "template": "We would be more than happy to make [specific adjustments].",
+      "use": "欢迎具体改进意见，同时保持技术判断。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "XVxKzaXxQS",
+          "title": "Follow up Response to Reviewer asc9",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=XVxKzaXxQS",
+          "phase": "后续讨论与感谢",
+          "context": "Furthermore, we fully acknowledge your valuable comments. If you agree with the above statements regarding our novel contributions—such as the phenomena we first uncover, the unique paradigm we propose, and the significant results we present—and have any practical suggestions for how these points can be further highlighted or presented in the paper, we would be more than happy to make adjustments. This would greatly help in refining our work!"
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "提分后仍愿继续交流",
+      "quote": "we are willing to continue the discussion",
+      "template": "We are willing to continue the discussion if [specific concern] remains unclear.",
+      "use": "感谢支持后仍保留技术对话空间。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "fvJp5PEkq3",
+          "title": "Thanks & Follow up Response to Reviewer mmBU",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=fvJp5PEkq3",
+          "phase": "后续讨论与感谢",
+          "context": "Thanks for your raising score, it’s a huge recognition of our work. Should you have any remaining concerns or require further clarification, we are willing to continue the discussion to further improve the quality of our work."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "感谢修改后的评价",
+      "quote": "Thank you for your updated evaluation and for raising the score",
+      "template": "Thank you for the updated assessment and for your constructive suggestions.",
+      "use": "把感谢与已落实的修改相连。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "fWEB69qitx",
+          "title": "Follow up Response to Reviewer EtZ8",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=fWEB69qitx",
+          "phase": "后续讨论与感谢",
+          "context": "Thank you for your updated evaluation and for raising the score, which affirms the innovation and contributions of our work. We are especially grateful for your recognition of the improvements in our presentation and the value of our approach. Your feedback has been instrumental in enhancing the quality of our manuscript, and we deeply appreciate your support!"
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "礼貌接续对话",
+      "quote": "We hope this message finds you well.",
+      "template": "We hope this message finds you well.",
+      "use": "你的常用开头；可按篇幅保留。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "f9IQX7Q7jk",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=f9IQX7Q7jk",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LoRAM",
+          "id": "IVqpjHTBoi",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=IVqpjHTBoi",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "qExQX6RGF0",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=qExQX6RGF0",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "OhURuSTEK9",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=OhURuSTEK9",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "XBMYq0mWJB",
+          "title": "Follow-up Discussion with Reviewer Hhmf",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=XBMYq0mWJB",
+          "phase": "后续讨论与感谢",
+          "context": "We hope this message finds you well. As the discussion phase enters its final hours, we would like to kindly follow up on our rebuttal to ensure all your concerns have been fully addressed."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "X9AWIlsrAl",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=X9AWIlsrAl",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "reqLHPGljd",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=reqLHPGljd",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "ozWpJogqd2",
+          "title": "Follow-up Discussion with Reviewer sNUJ (Critical Deadline Reminder: ~10 Hours Remaining)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=ozWpJogqd2",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. As the discussion phase enters its final hours, with approximately 10 hours remaining, we would like to kindly follow up on our rebuttal to ensure all your concerns have been fully addressed."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "qTn9iPv6n3",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=qTn9iPv6n3",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "t0Il1Adwqq",
+          "title": "Follow-up Discussion with Reviewer 4cnA (Critical Deadline Reminder: ~10 Hours Remaining)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=t0Il1Adwqq",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. As the discussion phase enters its final 10 hours, we would like to kindly follow up on our rebuttal to ensure that our detailed responses and manuscript updates have fully addressed your insights."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "57LbO6Lh0c",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=57LbO6Lh0c",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "UkcL0KsPZg",
+          "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=UkcL0KsPZg",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 1 day, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "c69fbBHMVp",
+          "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 10 Hours)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=c69fbBHMVp",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 10 hours, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "LVSpec",
+        "LVLMSurvey",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "指出反馈时间窗口",
+      "quote": "With the discussion deadline approaching",
+      "template": "With the discussion closing on [exact deadline], we welcome feedback on [point].",
+      "use": "统一标题与正文的日期和时区。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "f9IQX7Q7jk",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=f9IQX7Q7jk",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LoRAM",
+          "id": "IVqpjHTBoi",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=IVqpjHTBoi",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "qExQX6RGF0",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=qExQX6RGF0",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "OhURuSTEK9",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=OhURuSTEK9",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "X9AWIlsrAl",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=X9AWIlsrAl",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "reqLHPGljd",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=reqLHPGljd",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "qTn9iPv6n3",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=qTn9iPv6n3",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "57LbO6Lh0c",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=57LbO6Lh0c",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 2 days, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "UkcL0KsPZg",
+          "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=UkcL0KsPZg",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 1 day, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "c69fbBHMVp",
+          "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 10 Hours)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=c69fbBHMVp",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We hope this message finds you well. Following up on our recent exchange regarding this paper, we wanted to kindly check if there are any further concerns or feedback from you. With the discussion deadline approaching in 10 hours, we are eager to address any remaining issues and ensure the paper meets the highest standards."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "LVSpec",
+        "LVLMSurvey",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "邀请继续指出问题",
+      "quote": "Please feel free to share any thoughts you may have.",
+      "template": "Please feel free to share any remaining questions about [issue].",
+      "use": "给对方继续参与的入口。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "f9IQX7Q7jk",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=f9IQX7Q7jk",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        },
+        {
+          "paper": "LoRAM",
+          "id": "IVqpjHTBoi",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=IVqpjHTBoi",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "qExQX6RGF0",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=qExQX6RGF0",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "OhURuSTEK9",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=OhURuSTEK9",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "X9AWIlsrAl",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=X9AWIlsrAl",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "reqLHPGljd",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=reqLHPGljd",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "qTn9iPv6n3",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=qTn9iPv6n3",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "57LbO6Lh0c",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=57LbO6Lh0c",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "UkcL0KsPZg",
+          "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=UkcL0KsPZg",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "c69fbBHMVp",
+          "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 10 Hours)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=c69fbBHMVp",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Your insights are invaluable to us, and we greatly appreciate your time and consideration. Please feel free to share any thoughts you may have."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "LVSpec",
+        "LVLMSurvey",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "有交流感的收尾",
+      "quote": "Looking forward to hearing from you!",
+      "template": "Looking forward to hearing from you!",
+      "use": "与你的 Best regards / Authors 搭配。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "f9IQX7Q7jk",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=f9IQX7Q7jk",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "LoRAM",
+          "id": "IVqpjHTBoi",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=IVqpjHTBoi",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "FloE",
+          "id": "kyvWCY4VKH",
+          "title": "Rebuttal by Authors",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=kyvWCY4VKH",
+          "phase": "逐条技术回复",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "FloE",
+          "id": "N798t55dFZ",
+          "title": "Rebuttal by Authors",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=N798t55dFZ",
+          "phase": "逐条技术回复",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "LVSpec",
+          "id": "qExQX6RGF0",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=qExQX6RGF0",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "LVSpec",
+          "id": "OhURuSTEK9",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=OhURuSTEK9",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "LVSpec",
+          "id": "X9AWIlsrAl",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=X9AWIlsrAl",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "reqLHPGljd",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=reqLHPGljd",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "qTn9iPv6n3",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=qTn9iPv6n3",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "57LbO6Lh0c",
+          "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=57LbO6Lh0c",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "HybridKV",
+          "id": "UkcL0KsPZg",
+          "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 1 Day)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=UkcL0KsPZg",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        },
+        {
+          "paper": "HybridKV",
+          "id": "c69fbBHMVp",
+          "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 10 Hours)",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=c69fbBHMVp",
+          "phase": "提醒与最后一轮跟进",
+          "context": "Looking forward to hearing from you!"
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "FloE",
+        "LVSpec",
+        "LVLMSurvey",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "最后一轮先列更新",
+      "quote": "We have meticulously resolved the points you raised through the following strategic updates:",
+      "template": "We summarize our responses to your concerns as follows: [items].",
+      "use": "将作者已做工作与 reviewer 是否认可分开。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "XBMYq0mWJB",
+          "title": "Follow-up Discussion with Reviewer Hhmf",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=XBMYq0mWJB",
+          "phase": "后续讨论与感谢",
+          "context": "We have meticulously resolved the points you raised through the following strategic updates:"
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "ozWpJogqd2",
+          "title": "Follow-up Discussion with Reviewer sNUJ (Critical Deadline Reminder: ~10 Hours Remaining)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=ozWpJogqd2",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We have meticulously resolved the points you raised through the following strategic updates:"
+        }
+      ],
+      "papers": [
+        "LVSpec",
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "有条件地请求更新评价",
+      "quote": "we kindly invite you to consider re-evaluating and updating your score",
+      "template": "If our response resolves [concern], we invite you to update your assessment accordingly.",
+      "use": "以 concern 是否解决为条件，不指定分数。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "XBMYq0mWJB",
+          "title": "Follow-up Discussion with Reviewer Hhmf",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=XBMYq0mWJB",
+          "phase": "后续讨论与感谢",
+          "context": "If our responses and manuscript updates have successfully resolved your concerns, we kindly invite you to consider re-evaluating and updating your score to reflect the current quality and contribution of the paper. We remain eager to address any remaining feedback you may have in these final hours."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "ozWpJogqd2",
+          "title": "Follow-up Discussion with Reviewer sNUJ (Critical Deadline Reminder: ~10 Hours Remaining)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=ozWpJogqd2",
+          "phase": "提醒与最后一轮跟进",
+          "context": "If our responses and manuscript updates have successfully resolved your concerns, we kindly invite you to consider re-evaluating and updating your score to reflect the current quality and contribution of the paper. We remain eager to address any remaining feedback you may have in these final hours."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "t0Il1Adwqq",
+          "title": "Follow-up Discussion with Reviewer 4cnA (Critical Deadline Reminder: ~10 Hours Remaining)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=t0Il1Adwqq",
+          "phase": "提醒与最后一轮跟进",
+          "context": "If our responses and the newly added appendices have resolved your concerns, we kindly invite you to consider re-evaluating and updating your score to reflect the current quality and contribution of the paper. We remain eager to address any remaining feedback you may have in these final hours."
+        }
+      ],
+      "papers": [
+        "LVSpec",
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "先体谅 chairs 的组织难度",
+      "quote": "We fully understand the difficulty of recruiting a sufficient number of reviewers within a limited timeframe.",
+      "template": "We appreciate the difficulty of [specific coordination task].",
+      "use": "不是泛泛恭维，紧接具体缺 review 的事实。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "1OudyTQaoQ",
+          "title": "Comments to the Area Chair",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=1OudyTQaoQ",
+          "phase": "请 AC 协调",
+          "context": "Thank you for organizing the review process for our submission. We fully understand the difficulty of recruiting a sufficient number of reviewers within a limited timeframe."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "请求补足评审",
+      "quote": "only one review is available until now",
+      "template": "At present, [N] review(s) are available. Could you advise on [additional review / response window]?",
+      "use": "缺评审与已有评审不回帖是两种不同情况。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "1OudyTQaoQ",
+          "title": "Comments to the Area Chair",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=1OudyTQaoQ",
+          "phase": "请 AC 协调",
+          "context": "However, we have noticed that only one review is available until now. To facilitate a more comprehensive discussion, we would greatly appreciate your assistance in inviting additional reviewers to participate in the discussion phase. We look forward to the opportunity to engage in further discussion with more reviewers so that all aspects of our work can be thoroughly evaluated."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "请 AC 鼓励参与",
+      "quote": "encouraging their participation in the discussion phase",
+      "template": "We would appreciate your assistance in inviting feedback from [reviewer] on [issue].",
+      "use": "日期、线程、请求三个元素写全。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "tADNgyR0Fh",
+          "title": "Comments to the Area Chair",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=tADNgyR0Fh",
+          "phase": "请 AC 协调",
+          "context": "However, we notice that Reviewers asc9 and H1mX (R3 and R4) have not yet provided any feedback on our rebuttal responses. As we are committed to addressing all reviewers' concerns comprehensively, we would greatly appreciate your assistance in encouraging their participation in the discussion phase. Their additional feedback would be valuable in helping us address any remaining concerns they may have."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "8Mb12ze3Ru",
+          "title": "Seeking Further Feedback (Last Day of Discussion)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=8Mb12ze3Ru",
+          "phase": "逐条技术回复",
+          "context": "Thank you for overseeing the review process of our submission. We have carefully prepared our rebuttal. However, we have not yet received any feedback from the reviewers on our rebuttal responses. As we are committed to addressing all reviewers' concerns comprehensively, we would greatly appreciate your assistance in encouraging their participation in the discussion phase. Their additional feedback would be valuable in helping us address any remaining concerns they may have."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "g4B5ttNFK4",
+          "title": "Seeking Further Feedback (Last Day of Discussion)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=g4B5ttNFK4",
+          "phase": "逐条技术回复",
+          "context": "Thank you for overseeing the review process of our submission. We have carefully prepared our rebuttal. However, we have not yet received any feedback from the reviewers on our rebuttal responses. As we are committed to addressing all reviewers' concerns comprehensively, we would greatly appreciate your assistance in encouraging their participation in the discussion phase. Their additional feedback would be valuable in helping us address any remaining concerns they may have."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "LVSpec",
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "summary",
+      "label": "固定感谢 AC",
+      "quote": "We sincerely thank the Area Chairs for their diligent oversight",
+      "template": "We sincerely thank the Area Chairs for overseeing the review process.",
+      "use": "你的 Summary 稳定开头，之后进入具体状态。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "LOqBNMH4rT",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=LOqBNMH4rT",
+          "phase": "Summary",
+          "context": "We sincerely thank the Area Chairs for their diligent oversight of the review process, which has greatly contributed to a thorough and constructive discussion of our submission."
+        },
+        {
+          "paper": "FloE",
+          "id": "gmurpB5fE0",
+          "title": "We submit a comprehensive rebuttal thoroughly addressing Reviewer oREx's theoretical, empirical, and comparative concerns through rigorous validation, supplemental experiments, and extended benchmarking across diverse MoE architectures and tasks, while respectfully requesting acknowledgment of our efforts to resolve all raised issues.",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=gmurpB5fE0",
+          "phase": "请 AC 协调",
+          "context": "We sincerely thank the Area Chairs for their diligent oversight, which has fostered a constructive review process. We are also grateful to the reviewers for their valuable feedback, all of which we have carefully addressed through corresponding discussions and experiments. we have yet to receive a response from Reviewer oREx, who raised three suggestions and one experimental concern:"
+        },
+        {
+          "paper": "LVSpec",
+          "id": "cFiTQe4Qzv",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=cFiTQe4Qzv",
+          "phase": "Summary",
+          "context": "We sincerely thank the Area Chairs for their diligent oversight of the review process, which has greatly contributed to a thorough and constructive discussion of our submission."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "hTxjH5dpzj",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=hTxjH5dpzj",
+          "phase": "Summary",
+          "context": "We sincerely thank the Area Chairs for their diligent oversight. As the discussion concludes, we would like to highlight that through proactive revisions and robust empirical validation, our submission has matured into a high-impact contribution suitable for the ACL conference."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "ExRPio1aqV",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=ExRPio1aqV",
+          "phase": "Summary",
+          "context": "We sincerely thank the Area Chairs for their diligent oversight of the review process, which has greatly contributed to a thorough and constructive discussion of our submission."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "FloE",
+        "LVSpec",
+        "LVLMSurvey",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "summary",
+      "label": "记录提分",
+      "quote": "raised their ratings",
+      "template": "Reviewers [IDs] explicitly [raised their ratings / acknowledged X] on [date].",
+      "use": "区分初始支持、已读确认、提分和逐项认可。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "LOqBNMH4rT",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=LOqBNMH4rT",
+          "phase": "Summary",
+          "context": "We are grateful that the majority of reviewers (three) raised their ratings, reflecting their positive assessment and high confidence in the manuscript (Rating: 8, 8, 6 & Confidence: 5, 4, 4)."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "ExRPio1aqV",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=ExRPio1aqV",
+          "phase": "Summary",
+          "context": "We are grateful that the majority of reviewers (R2, R3) raised their ratings. Regarding R1, while we regret not receiving further feedback during the discussion phase, we deeply value the initial positive rating (3.5 with \"Main Conference\" assessment) as a strong recognition of our work. We appreciate the positive assessment from all reviewers, particularly the high excitement shared by R1 and R3. The reviewers provided favorable scores, reflecting their confidence in our work's contribution (Overall Assessment: 3.5, 3, 4.5 & Confidence: 3, 5, 4). We are especially encouraged by the \"Award\" assessment from R3. We believe that the acknowledgment of our work's soundness (up to 4.5) and the strong experimental validation confirms the quality and readiness of our manuscript. Given that we have diligently addressed all stated weaknesses, we respectfully submit that the quality of our manuscript merits a further positive assessment."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "summary",
+      "label": "自信提出进一步正面评价",
+      "quote": "we respectfully submit that the quality of our manuscript merits a further positive assessment",
+      "template": "We respectfully submit that [contribution and evidence] merit a positive assessment.",
+      "use": "把评价请求放在贡献和证据之后。",
+      "hits": [
+        {
+          "paper": "HybridKV",
+          "id": "ExRPio1aqV",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=ExRPio1aqV",
+          "phase": "Summary",
+          "context": "We are grateful that the majority of reviewers (R2, R3) raised their ratings. Regarding R1, while we regret not receiving further feedback during the discussion phase, we deeply value the initial positive rating (3.5 with \"Main Conference\" assessment) as a strong recognition of our work. We appreciate the positive assessment from all reviewers, particularly the high excitement shared by R1 and R3. The reviewers provided favorable scores, reflecting their confidence in our work's contribution (Overall Assessment: 3.5, 3, 4.5 & Confidence: 3, 5, 4). We are especially encouraged by the \"Award\" assessment from R3. We believe that the acknowledgment of our work's soundness (up to 4.5) and the strong experimental validation confirms the quality and readiness of our manuscript. Given that we have diligently addressed all stated weaknesses, we respectfully submit that the quality of our manuscript merits a further positive assessment."
+        }
+      ],
+      "papers": [
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "summary",
+      "label": "请求公平评价",
+      "quote": "we hope our manuscript will receive a fair evaluation.",
+      "template": "We hope the final assessment will consider [key evidence] and the full discussion record.",
+      "use": "明确希望 AC 考虑什么。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "cFiTQe4Qzv",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=cFiTQe4Qzv",
+          "phase": "Summary",
+          "context": "We sincerely appreciate the time and effort the Area Chairs have dedicated to considering our submission. We recognize the challenges of reviewing within limited time constraints and are grateful for the reviewers' valuable suggestions. Based on our thorough responses and revisions, we hope our manuscript will receive a fair evaluation."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "ExRPio1aqV",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=ExRPio1aqV",
+          "phase": "Summary",
+          "context": "We sincerely appreciate the time and effort the Area Chairs have dedicated to considering our submission. We recognize the challenges of reviewing within limited time constraints and are grateful for the reviewers' valuable suggestions. Based on our thorough responses and revisions, we hope our manuscript will receive a fair evaluation."
+        }
+      ],
+      "papers": [
+        "LVSpec",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "summary",
+      "label": "固定祝福",
+      "quote": "Wishing you a pleasant day ahead.",
+      "template": "Wishing you a pleasant day ahead.",
+      "use": "五篇 Summary 均使用；单独成段，位于署名前（如有）。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "LOqBNMH4rT",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=LOqBNMH4rT",
+          "phase": "Summary",
+          "context": "Wishing you a pleasant day ahead."
+        },
+        {
+          "paper": "FloE",
+          "id": "Yq7RSYACyP",
+          "title": "General Response & Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=Yq7RSYACyP",
+          "phase": "General Response 与 Summary 合并",
+          "context": "Wishing you a pleasant day ahead."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "cFiTQe4Qzv",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=cFiTQe4Qzv",
+          "phase": "Summary",
+          "context": "Wishing you a pleasant day ahead."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "oyZOtIyQda",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=oyZOtIyQda",
+          "phase": "General Response",
+          "context": "Wishing you a pleasant day ahead."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "hTxjH5dpzj",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=hTxjH5dpzj",
+          "phase": "Summary",
+          "context": "Wishing you a pleasant day ahead."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "f7Q0oRBCoF",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=f7Q0oRBCoF",
+          "phase": "General Response",
+          "context": "Wishing you a pleasant day ahead."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "ExRPio1aqV",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=ExRPio1aqV",
+          "phase": "Summary",
+          "context": "Wishing you a pleasant day ahead."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "ZKuZ5tgsrH",
+          "title": "General Response [2/2]",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=ZKuZ5tgsrH",
+          "phase": "General Response",
+          "context": "Wishing you a pleasant day ahead."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "fvJp5PEkq3",
+          "title": "Thanks & Follow up Response to Reviewer mmBU",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=fvJp5PEkq3",
+          "phase": "后续讨论与感谢",
+          "context": "Wishing you a pleasant day ahead."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "pt9BjCMeqS",
+          "title": "Thanks & Follow up Response to Reviewer 4Xp9",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=pt9BjCMeqS",
+          "phase": "后续讨论与感谢",
+          "context": "Wishing you a pleasant day ahead."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "FloE",
+        "LVSpec",
+        "LVLMSurvey",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "reports",
+      "label": "指出评分与文字的张力",
+      "quote": "Contradiction Between Qualitative Praise and Quantitative Rating",
+      "template": "Could the AC clarify how [stated strengths] and [remaining concern] support the overall assessment?",
+      "use": "保留作者质疑并让请求聚焦理由；不把分项评分当固定换算公式。",
+      "hits": [
+        {
+          "paper": "LVLMSurvey",
+          "id": "zY6DCI3p2s",
+          "title": "Formal Feedback regarding Reviewer sNUJ",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=zY6DCI3p2s",
+          "phase": "评审问题反馈与报告",
+          "context": "1. Contradiction Between Qualitative Praise and Quantitative Rating"
+        }
+      ],
+      "papers": [
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "reports",
+      "label": "用原稿定位反驳缺失指控",
+      "quote": "already provided in Table 6 in the original manuscript",
+      "template": "The comparison is provided in [original table]. We ask that the claim of its absence be checked against the submission.",
+      "use": "核对被引用的原稿版本，原文已有与新添分开。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "71IfCXBEhd",
+          "title": "Review Issue Report",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=71IfCXBEhd",
+          "phase": "评审问题反馈与报告",
+          "context": "W3: The performance comparisons between the proposed method, the pure draft model, and the pure target model is already provided in Table 6 in the original manuscript."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "reports",
+      "label": "请求 chairs 考虑报告事实",
+      "quote": "We respectfully ask the Area Chairs to take these factors into account when making the final decision.",
+      "template": "We respectfully ask the Area Chairs to consider [documented issue] in the final assessment.",
+      "use": "用事实、影响和请求收束。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "MyYjVjPloC",
+          "title": "Reporting Issues Regarding the Delayed and Potentially Non-Compliant Reviewer fFe1",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=MyYjVjPloC",
+          "phase": "评审问题反馈与报告",
+          "context": "We sincerely appreciate the time and effort the Area Chairs have dedicated to considering our submission. We believe the review submitted after the official deadline does not comply with the conference guidelines and lacks sufficient reliability. In light of these points, we believe the current score from Reviewer fFe1 does not accurately reflect the resolved nature of their concerns or constitute a fair evaluation of our work. We respectfully ask the Area Chairs to take these factors into account when making the final decision."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "71IfCXBEhd",
+          "title": "Review Issue Report",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=71IfCXBEhd",
+          "phase": "评审问题反馈与报告",
+          "context": "Given that these concerns have already been explicitly stated in the original manuscript but were not mentioned by reviewer fFe1, we believe that this review may not be based on a careful reading and thorough understanding of the paper, and therefore does not accurately reflect the resolved nature of the issues nor provide a fair evaluation of our work. The review’s low confidence, outlier rating, and significantly delayed submission are also worth noting. We respectfully ask the Area Chairs to take these factors into account when making the final decision."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "reports",
+      "label": "指出关键证据未被回应",
+      "quote": "remained silent and did not acknowledge this critical evidence",
+      "template": "We have not received further feedback on [evidence]. We ask the AC to assess it directly.",
+      "use": "报告反馈状态，不从沉默推定 reviewer 同意。",
+      "hits": [
+        {
+          "paper": "LVLMSurvey",
+          "id": "nCBiw5fqfM",
+          "title": "Review Issue Report of Submission5782 by Authors",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=nCBiw5fqfM",
+          "phase": "评审问题反馈与报告",
+          "context": "Despite these extensive enhancements that directly fulfill the reviewer's requests, and our proactive follow-up in the final hours, Reviewer 4cnA remained silent and did not acknowledge this critical evidence."
+        }
+      ],
+      "papers": [
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "reports",
+      "label": "请求判断评分是否反映贡献",
+      "quote": "consider whether this rating accurately reflects the manuscript's contribution",
+      "template": "We ask the AC to assess whether [recommendation] remains supported after considering [evidence].",
+      "use": "将问题交给 AC 独立核查。",
+      "hits": [
+        {
+          "paper": "LVLMSurvey",
+          "id": "zY6DCI3p2s",
+          "title": "Formal Feedback regarding Reviewer sNUJ",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=zY6DCI3p2s",
+          "phase": "评审问题反馈与报告",
+          "context": "In conclusion, the reviewer acknowledges that our survey is highly relevant, technically sound, and provides value well beyond a simple literature list. In light of this, the overall score of 2.5 appears to be an anomaly. We kindly request the Area Chair to consider whether this rating accurately reflects the manuscript's contribution and the reviewer's highly positive, detailed feedback."
+        }
+      ],
+      "papers": [
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "recommend",
+      "label": "对合适用户明确推荐",
+      "quote": "we highly recommend FloE as an efficient and practical alternative",
+      "template": "For [target users], we recommend [method] as a practical option supported by [evidence].",
+      "use": "原句来自 FloE；不是泛称五篇都这样写。",
+      "hits": [
+        {
+          "paper": "FloE",
+          "id": "kyvWCY4VKH",
+          "title": "Rebuttal by Authors",
+          "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=kyvWCY4VKH",
+          "phase": "逐条技术回复",
+          "context": "We believe these findings strongly reinforce FloE’s robustness and practicality, making it a compelling choice for deploying MoE-based LLMs in resource-constrained environments. For users with limited resources who cannot deploy MoE models, we highly recommend FloE as an efficient and practical alternative, delivering high performance while significantly reducing computational costs."
+        }
+      ],
+      "papers": [
+        "FloE"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "用层次清晰的小标题解释机制",
+      "quote": "We address the reviewer’s question by analyzing performance at two stages",
+      "template": "We analyze [phenomenon] at two stages: [before X] and [after X].",
+      "use": "相反实验趋势先检查所比较的阶段是否一致。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "lKmSXWUEQA",
+          "title": "Thanks & Initial Response to Reviewer asc9 (W3)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=lKmSXWUEQA",
+          "phase": "逐条技术回复",
+          "context": "We address the reviewer’s question by analyzing performance at two stages: after fine-tuning but before recovery, and after both fine-tuning and recovery."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "将专业指标转成用户价值",
+      "quote": "To bridge this gap, we have introduced a detailed discussion",
+      "template": "To bridge this gap, we provide [framework] connecting [technical metric] with [practical criterion].",
+      "use": "把“有何实际价值”落实到具体框架和评价维度。",
+      "hits": [
+        {
+          "paper": "LVLMSurvey",
+          "id": "BEZmsYs7C6",
+          "title": "Thanks & Initial Response to Reviewer 4cnA (W2, C1-2)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=BEZmsYs7C6",
+          "phase": "逐条技术回复",
+          "context": "To bridge this gap, we have introduced a detailed discussion in Appendix C.2, titled \"Real-world Alignment: Cost, Scalability, and Energy Efficiency\". This section provides a quantitative framework to map technical performance to production constraints:"
+        }
+      ],
+      "papers": [
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "用领域与会议内容回应范围质疑",
+      "quote": "We appreciate the opportunity to clarify the alignment of our work with the ACL community.",
+      "template": "We appreciate the opportunity to clarify how [contribution] aligns with [community].",
+      "use": "具体对应 topic、研究问题和该社区已有工作。",
+      "hits": [
+        {
+          "paper": "LVLMSurvey",
+          "id": "LUai0C7FgD",
+          "title": "Thanks & Initial Response to Reviewer sNUJ (W3)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=LUai0C7FgD",
+          "phase": "逐条技术回复",
+          "context": "We appreciate the opportunity to clarify the alignment of our work with the ACL community. To substantiate our contribution within the NLP domain, we have specifically filtered and highlighted representative works from the ACL Anthology and associated top-tier venues (e.g., ACL and EMNLP) that underscore the relevance of our topic."
+        }
+      ],
+      "papers": [
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "把模糊贡献改成具体陈述",
+      "quote": "Thank you for the suggestion on better articulating our contributions",
+      "template": "Thank you for the suggestion on clarifying [claim]. We will replace [old wording] with [concrete wording].",
+      "use": "不仅辩护贡献，也愿意修改让贡献更明显。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "D4Wqmar3Lp",
+          "title": "Thanks & Initial Response to Reviewer RMKs (Weakness 1~2 and Comments Suggestions)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=D4Wqmar3Lp",
+          "phase": "逐条技术回复",
+          "context": "[Response] Thank you for the suggestion on better articulating our contributions, which is very helpful for sharpening the contribution statements. For the first contribution, we will revise \"generation is governed by sparse yet critical visual-relevant anchors amidst a sea of visual-irrelevant linguistic filler\" to \"generation is governed by <20% sparse yet critical visual-relevant anchors amidst over 60% visual-irrelevant linguistic fillers,\" in line with the oracle-study findings. For the second contribution, we will revise \"effectively salvaging rejected mismatches into valid semantic equivalents\" to \"effectively relaxing unnecessary strict verification via text–vision relevance.\""
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "initial",
+      "label": "限制内做可靠的补充",
+      "quote": "Due to time and resource constraints, we evaluate",
+      "template": "Within the available time and resources, we evaluate [clearly stated subset] under [settings].",
+      "use": "说清模型、样本范围、protocol，不把子集扩大成全面验证。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "CBQBJuiKHd",
+          "title": "Thanks & Initial Response to Reviewer B2rN (Weakness 1~3)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=CBQBJuiKHd",
+          "phase": "逐条技术回复",
+          "context": "[Response] Thanks for the valuable suggestion！We conduct additional experiments on performance retention to further demonstrate the effectiveness of LVSpec, as summarized in Table 1. Specifically, we run experiments using SGLang under three random seeds, and report the average performance as well as its standard deviation. Due to time and resource constraints, we evaluate the Qwen2.5-VL-32B/7B pairing on VDC, VDD, MovieChat, and Video-MME. As shown in the table, LVSpec achieves average performance close to autoregressive decoding (99.5%, 98.7%,96.2%, 103.1%, 103.7%,100.0%) with a small standard deviation (1.0%, 0.7%,1.5%,1.4%, 5.6%,0.0%), further indicating its near-lossless behavior and stability."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "Ht5E13p9bY",
+          "title": "Thanks & Initial Response to Reviewer Hhmf (Weakness 2 & Comments Suggestions 1)",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=Ht5E13p9bY",
+          "phase": "逐条技术回复",
+          "context": "For the above case involving mathematical reasoning queries paired with unrelated videos, we also conduct experiments using LVSpec without fallback, as summarized in Tables 1–3. Due to time and resource constraints, we evaluate on a subset of the test set (300 queries). Although we do not recommend such usage for VLMs, by setting a conservative relaxation parameter 𝜆 = 0.1 , we find that LVSpec can still maintain lossless performance (100.1%), demonstrating its safety. We attribute this to the fact that even in text-only tasks, not all tokens require strict matching (consistent with the finding in [3]), thus a conservative loosened verification strategy remains robust."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "邀请社区使用与继续构建",
+      "quote": "enabling the community to leverage and build upon our approach",
+      "template": "We hope the community can leverage and build upon [available contribution].",
+      "use": "将开源与长期研究价值相连。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "PYRFyPClEd",
+          "title": "Thanks & Initial Response to Reviewer H1mX (W2,W3,W4)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PYRFyPClEd",
+          "phase": "逐条技术回复",
+          "context": "Thank you for acknowledging the significance of our work. LoRAM offers a simple yet highly effective solution to significantly reduce the training cost for resource-constrained users aiming for customized fine-tuning. To further enhance its accessibility and reproducibility, we will release an initial version of our codebase, enabling the community to leverage and build upon our approach."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "愿意继续分享实验结果",
+      "quote": "We will share the results as soon as they become available.",
+      "template": "We are evaluating [X] and will share the results when available within the response window.",
+      "use": "承诺尚在进行时，后续用 Update 日期完成闭环。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "awJv8NPCj9",
+          "title": "Thanks & Initial Response to Reviewer aWyt (Q1,Q2)",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=awJv8NPCj9",
+          "phase": "逐条技术回复",
+          "context": "We acknowledge the value of domain-specific fine-tuning tasks and are actively exploring this direction. We will share the results as soon as they become available."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "followup",
+      "label": "把 reviewer 的建议写成具体帮助",
+      "quote": "Your feedback has been instrumental in enhancing the quality of our manuscript",
+      "template": "Your feedback has helped us improve [specific part].",
+      "use": "说明被改善的内容，使感谢有人情味而非套话。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "fWEB69qitx",
+          "title": "Follow up Response to Reviewer EtZ8",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=fWEB69qitx",
+          "phase": "后续讨论与感谢",
+          "context": "Thank you for your updated evaluation and for raising the score, which affirms the innovation and contributions of our work. We are especially grateful for your recognition of the improvements in our presentation and the value of our approach. Your feedback has been instrumental in enhancing the quality of our manuscript, and we deeply appreciate your support!"
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "reminders",
+      "label": "强调对工作的自信与投入",
+      "quote": "We are proud that these enhancements have solidified the paper’s contribution",
+      "template": "We are proud that [completed changes] strengthen [specific contribution], as supported by [evidence].",
+      "use": "作者自信单独标明，不冒充 reviewer 的评价。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "XBMYq0mWJB",
+          "title": "Follow-up Discussion with Reviewer Hhmf",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=XBMYq0mWJB",
+          "phase": "后续讨论与感谢",
+          "context": "We are proud that these enhancements have solidified the paper’s contribution as a novel exploration of loosely speculative decoding for Video LLMs. We believe our work provides substantial value to the community, through the impressive efficiency, strong motivation, and theoretical support which you highlighted as a key strength."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "ozWpJogqd2",
+          "title": "Follow-up Discussion with Reviewer sNUJ (Critical Deadline Reminder: ~10 Hours Remaining)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=ozWpJogqd2",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We are proud that these enhancements have solidified the paper’s contribution as a systematic and practical roadmap for the field of LVLM efficiency. We believe our work provides substantial value to the community, not only through its systematic retrospective summary but also through the future-forward pilot explorations (e.g., Hybrid KV Cache Compression and Relaxed Speculative Decoding) which you highlighted as a key strength."
+        },
+        {
+          "paper": "LVLMSurvey",
+          "id": "t0Il1Adwqq",
+          "title": "Follow-up Discussion with Reviewer 4cnA (Critical Deadline Reminder: ~10 Hours Remaining)",
+          "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=t0Il1Adwqq",
+          "phase": "提醒与最后一轮跟进",
+          "context": "We are proud that these enhancements have solidified the paper’s contribution as a systematic and practical roadmap for the field of LVLM efficiency. We believe our work provides substantial value to the community, not only through its systematic retrospective summary but also through the future-forward pilot explorations (e.g., Hybrid KV Cache Compression and Relaxed Speculative Decoding), which you highlighted as a key strength."
+        }
+      ],
+      "papers": [
+        "LVSpec",
+        "LVLMSurvey"
+      ]
+    },
+    {
+      "stage": "general",
+      "label": "说明修订可查找",
+      "quote": "All revisions are highlighted in blue text for ease of reference.",
+      "template": "The changes are highlighted in [permitted revision format] for ease of reference.",
+      "use": "这里的颜色指修订稿标记，不是 OpenReview 自定义文本颜色。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "PTFataqOVS",
+          "title": "General Response",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PTFataqOVS",
+          "phase": "General Response",
+          "context": "We believe these additions and clarifications comprehensively address the reviewers' concerns and enhance the overall quality of our manuscript. All revisions are highlighted in blue text for ease of reference. Our manuscript is updated on Nov 27, AOE time."
+        }
+      ],
+      "papers": [
+        "LoRAM"
+      ]
+    },
+    {
+      "stage": "summary",
+      "label": "让 AC 综合多份评价",
+      "quote": "We appreciate the reviewers' recognition of our research's significance",
+      "template": "We appreciate the reviewers’ recognition of [contribution] ([R IDs]).",
+      "use": "引用其他人的肯定须对应到同一具体评价维度。",
+      "hits": [
+        {
+          "paper": "LoRAM",
+          "id": "LOqBNMH4rT",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=LOqBNMH4rT",
+          "phase": "Summary",
+          "context": "We appreciate the reviewers' recognition of our research's significance, novelty, and high value (R1, R2, R5). Their acknowledgment of LoRAM's simplicity, effectiveness, memory efficiency, and scalability is highly valued (R1, R2, R3, R4, R5). We also appreciate the reviewers' recognition of our comprehensive experiments (R1, R2, R3) across pruning methods, model scales, and tasks, which yielded impressive results (R3, R4, R5). Lastly, we thank the reviewers for highlighting that our paper is clear, well-written, and well-structured (R2, R3, R4, R5), with helpful visualizations (R4) and comprehensive analysis (R3)."
+        },
+        {
+          "paper": "LVSpec",
+          "id": "cFiTQe4Qzv",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=cFiTQe4Qzv",
+          "phase": "Summary",
+          "context": "We appreciate the reviewers' recognition of our research's significance, novelty, and soundness (R1, R2, R3). Our paper is recognized as an innovative and solid study that insightfully addresses the limited speedup caused by strict verification in speculative decoding for Video LLMs (R1, R2, R3). We also appreciate the recognition of our strong efficiency gains (R1, R2, R3) and extensive ablation study (R2, R3), and that our approach provides a mathematical analysis showing why loose verification can theoretically outperform the speed limits of strict verification (R1). Lastly, we thank the reviewers for highlighting that our paper is good and carefully written (R2), and that our research highlights an important research direction of improving generation speed of Video LLMs (R3)."
+        },
+        {
+          "paper": "HybridKV",
+          "id": "ExRPio1aqV",
+          "title": "Summary of the Discussion Period",
+          "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=ExRPio1aqV",
+          "phase": "Summary",
+          "context": "We appreciate the reviewers' recognition of our research's significance and insightful analysis, evidenced by the high excitement (4 by R1, 4.5 by R3) and soundness scores (up to 4.5 by R3). Their acknowledgment of our head-level hybrid compression design for MLLMs—specifically the classification of heads into static and dynamic strategies—is highly valued (R1, R2, R3). We also thank the reviewers for highlighting the reliability and utility of our work, reflected in the positive reproducibility (up to 4 by R2) and software/dataset ratings (R1). Notably, R1 rated our software as \"Enabling\" (score: 5) and datasets as \"Useful\" (score: 4), indicating that our contribution will significantly facilitate future research and development."
+        }
+      ],
+      "papers": [
+        "LoRAM",
+        "LVSpec",
+        "HybridKV"
+      ]
+    },
+    {
+      "stage": "reports",
+      "label": "陈述回应机会受损",
+      "quote": "This directly prevented us from providing an effective rebuttal",
+      "template": "This left us no authorized opportunity to respond to [new issue] before [deadline].",
+      "use": "从时间线说明程序影响，请求回应机会。",
+      "hits": [
+        {
+          "paper": "LVSpec",
+          "id": "MyYjVjPloC",
+          "title": "Reporting Issues Regarding the Delayed and Potentially Non-Compliant Reviewer fFe1",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=MyYjVjPloC",
+          "phase": "评审问题反馈与报告",
+          "context": "However, a new review was posted on 2.26 AOE, which not only exceeded the rebuttal deadline but also exceeded the deadline for reporting issues. This directly prevented us from providing an effective rebuttal and impacted the overall assessment of our work. On behalf of all authors, we kindly ask the Area Chair to consider whether this review should be included in the final assessment for the following reasons:"
+        },
+        {
+          "paper": "LVSpec",
+          "id": "71IfCXBEhd",
+          "title": "Review Issue Report",
+          "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=71IfCXBEhd",
+          "phase": "评审问题反馈与报告",
+          "context": "This review was posted on 2.26 AOE, which not only exceeded the rebuttal deadline but also exceeded the deadline for reporting issues. This directly prevented us from providing an effective rebuttal or issue reporting, and impacted the overall assessment of our work."
+        }
+      ],
+      "papers": [
+        "LVSpec"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "paper": "LoRAM",
+      "id": "DrICQXll7Z",
+      "title": "Paper Decision",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=DrICQXll7Z",
+      "sha256": "db2d7d72168f2e7270209b410b4ee51db2a2159f886ef4f92a4366cb5b71e499"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "SCcPUnwH2E",
+      "title": "Meta Review of Submission5676 by Area Chair 88rx",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=SCcPUnwH2E",
+      "sha256": "fba1732332dacb76e1fa023bd68fe25fff8748c0db670c682aed8b92f2eabd3e"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "LOqBNMH4rT",
+      "title": "Summary of the Discussion Period",
+      "phase": "Summary",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=LOqBNMH4rT",
+      "sha256": "d0c41ae97acdc1ec90fd04f56d20bb42c9a8adf78ef72950292fa65c1fbd81cf"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "PTFataqOVS",
+      "title": "General Response",
+      "phase": "General Response",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PTFataqOVS",
+      "sha256": "b0cc5e19551ba6e49450f1a4013532ee54d3c91ffd6fd02fc9656a3d693a6579"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "tADNgyR0Fh",
+      "title": "Comments to the Area Chair",
+      "phase": "请 AC 协调",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=tADNgyR0Fh",
+      "sha256": "4b9466f6550a32d980d8130cc8acae73ab334de10e987d4fdb9518fcc448aaed"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "UamgwXNOX1",
+      "title": "Official Review of Submission5676 by Reviewer EtZ8",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=UamgwXNOX1",
+      "sha256": "ad044fd4afcdc650c71d80e6df2c042b3c9518538a2fae679494088746c517b8"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "gTCmz3GdfG",
+      "title": "Thanks & Initial Response to Reviewer EtZ8 (W1,W2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=gTCmz3GdfG",
+      "sha256": "eca22755a2d1aced211ceb2efb4dd9ec4a924c83a38b3b28bc1df8759dad508d"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "8WVJYIVF8c",
+      "title": "Thanks & Initial Response to Reviewer EtZ8 (W3,W4)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=8WVJYIVF8c",
+      "sha256": "6d80b7be3765669a10695da41771a7e657218867f0340c5147e2589efc71cd65"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "GHYSKDRb7N",
+      "title": "Thanks & Initial Response to Reviewer EtZ8 (Q1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=GHYSKDRb7N",
+      "sha256": "54408aa29e2f3d6541fee65f5bc23c896e650ec0b68c10d85c67e2c7fda193c6"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "vh7M4ZxWr5",
+      "title": "Thanks & Initial Response to Reviewer EtZ8 (Q2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=vh7M4ZxWr5",
+      "sha256": "76998e0001de8bdc44e4655023860048e9bc8a7042800edbad134a9edf2ac073"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "dn0g7Mm07V",
+      "title": "Thanks & Initial Response to Reviewer EtZ8 (Q3,Q4)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=dn0g7Mm07V",
+      "sha256": "2a6a3dd41038ff62de5383ebbf8df97f502d3d827f0c2e282ce09912290f77f1"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "elFc9uL7J8",
+      "title": "Thanks & Initial Response to Reviewer EtZ8 (Q5)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=elFc9uL7J8",
+      "sha256": "7b491eb6907d46923e736a9aae2fb210bf3f79ed241c1b6994c1f411902eda0e"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "Hb6Idxn65D",
+      "title": "Official Comment by Reviewer EtZ8",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=Hb6Idxn65D",
+      "sha256": "3012f082775b470e49b23f44d42b127bcdd41a76ee1794eb799d787a71d1d8be"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "fWEB69qitx",
+      "title": "Follow up Response to Reviewer EtZ8",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=fWEB69qitx",
+      "sha256": "9ae0e55ffb9d0d04bcee000538f5fcb0ae9c95e2880433b2e1cba4312e45db73"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "K6R0TVYk82",
+      "title": "Official Review of Submission5676 by Reviewer aWyt",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=K6R0TVYk82",
+      "sha256": "35935c007388b5da889688be7bd3107b81dacfbbb065775eb942b2fb2c6c2e55"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "BkwpMRiHwH",
+      "title": "Thanks & Initial Response to Reviewer aWyt (W1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=BkwpMRiHwH",
+      "sha256": "b8d8643544d5ac6c82183a3cfefac2f666ed738d5c9ffa191684c9803e970b2e"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "atLUTIXzXD",
+      "title": "Thanks & Initial Response to Reviewer aWyt (W2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=atLUTIXzXD",
+      "sha256": "1d76fa344925a472a8e68c14096e8099ed788a6f7efda627b4da8c0c31c44be3"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "9ykNB9GBcF",
+      "title": "Thanks & Initial Response to Reviewer aWyt (W3)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=9ykNB9GBcF",
+      "sha256": "0cd7b322d792b5d09d84d793e8e846c8d8bbee969d930063b1309bace121b9f8"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "awJv8NPCj9",
+      "title": "Thanks & Initial Response to Reviewer aWyt (Q1,Q2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=awJv8NPCj9",
+      "sha256": "f22ba565bcfbcf26da12f5d6c5385d84f6d1537ccb4ab8c8866254658d758564"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "PcQbECL3tR",
+      "title": "Official Comment by Reviewer aWyt",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PcQbECL3tR",
+      "sha256": "7a856fe61f1ed49c2e0c804857ef414439c3d3e47b8eeec4267921b4d77d74b6"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "oJ8pt8Jgae",
+      "title": "Follow up Response to Reviewer aWyt",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=oJ8pt8Jgae",
+      "sha256": "6f8859d52c2f8026e0580d655ec8f1d2f9055adde180624fa4006b4d56149d15"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "1EBfORdwMR",
+      "title": "Official Review of Submission5676 by Reviewer asc9",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=1EBfORdwMR",
+      "sha256": "554fb5d860ab32960a76e1b7806c72b9f235573c2e6fec831ecac54d8df2e865"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "tCeYdilKRu",
+      "title": "Thanks & Initial Response to Reviewer asc9 (W1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=tCeYdilKRu",
+      "sha256": "410edfa9060362677c02fd872d2062fc5d3f89a6f09322731cfdaf9a608f3f9b"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "pf5oygApBx",
+      "title": "Thanks & Initial Response to Reviewer asc9 (W2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=pf5oygApBx",
+      "sha256": "70d3e6efed8fb6c523de1d5539997d648b1ffea8b683323b19730083200a7e9a"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "lKmSXWUEQA",
+      "title": "Thanks & Initial Response to Reviewer asc9 (W3)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=lKmSXWUEQA",
+      "sha256": "f424e50557aeb960cf527b7543cc268d1ee71fd4934f01b5f7eb588d4efe3725"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "D8eMplECJ6",
+      "title": "To Sum Up of Response to Reviewer asc9",
+      "phase": "面向 reviewer 的阶段小结",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=D8eMplECJ6",
+      "sha256": "9fa40b3e13a54b15d521c1ac616d67097357231088117b9eb59111c7b694e04a"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "f9IQX7Q7jk",
+      "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=f9IQX7Q7jk",
+      "sha256": "89945d3b9d1eb218e5d885e237d773978e3415b1c53fba2f9ba23c1f627d0730"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "t9jQZSPB2W",
+      "title": "Official Comment by Reviewer asc9",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=t9jQZSPB2W",
+      "sha256": "406bde35ca402739865431f65d20009088962b66391d3343885bfd43469c09fb"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "XVxKzaXxQS",
+      "title": "Follow up Response to Reviewer asc9",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=XVxKzaXxQS",
+      "sha256": "5adbd19d3f4f73753e992df54e77f6e20fbbd71c43b5e06a608081c3a77fd7db"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "T8Sy3HFmsf",
+      "title": "Official Comment by Reviewer asc9",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=T8Sy3HFmsf",
+      "sha256": "18c3a12e4456e2b104540e883745d0ae8f880ffba05938a38da8791f6df35954"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "KOH4WWWgjp",
+      "title": "Follow up Response to Reviewer asc9",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=KOH4WWWgjp",
+      "sha256": "6b6dd71a51252d6eb0c4a2a8eae15d6a4c3a1ee222ec010b0dbec3d59e55701b"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "0nttRrpLqp",
+      "title": "Official Review of Submission5676 by Reviewer H1mX",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=0nttRrpLqp",
+      "sha256": "9fa4c8cc65ff40b80fdbd5e08fd9c8439e96ea761e14614fc68f8e9e34a79501"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "pN95dM7xdN",
+      "title": "Thanks & Initial Response to Reviewer H1mX (W1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=pN95dM7xdN",
+      "sha256": "422b0ed2508d580b386d5dd27f90dab551d5119a29cb81b2c2af5d76406ac20b"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "PYRFyPClEd",
+      "title": "Thanks & Initial Response to Reviewer H1mX (W2,W3,W4)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=PYRFyPClEd",
+      "sha256": "66205032ac5a0cd303e4936025e002a9d9dbfdf527d2c5809f438552bced3651"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "CpJ8e1wRq8",
+      "title": "Thanks & Initial Response to Reviewer H1mX (Q1, Q2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=CpJ8e1wRq8",
+      "sha256": "bb88aff92949390ae3341721de633bac4b3668eac3c099d284465166c4abfc54"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "IVqpjHTBoi",
+      "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=IVqpjHTBoi",
+      "sha256": "180c6a8d47c36e7a3a593a282759ab39cf302d4ae3b62266aea7f716b2ceedc0"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "0cPZuYx5ct",
+      "title": "Official Review of Submission5676 by Reviewer BSMa",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=0cPZuYx5ct",
+      "sha256": "18067b314ed5491d13b93e9810bdb4bb683cc29696c9d3d2def83411732e1432"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "FhXEFRoaaI",
+      "title": "Thanks & Initial Response to Reviewer BSMa (W1,W2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=FhXEFRoaaI",
+      "sha256": "07b0d66d7817235ed1c8ef2bca20062dacd45373a9250f1b48dd36f558714eaf"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "nav3lXeI5L",
+      "title": "Thanks & Initial Response to Reviewer BSMa (Q1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=nav3lXeI5L",
+      "sha256": "9a2979dfc52b23c623cf7ca6783af58b655079d10b7496575524d993b3406211"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "nl4CaGYjxt",
+      "title": "Response to the authors",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=nl4CaGYjxt",
+      "sha256": "4720d6a41f4b8e098ad93a2c254e44527debd13fbad47588aa1aad7097ba6e53"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "p286v6AOeJ",
+      "title": "Follow up Response to Reviewer BSMa",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=p286v6AOeJ",
+      "sha256": "0188081f9f2cf7332f3dd6c86874b7309af136b4508f80353b25ac5873814cad"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "3ODRcdTifV",
+      "title": "Follow up Response to the authors",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=3ODRcdTifV",
+      "sha256": "2f6ce97545335d59ab9b8ff65133242fcca862b01f5bfe9616eb8b61800109fd"
+    },
+    {
+      "paper": "LoRAM",
+      "id": "29hKJnHKj1",
+      "title": "Follow up Response to Reviewer BSMa",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=s7DkcgpRxL&noteId=29hKJnHKj1",
+      "sha256": "0490c99bdcda234bb8b4ef85084b33698fe955179959e53d73e67fb4e422aea5"
+    },
+    {
+      "paper": "FloE",
+      "id": "cAGENgqIAd",
+      "title": "Paper Decision",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=cAGENgqIAd",
+      "sha256": "885ed81ba30c2c9c4fc5c7b09d574030968808d428e420957d331ee6b9aa9fdf"
+    },
+    {
+      "paper": "FloE",
+      "id": "Yq7RSYACyP",
+      "title": "General Response & Summary of the Discussion Period",
+      "phase": "General Response 与 Summary 合并",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=Yq7RSYACyP",
+      "sha256": "0a757ef5f32e6b6c92ea6f52cbb36373293ec492248dbbac7963bb263644d30c"
+    },
+    {
+      "paper": "FloE",
+      "id": "qhnvvPrtPb",
+      "title": "Official Review of Submission6552 by Reviewer oREx",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=qhnvvPrtPb",
+      "sha256": "323d4395375787035ebd5d02302c51bfd5157da9e1e49c2263f3319a13523185"
+    },
+    {
+      "paper": "FloE",
+      "id": "OUrtNoixQv",
+      "title": "Rebuttal by Authors",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=OUrtNoixQv",
+      "sha256": "128f1dadbafafba355da509f13a46bbbf5facd4286f1ca7887169152863d7ddd"
+    },
+    {
+      "paper": "FloE",
+      "id": "tMGh2O3Vqc",
+      "title": "Rebuttal Acknowledgement by Reviewer oREx",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=tMGh2O3Vqc",
+      "sha256": "13c3ef55ce009d84e4e95045607e17803e938915c18d38249dd1400a9f77df55"
+    },
+    {
+      "paper": "FloE",
+      "id": "gmurpB5fE0",
+      "title": "We submit a comprehensive rebuttal thoroughly addressing Reviewer oREx's theoretical, empirical, and comparative concerns through rigorous validation, supplemental experiments, and extended benchmarking across diverse MoE architectures and tasks, while respectfully requesting acknowledgment of our efforts to resolve all raised issues.",
+      "phase": "请 AC 协调",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=gmurpB5fE0",
+      "sha256": "f88d77889af2183866aed36a0f238fe64e876e514c43b3035ef1bdffae65a8ba"
+    },
+    {
+      "paper": "FloE",
+      "id": "w7CDFcOnM9",
+      "title": "Author AC Confidential Comments by Area Chair Vbqi",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=w7CDFcOnM9",
+      "sha256": "4552375e87b2f5533cc2cafa4c2ab7b9f7a34fe9bda6c397f667bfca8064ab35"
+    },
+    {
+      "paper": "FloE",
+      "id": "OgdLgpbPyk",
+      "title": "Official Review of Submission6552 by Reviewer u26i",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=OgdLgpbPyk",
+      "sha256": "0dbdb7eceff88bd2b8a2961d4bda53017d8c5d63758b8a1069faecd98bbd5092"
+    },
+    {
+      "paper": "FloE",
+      "id": "RNa5lFqnlJ",
+      "title": "Rebuttal by Authors",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=RNa5lFqnlJ",
+      "sha256": "3b95df389de81fb0e468c30514a40763d1dcd2e967c5d49277811d55a95895e4"
+    },
+    {
+      "paper": "FloE",
+      "id": "h5YCqQazMy",
+      "title": "A summary of answers to Reviewer `u26i`'s questions to assist the AC's review.",
+      "phase": "请 AC 协调",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=h5YCqQazMy",
+      "sha256": "b830495639e5f9cb10bfc2ed926c187d89a589355c965e8b31bdad09546c9398"
+    },
+    {
+      "paper": "FloE",
+      "id": "H78CSV6D2U",
+      "title": "Official Review of Submission6552 by Reviewer bhnT",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=H78CSV6D2U",
+      "sha256": "8cc238ed1b6dbac17e1fd69cae9b7c052a16dea094dfb4911f1ff37e8394f0a5"
+    },
+    {
+      "paper": "FloE",
+      "id": "kyvWCY4VKH",
+      "title": "Rebuttal by Authors",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=kyvWCY4VKH",
+      "sha256": "018667817e4376eee2daae75d5c73027be81d02f796226e7b8dfe7f13188ba4f"
+    },
+    {
+      "paper": "FloE",
+      "id": "o8EizGOyqe",
+      "title": "Rebuttal Acknowledgement by Reviewer bhnT",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=o8EizGOyqe",
+      "sha256": "13c3ef55ce009d84e4e95045607e17803e938915c18d38249dd1400a9f77df55"
+    },
+    {
+      "paper": "FloE",
+      "id": "p2jB2YFk9P",
+      "title": "We comprehensively address Reviewer bhnT's concerns on MMLU performance and non-compressed baselines by demonstrating FloE's superior task performance retention under high sparsity and its advantage over smaller models across MMLU, GSM8K, and HumanEval, while requesting acknowledgment of our resolution to ensure fair evaluation.",
+      "phase": "请 AC 协调",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=p2jB2YFk9P",
+      "sha256": "d70c3a512691fab8d56456f04476d4e9e2199cda7b2aa317ee71ac45f57074b5"
+    },
+    {
+      "paper": "FloE",
+      "id": "9ARuuvw6b7",
+      "title": "Official Review of Submission6552 by Reviewer ZXAh",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=9ARuuvw6b7",
+      "sha256": "153ec76ee101dcba3696b85340ec6d59ff5403f95824e849afa860daadae8401"
+    },
+    {
+      "paper": "FloE",
+      "id": "N798t55dFZ",
+      "title": "Rebuttal by Authors",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=N798t55dFZ",
+      "sha256": "b0b51c23a263ef28dd9ec7a3c7d49d988dabcab76e72ffb6096851042c81045c"
+    },
+    {
+      "paper": "FloE",
+      "id": "l5tAJjOfLj",
+      "title": "Rebuttal Acknowledgement by Reviewer ZXAh",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=l5tAJjOfLj",
+      "sha256": "13c3ef55ce009d84e4e95045607e17803e938915c18d38249dd1400a9f77df55"
+    },
+    {
+      "paper": "FloE",
+      "id": "8AyoOC8vmR",
+      "title": "Rebuttal Comment by Reviewer ZXAh",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=8AyoOC8vmR",
+      "sha256": "f708c61961c17fabee10297b464bb07535b10ba490b4548282ba2725a8c4752f"
+    },
+    {
+      "paper": "FloE",
+      "id": "v5vJxVTUZo",
+      "title": "Reply Rebuttal Comment by Authors",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=i5aHAkkhJH&noteId=v5vJxVTUZo",
+      "sha256": "a47a78ca59d8346119c85f9f7d1365dcbbd96c3c0121359b6fc6ec27abbb1d11"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "NXsgLGefDi",
+      "title": "Meta Review of Submission3143 by Area Chair z4Nz",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=NXsgLGefDi",
+      "sha256": "67bf55c57aeca78355934bfa485b740ca9953def3d81acb52b2565e7e9ce2dab"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "MyYjVjPloC",
+      "title": "Reporting Issues Regarding the Delayed and Potentially Non-Compliant Reviewer fFe1",
+      "phase": "评审问题反馈与报告",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=MyYjVjPloC",
+      "sha256": "af9051220bb1634ccfb214ef8a64477edbc2040fd90f7fd85a8fd7fc63f67f5e"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "tuLiv8eG4x",
+      "title": "Official Review of Submission3143 by Reviewer fFe1",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=tuLiv8eG4x",
+      "sha256": "caf8a7340378e44442c86137bcc1b5ba531e3f4754c2d42f97aa50aa8126d390"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "71IfCXBEhd",
+      "title": "Review Issue Report",
+      "phase": "评审问题反馈与报告",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=71IfCXBEhd",
+      "sha256": "929a6d10064b14fc5afd4a05bc6a963a4ca0fc4c0d0942e3e7a6a2fdec2e73f2"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "cFiTQe4Qzv",
+      "title": "Summary of the Discussion Period",
+      "phase": "Summary",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=cFiTQe4Qzv",
+      "sha256": "2f50216b4270dc6901a67c919c7d34158ece6070193512b0b1b22f3a44bbc94c"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "oyZOtIyQda",
+      "title": "General Response",
+      "phase": "General Response",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=oyZOtIyQda",
+      "sha256": "094b755b53e09d31abc7db91efcb71d13180c1413ea340be72c9d7ef60ac245f"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "8Mb12ze3Ru",
+      "title": "Seeking Further Feedback (Last Day of Discussion)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=8Mb12ze3Ru",
+      "sha256": "44a4e37b304c1ed38e37d2ae700e95d7ba094e9fab71ec6a7f4b1ba6fe5bd04c"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "1hHnQqErji",
+      "title": "Official Review of Submission3143 by Reviewer RMKs",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=1hHnQqErji",
+      "sha256": "818bfe8f2c277ca84b88f0b0a31a5a85339eb088d599c2daabdcc61d4a67a688"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "qExQX6RGF0",
+      "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=qExQX6RGF0",
+      "sha256": "80b7e545d7bc6d14013a4f987963637829db3a62b121e95a4eeab8192955697e"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "VMCeO5xlzt",
+      "title": "Thanks & Initial Response to Reviewer RMKs (Question 1~2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=VMCeO5xlzt",
+      "sha256": "00ca0909e646b5dd41180f9ff56ca76822cbbc2cb87f4dbe23a399bc90b42d50"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "2rOmGYcfyq",
+      "title": "Thanks & Initial Response to Reviewer RMKs (Question 1~2)",
+      "phase": "已删除的作者帖",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=2rOmGYcfyq",
+      "sha256": "d71825c2785d1c77c7fcddda794d1e98e703c39eaf63a9aec73d7670bda0c705"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "D4Wqmar3Lp",
+      "title": "Thanks & Initial Response to Reviewer RMKs (Weakness 1~2 and Comments Suggestions)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=D4Wqmar3Lp",
+      "sha256": "2a13e2018b888991ac41abebfd219d8dbd942f895ea0f5a8ff09051b218d0a7c"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "AQXPiJJQsN",
+      "title": "Official Review of Submission3143 by Reviewer B2rN",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=AQXPiJJQsN",
+      "sha256": "3f2b65306bd8f27d3a95322fa67881c0d4a46aaa26d522cf2377837710c72c37"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "OhURuSTEK9",
+      "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=OhURuSTEK9",
+      "sha256": "ae01e8ac61502015f34ef49a869657e6a628f71940542b21937e43e69f101d0e"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "3sq7qwhZvL",
+      "title": "Thanks & Initial Response to Reviewer B2rN (Comments Suggestions)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=3sq7qwhZvL",
+      "sha256": "0aa5ebbef2522e3dc9b1dd884da35ad8e7942df855405b037a39ccce417f64b6"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "CBQBJuiKHd",
+      "title": "Thanks & Initial Response to Reviewer B2rN (Weakness 1~3)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=CBQBJuiKHd",
+      "sha256": "883adc9d06308945ba30625e570cff5993871d46832ad82432d5da66ad4f298e"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "1OudyTQaoQ",
+      "title": "Comments to the Area Chair",
+      "phase": "请 AC 协调",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=1OudyTQaoQ",
+      "sha256": "3b5fe11cb33a1fb43089fe00c88536f9c55a29fbfd333d8445f437cab2853740"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "KviDBegIW5",
+      "title": "Author-Editor Confidential Comment by Senior Area Chairs",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=KviDBegIW5",
+      "sha256": "85f5a96e9a7a79562bed49f52f6a28e82ac19ebfd8c12fe63131bee280987874"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "h4wZSrwdUH",
+      "title": "Official Review of Submission3143 by Reviewer Hhmf",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=h4wZSrwdUH",
+      "sha256": "691709ea89b2bed4b5739e3104abcbedc5f6199b20218d1b549919a7d829e5aa"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "XBMYq0mWJB",
+      "title": "Follow-up Discussion with Reviewer Hhmf",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=XBMYq0mWJB",
+      "sha256": "a9e337eb70327065bcdf830085f6af25672b56a621c218e940eccaf6379fa13c"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "X9AWIlsrAl",
+      "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 1 Day)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=X9AWIlsrAl",
+      "sha256": "3bdd35af41d307aa07ce43d4d0414ad2ced8b86bed7ad2a66d30bb8dcdde3704"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "QGgF74dtUB",
+      "title": "Thanks & Initial Response to Reviewer Hhmf (Comments Suggestions 2 & Typos)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=QGgF74dtUB",
+      "sha256": "a2624c9e4dee4564abe3fc095fddfb2c847dc42bf93d96b77d5ac47c73ff7b5a"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "X3dQ0bAy0R",
+      "title": "Thanks & Initial Response to Reviewer Hhmf (Weakness 3~4)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=X3dQ0bAy0R",
+      "sha256": "05e509be2f0d07d219571bf33b53fe0eb2116a2f6ad49308025980b5df661485"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "Ht5E13p9bY",
+      "title": "Thanks & Initial Response to Reviewer Hhmf (Weakness 2 & Comments Suggestions 1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=Ht5E13p9bY",
+      "sha256": "c29bf08ce363a7a54f0851d17e20e4c95723ebc5fd7614bab4f6f7cbccf04ebb"
+    },
+    {
+      "paper": "LVSpec",
+      "id": "wip6Qo6yRK",
+      "title": "Thanks & Initial Response to Reviewer Hhmf (Weakness 1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=xyXsaQEmCu&noteId=wip6Qo6yRK",
+      "sha256": "1c8f101145b21d6d581c75c84a9b27794651a8eeba940f9b7260ca55aa12f774"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "nzJKJYe3qK",
+      "title": "Meta Review of Submission5782 by Area Chair P5Hv",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=nzJKJYe3qK",
+      "sha256": "10762ed20c59b8edd49e999c031ffc831fee611d8b02ce710583f11de92448c6"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "hTxjH5dpzj",
+      "title": "Summary of the Discussion Period",
+      "phase": "Summary",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=hTxjH5dpzj",
+      "sha256": "72c21b26c334ce73435b301f586c15826637612b7cafa36cf1e3216a91e586d0"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "f7Q0oRBCoF",
+      "title": "General Response",
+      "phase": "General Response",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=f7Q0oRBCoF",
+      "sha256": "db16838228d7440351fc5a1f73aec16f8df5c20edb7d4131ea380c30157b8025"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "g4B5ttNFK4",
+      "title": "Seeking Further Feedback (Last Day of Discussion)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=g4B5ttNFK4",
+      "sha256": "7f30d4eb1bf8ee852b1ec1ff615011bc966737d8bc9d58517e844a20d2831eca"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "kxscAL6zTr",
+      "title": "Official Review of Submission5782 by Reviewer yhsG",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=kxscAL6zTr",
+      "sha256": "e3600510777a2b20187553122dd4dc1ba951916dd395a8570337e167efd035bf"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "JQmimy8XPW",
+      "title": "Review Issue Report of Submission5782 by Authors",
+      "phase": "评审问题反馈与报告",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=JQmimy8XPW",
+      "sha256": "005c23635e31af6efcfa0d9c6e7d9b87871aa015e94947c330d94b9db39b5ddd"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "reqLHPGljd",
+      "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=reqLHPGljd",
+      "sha256": "79f3feca66f44698b53952c1e6c057299057292e89a58623743b123a07bb876a"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "BWBq4lDrN4",
+      "title": "Thanks & Initial Response to Reviewer yhsG (W2 [3/3])",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=BWBq4lDrN4",
+      "sha256": "4395d540014b9085df03522855e5344e5547ecaf1472435324c2b52b9a5e5684"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "iw4Aq68AeX",
+      "title": "Thanks & Initial Response to Reviewer yhsG (W2 [2/3])",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=iw4Aq68AeX",
+      "sha256": "5efae50a2f6cec00e39404e811ad3ac51d6dde375d6ba22de5eb576960dfa928"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "8ETFpTb0AG",
+      "title": "Official Comment by Reviewer yhsG",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=8ETFpTb0AG",
+      "sha256": "97e85c20ba5a89235013212e09a92779bdc955cac7925a5f20f29008171a51a7"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "xaVjuX3AdC",
+      "title": "Follow up Response to Reviewer yhsG",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=xaVjuX3AdC",
+      "sha256": "64805a0b82275e1928f827663f32f9cb9495223e6d16891062c516e5dfef0c23"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "1SehoIZzEV",
+      "title": "Thanks & Initial Response to Reviewer yhsG (W2 [1/3])",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=1SehoIZzEV",
+      "sha256": "2856ec32292dc5e640c08d96d3f811a754a0e3312c31d56a7c5799830f4c7a8d"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "11SaHtoFv6",
+      "title": "Thanks & Initial Response to Reviewer yhsG (W1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=11SaHtoFv6",
+      "sha256": "18bbc5c80088edb35c452dc0a4296c28962d416f3b8fb9ffa00c130bc1540d5a"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "q6FhLSfmDf",
+      "title": "Official Review of Submission5782 by Reviewer sNUJ",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=q6FhLSfmDf",
+      "sha256": "ccca7ad1a5bfab9dd945d381540239253b746587f7355bd5507bdc0eb9e40287"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "Y3lcL4XJgx",
+      "title": "Review Issue Report of Submission5782 by Authors",
+      "phase": "评审问题反馈与报告",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=Y3lcL4XJgx",
+      "sha256": "6ab8204c0d194dce4558036018939a3e6271c0892f13b3e1dbc85c763ef658f7"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "ozWpJogqd2",
+      "title": "Follow-up Discussion with Reviewer sNUJ (Critical Deadline Reminder: ~10 Hours Remaining)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=ozWpJogqd2",
+      "sha256": "4cd5d77d508a41f9fdfe8dcc62826a47119c82d9a01600eef51ef2612967e1fe"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "qTn9iPv6n3",
+      "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=qTn9iPv6n3",
+      "sha256": "998f6cfebcaa8e390c90b4daf29a4a2fa0fbdced5df3bafda4e812f5c0430e55"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "zY6DCI3p2s",
+      "title": "Formal Feedback regarding Reviewer sNUJ",
+      "phase": "评审问题反馈与报告",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=zY6DCI3p2s",
+      "sha256": "58fb6834b69d7c750dba1239331bbeee54b111d1a4546b6c12d318e9786718d2"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "LUai0C7FgD",
+      "title": "Thanks & Initial Response to Reviewer sNUJ (W3)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=LUai0C7FgD",
+      "sha256": "9da2da2e2dae87babfd535355b0d6d15e18152397cd92be68c0e205832a196d0"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "W2un7Zy7wV",
+      "title": "Thanks & Initial Response to Reviewer sNUJ (W2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=W2un7Zy7wV",
+      "sha256": "54f308e6ddb6261501d745825bea4ab6185bc03c1141921553ed4f8a10496aae"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "3YqDWIV95o",
+      "title": "Thanks & Initial Response to Reviewer sNUJ (W1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=3YqDWIV95o",
+      "sha256": "e7fa5039320df14405f68d771f32d983c1078494143dbbc983c59c8e026b72ed"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "7OCk7S2NcM",
+      "title": "Official Review of Submission5782 by Reviewer 4cnA",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=7OCk7S2NcM",
+      "sha256": "57fceb6d7094d352635fafea8e72d4acd1782199a261386777d1f89fe2ccc464"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "nCBiw5fqfM",
+      "title": "Review Issue Report of Submission5782 by Authors",
+      "phase": "评审问题反馈与报告",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=nCBiw5fqfM",
+      "sha256": "9503486415a6385e31999ac365058f5575079cc1e6c83425737a7eb90b84bfb0"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "t0Il1Adwqq",
+      "title": "Follow-up Discussion with Reviewer 4cnA (Critical Deadline Reminder: ~10 Hours Remaining)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=t0Il1Adwqq",
+      "sha256": "a958362858fb3f9332f3050a449ae1ce8611d2fa20a668cbd7acb307cd2faf80"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "57LbO6Lh0c",
+      "title": "Follow-Up: Seeking Further Feedback (Discussion Deadline Approaching in 2 Days)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=57LbO6Lh0c",
+      "sha256": "76a24d746295409e6b52aa5eb700c681796d626c765b6a2ba99352da90cddfb2"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "BEZmsYs7C6",
+      "title": "Thanks & Initial Response to Reviewer 4cnA (W2, C1-2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=BEZmsYs7C6",
+      "sha256": "812d5886bf695b4b240c3c09c0e706da987012d42b7d9da3a629f4ab05db5f2b"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "RHHJ34hNkj",
+      "title": "Thanks & Initial Response to Reviewer 4cnA (W1, C1-1 [2/2])",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=RHHJ34hNkj",
+      "sha256": "1d6d923df65b012482c790e2ef6624bf72b71ab1864d374f05fd6624d5398761"
+    },
+    {
+      "paper": "LVLMSurvey",
+      "id": "3Q9hHs5TdD",
+      "title": "Thanks & Initial Response to Reviewer 4cnA (W1, C1-1 [1/2])",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=wvlizZdYc1&noteId=3Q9hHs5TdD",
+      "sha256": "dd1c89aedd72d1db8e7e56892ae42e14d0fcd7d1b65844697478c0efb7b5cda9"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "luNArGgWqi",
+      "title": "Meta Review of Submission571 by Area Chair u1Zo",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=luNArGgWqi",
+      "sha256": "b44b6ea333c1213c24c9c19971cdfd756fcdfd934591aa5a5f21673002ac432f"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "ExRPio1aqV",
+      "title": "Summary of the Discussion Period",
+      "phase": "Summary",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=ExRPio1aqV",
+      "sha256": "b73cd8c1871fb25a788415204dd7c3907830429b2a97f3503fdc41063f3c5f64"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "eoLnTsSl9a",
+      "title": "General Response [1/2]",
+      "phase": "General Response",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=eoLnTsSl9a",
+      "sha256": "a31c119596586f008151d9fe6dfdef6c9d8700f8e84d6392b2fee26e44081603"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "ZKuZ5tgsrH",
+      "title": "General Response [2/2]",
+      "phase": "General Response",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=ZKuZ5tgsrH",
+      "sha256": "07a1a4479a6264f2f5636f8fcb3e8476293f67db2257d9cb2550c3316e68d653"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "E70NYs0Ptx",
+      "title": "Official Review of Submission571 by Reviewer JEeP",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=E70NYs0Ptx",
+      "sha256": "df279b875725296714be24dacc4808269d1ec7de4b5a540b153ad0728e62a28c"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "1aQJexXi8Z",
+      "title": "Thanks & Initial Response to Reviewer JEeP (W1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=1aQJexXi8Z",
+      "sha256": "44354b0a53e1252f2f2979b7494656e19b3d7d86e68be03258de523f23e2a70e"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "uJyQ8V8HPs",
+      "title": "Thanks & Initial Response to Reviewer JEeP (W2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=uJyQ8V8HPs",
+      "sha256": "6cf0c8114ee7b066dc2cb6f24a33b118a30018bafa0ba9a02ab82a6aebd5d6b8"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "Uup0yCTMZa",
+      "title": "Thanks & Initial Response to Reviewer JEeP (W3)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=Uup0yCTMZa",
+      "sha256": "d0978ec37a271ac905711d5c677a1562f48b32b0ed79d53d33b76e412451c062"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "OCJmsuCmTD",
+      "title": "Thanks & Initial Response to Reviewer JEeP (W4)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=OCJmsuCmTD",
+      "sha256": "f1a86e2f92984157fb65cd8840884818dc34f4cf818cf30eee54abd189d9a13c"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "UkcL0KsPZg",
+      "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 1 Day)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=UkcL0KsPZg",
+      "sha256": "66fd7982b43d450d349744316deb60078770a23ce6598183b9f655e5d95d67f8"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "c69fbBHMVp",
+      "title": "Follow up Response to Reviewer JEeP (Discussion Deadline Approaching in 10 Hours)",
+      "phase": "提醒与最后一轮跟进",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=c69fbBHMVp",
+      "sha256": "1c92d6a3dcf652e0da1f9a789050d2dde607f71b86eec14b865ea106630de69a"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "VhzXRJAk7m",
+      "title": "Official Review of Submission571 by Reviewer mmBU",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=VhzXRJAk7m",
+      "sha256": "e7647670d5966c341f49d99d07ebef0c85bebdaa27000ed6d038861a9d2aa3d1"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "QvMPiZ8I1l",
+      "title": "Thanks & Initial Response to Reviewer mmBU (W1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=QvMPiZ8I1l",
+      "sha256": "fbbfd777505474659960a03c1edfc78150aa9e5b3800f7454068e6bb1a05f3c1"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "oFASlr6Kyr",
+      "title": "Thanks & Initial Response to Reviewer mmBU (Q1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=oFASlr6Kyr",
+      "sha256": "80034dc68c4e76ee057f9eb671645a9728174709a77aa8cd11e3828465166ac0"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "JVdaImM9aV",
+      "title": "Thanks & Initial Response to Reviewer mmBU (W2) [1/2]",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=JVdaImM9aV",
+      "sha256": "4349009bde0fe6401166d3f5f5bb3b12d3d5f1a4a6953645d48d679b230970d9"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "NNpp0mtFOu",
+      "title": "Thanks & Initial Response to Reviewer mmBU (W2) [2/2]",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=NNpp0mtFOu",
+      "sha256": "139cceea7b9f13ffd78a4e1cad83f91e777c0accffab76f55aef0ba20f0661d7"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "zvjkab94s5",
+      "title": "Thanks & Initial Response to Reviewer mmBU (W3) [1/4]",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=zvjkab94s5",
+      "sha256": "cf70416a4fe0518bce48766dc45bd745a668df28d1f46a825e6182590fadffb8"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "2eLYuhsQw3",
+      "title": "Thanks & Initial Response to Reviewer mmBU (W3) [2/4]",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=2eLYuhsQw3",
+      "sha256": "5c5b56c030208d158cae24e93826b23bd24f55faa4e4644e2171239837bf4403"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "rREh7YTnde",
+      "title": "Thanks & Initial Response to Reviewer mmBU (W3) [3/4]",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=rREh7YTnde",
+      "sha256": "0cfc5fdcdf3c1bc2d7f3f8dfde7c72491cda7d4633aea0702d12a115df35acdf"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "HvTL3KFiMf",
+      "title": "Thanks & Initial Response to Reviewer mmBU (W3) [4/4]",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=HvTL3KFiMf",
+      "sha256": "8177eb1ab5c76516c86c9b11ededa516ec72685c58bf0c02de855517fd1c67d0"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "2t5DDYWUEh",
+      "title": "Thanks & Initial Response to Reviewer mmBU (W4)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=2t5DDYWUEh",
+      "sha256": "87a27a109392cbb494b624667e733f24c9701b12d929ce244aedf735828d3480"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "61w09XZ6rP",
+      "title": "Official Comment by Reviewer mmBU",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=61w09XZ6rP",
+      "sha256": "b09ecf1ef3923ea62b87f9951c053510d932b5f890b2be5b532d1136fc92ae9c"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "fvJp5PEkq3",
+      "title": "Thanks & Follow up Response to Reviewer mmBU",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=fvJp5PEkq3",
+      "sha256": "7b2d7339793ee481380018246cee4150a8449df0a355658d38658975de2c543d"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "nrSwYI9Js3",
+      "title": "Official Review of Submission571 by Reviewer 4Xp9",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=nrSwYI9Js3",
+      "sha256": "67a0666cf2b6c98eef0cd82922766fceef06b1d920def3fe649ba9f0dee0d6a6"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "zfByp4Pr0a",
+      "title": "Thanks & Initial Response to Reviewer 4Xp9 (W1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=zfByp4Pr0a",
+      "sha256": "bd3b0a3aeb27ef14e7419fb2290b12f2ff8c8f3ffeb9de5da6af7016c259cb7e"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "k97P2ufnla",
+      "title": "Thanks & Initial Response to Reviewer 4Xp9 (W2)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=k97P2ufnla",
+      "sha256": "ef8deb25de20b29a60d9a42398a9eb778f9962391431498529771d6a4af3e999"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "0V89xy17Hw",
+      "title": "Thanks & Initial Response to Reviewer 4Xp9 (W3)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=0V89xy17Hw",
+      "sha256": "e91d9fc10678eef646a3659ecd4e623593d26c6372a96c5506af632e910d0875"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "XFN1qg4kI4",
+      "title": "Thanks & Initial Response to Reviewer 4Xp9 (Q1)",
+      "phase": "逐条技术回复",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=XFN1qg4kI4",
+      "sha256": "d8d6749d1f39d518f86489ea5436a6be799457656fe9d22b0b4da872f4c3880c"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "3BxKI9f1Cr",
+      "title": "Increase Score",
+      "phase": "评审与 chairs 的上下文",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=3BxKI9f1Cr",
+      "sha256": "963370c4f4470a7e923cc8292d07602e791b1c9299d6c0e835618c73c50947e9"
+    },
+    {
+      "paper": "HybridKV",
+      "id": "pt9BjCMeqS",
+      "title": "Thanks & Follow up Response to Reviewer 4Xp9",
+      "phase": "后续讨论与感谢",
+      "url": "https://openreview.net/forum?id=jFuN2yI2D7&noteId=pt9BjCMeqS",
+      "sha256": "0a6a9ab45185eaa4f23f7c385ba6477e215ae9a170d66cb182ee3d5bb262cdc4"
+    }
+  ]
+}
