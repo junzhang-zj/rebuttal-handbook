@@ -7,7 +7,7 @@
 以五篇顶会论文的作者原句和 OpenReview 截图为主，
 拆解什么时候回复、写给谁看、怎样组织证据，以及如何自然、自信地表达。
 
-[**下载离线手册**](https://github.com/junzhang-zj/rebuttal-handbook/raw/refs/heads/main/Rebuttal%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C.html) &nbsp; · &nbsp; [阶段写作拆解](共性阶段写作拆解.md) &nbsp; · &nbsp; [英文表达库](Rebuttal英文表达库.md) &nbsp; · &nbsp; [五篇原帖](#五篇原帖)
+[**下载手册 ZIP**](https://github.com/junzhang-zj/rebuttal-handbook/archive/refs/heads/main.zip) &nbsp; · &nbsp; [阶段写作拆解](共性阶段写作拆解.md) &nbsp; · &nbsp; [英文表达库](Rebuttal英文表达库.md) &nbsp; · &nbsp; [五篇原帖](#五篇原帖)
 
 **5 篇论文** &nbsp; / &nbsp; **104 条可读作者帖** &nbsp; / &nbsp; **69 条原句条目** &nbsp; / &nbsp; **37 张原帖截图**
 
@@ -15,9 +15,9 @@
 
 ## 先打开手册
 
-**[下载 Rebuttal实战手册.html](https://github.com/junzhang-zj/rebuttal-handbook/raw/refs/heads/main/Rebuttal%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C.html)**，保存到电脑后，用 Chrome、Edge 或 Safari 打开。
+**[下载手册 ZIP](https://github.com/junzhang-zj/rebuttal-handbook/archive/refs/heads/main.zip)** → 解压 → 在文件夹中找到 **Rebuttal实战手册.html** → 用 Chrome、Edge 或 Safari 打开。
 
-正文、截图和交互代码均已内嵌，**单个文件即可离线阅读和分享**。GitHub 文件页用于查看源码；微信或网盘的在线预览可能无法运行交互功能。也可通过仓库的 **Code → Download ZIP** 下载全部素材。
+正文、截图和交互代码均已内嵌，**单个 HTML 文件即可离线阅读和分享**。ZIP 包含手册与配套素材；如果只想转发手册，解压后发送 HTML 文件即可。GitHub 文件页与 Raw 链接可能显示源码，不等同于下载入口；微信或网盘的在线预览可能无法运行交互功能。也可通过仓库的 **Code → Download ZIP** 下载。
 
 ## 每个阶段，都有四种读法
 
