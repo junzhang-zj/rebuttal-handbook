@@ -7,13 +7,15 @@
 以五篇顶会论文的作者原句和 OpenReview 截图为主，
 拆解什么时候回复、写给谁看、怎样组织证据，以及如何自然、自信地表达。
 
-[**下载手册 ZIP**](https://github.com/junzhang-zj/rebuttal-handbook/archive/refs/heads/main.zip) &nbsp; · &nbsp; [阶段写作拆解](共性阶段写作拆解.md) &nbsp; · &nbsp; [英文表达库](Rebuttal英文表达库.md) &nbsp; · &nbsp; [五篇原帖](#五篇原帖)
+[**在线阅读**](https://junzhang-zj.github.io/rebuttal-handbook/) &nbsp; · &nbsp; [下载手册 ZIP](https://github.com/junzhang-zj/rebuttal-handbook/archive/refs/heads/main.zip) &nbsp; · &nbsp; [阶段写作拆解](共性阶段写作拆解.md) &nbsp; · &nbsp; [五篇原帖](#五篇原帖)
 
 **5 篇论文** &nbsp; / &nbsp; **104 条可读作者帖** &nbsp; / &nbsp; **69 条原句条目** &nbsp; / &nbsp; **37 张原帖截图**
 
 </div>
 
-## 先打开手册
+## 选择阅读方式
+
+**[直接在线阅读](https://junzhang-zj.github.io/rebuttal-handbook/)**，无需下载或登录。支持手机目录、全站搜索、截图放大、模板复制和阶段链接分享。
 
 **[下载手册 ZIP](https://github.com/junzhang-zj/rebuttal-handbook/archive/refs/heads/main.zip)** → 解压 → 在文件夹中找到 **Rebuttal实战手册.html** → 用 Chrome、Edge 或 Safari 打开。
 
@@ -47,10 +49,6 @@
 - **自然地说“我们已经考虑过”。** 交代设计阶段的探索、原稿中的位置，再在当前回复中完整重述理由。
 - **自信地邀请使用。** 从 “We are happy to…” 到推荐工作，结合适用用户、资源约束和实际证据。
 - **让重点在版面上可见。** 对照原帖的加粗、斜体、反引号及组合格式，区分结论、评价和章节定位。
-
-> Wishing you a pleasant day ahead.
->
-> 五篇 Summary 中都出现的固定收尾；手册同时解释它的位置、上下文和可复用方式。
 
 ## 五篇原帖
 
@@ -94,5 +92,13 @@ python3 build_handbook_v2.py
 ```
 
 构建仅使用 Python 标准库与仓库内素材。生成的第一版备份为中间产物，无需提交。
+
+更新在线版：
+
+```sh
+python3 build_web.py
+```
+
+将生成的 `index.html` 与 `web/`、`assets/`、`screenshots/` 一起提交。GitHub Pages 从 `main` 分支根目录发布；`.nojekyll` 保持静态文件原样提供。
 
 </details>
