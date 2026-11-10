@@ -1,0 +1,86 @@
+[
+  {
+    "paper": "LoRAM",
+    "group": "novelty",
+    "id": "tCeYdilKRu",
+    "file": "LoRAM-novelty.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "HybridKV",
+    "group": "novelty",
+    "id": "JVdaImM9aV",
+    "file": "HybridKV-novelty.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "HybridKV",
+    "group": "novelty-related",
+    "id": "NNpp0mtFOu",
+    "file": "HybridKV-novelty-related.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "LoRAM",
+    "group": "dated-update",
+    "id": "awJv8NPCj9",
+    "file": "LoRAM-dated-update.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "LoRAM",
+    "group": "code-invitation",
+    "id": "PYRFyPClEd",
+    "file": "LoRAM-code-invitation.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "HybridKV",
+    "group": "tradeoff",
+    "id": "QvMPiZ8I1l",
+    "file": "HybridKV-tradeoff.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "HybridKV",
+    "group": "already-considered",
+    "id": "uJyQ8V8HPs",
+    "file": "HybridKV-already-considered.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "LVSpec",
+    "group": "specific-revision",
+    "id": "D4Wqmar3Lp",
+    "file": "LVSpec-specific-revision.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "LVSpec",
+    "group": "scope-fallback",
+    "id": "X3dQ0bAy0R",
+    "file": "LVSpec-scope-fallback.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "LVLMSurvey",
+    "group": "venue-fit",
+    "id": "LUai0C7FgD",
+    "file": "LVLMSurvey-venue-fit.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "LVLMSurvey",
+    "group": "last-hours",
+    "id": "ozWpJogqd2",
+    "file": "LVLMSurvey-last-hours.jpg",
+    "clipped": false
+  },
+  {
+    "paper": "LVSpec",
+    "group": "missing-review",
+    "id": "1OudyTQaoQ",
+    "file": "LVSpec-missing-review.jpg",
+    "clipped": false
+  }
+]
