@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="410" viewBox="0 0 1280 410" role="img" aria-label="Rebuttal 全周期写作手册">
+  <rect width="1280" height="410" rx="18" fill="#eef0f8"/>
+  <path d="M0 330H1280" stroke="#d4d8e9"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+    <text x="54" y="104" font-size="66" font-weight="750" fill="#28304b">Rebuttal</text>
+    <text x="54" y="177" font-size="48" font-weight="700" fill="#28304b">全周期写作手册</text>
+    <text x="57" y="226" font-size="22" fill="#59617b">从第一轮回复，到讨论结束后的 Summary</text>
+    <text x="57" y="278" font-size="18" fill="#5143a5">原帖截图　/　作者原句　/　阶段骨架　/　可复用模板</text>
+    <rect x="744" y="42" width="481" height="251" rx="11" fill="#fff" stroke="#d7dbeb"/>
+    <rect x="744" y="42" width="7" height="251" rx="3" fill="#7366b0"/>
+    <text x="779" y="86" font-size="21" font-weight="700" fill="#28304b">General Response</text>
+    <text x="779" y="122" font-size="17" fill="#59617b">从审稿人的认可，组织工作的价值</text>
+    <text x="779" y="171" font-size="20" font-weight="650" fill="#5143a5">认可与归属</text>
+    <path d="M919 164h29m-7-6 7 6-7 6" fill="none" stroke="#9da4bd" stroke-width="2"/>
+    <text x="970" y="171" font-size="20" font-weight="650" fill="#287a6a">贡献与证据</text>
+    <path d="M780 196h406" stroke="#e5e8f0"/>
+    <text x="779" y="231" font-size="17" fill="#59617b">写清结论，也让每一句话有据可查。</text>
+    <text x="57" y="376" font-size="18" font-weight="600" fill="#59617b">LoRAM</text>
+    <text x="267" y="376" font-size="18" font-weight="600" fill="#59617b">FloE</text>
+    <text x="467" y="376" font-size="18" font-weight="600" fill="#59617b">LVSpec</text>
+    <text x="697" y="376" font-size="18" font-weight="600" fill="#59617b">LVLM Survey</text>
+    <text x="1017" y="376" font-size="18" font-weight="600" fill="#59617b">HybridKV</text>
+  </g>
+</svg>
